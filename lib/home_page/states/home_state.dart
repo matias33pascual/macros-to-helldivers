@@ -3,5 +3,5 @@ class HomeState {
   static final HomeState _instance = HomeState._();
   static HomeState get instance => _instance;
 
-  String inputFocused = "";
+  bool isFormValid = true;
 }
