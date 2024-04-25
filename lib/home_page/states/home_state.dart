@@ -3,5 +3,8 @@ class HomeState {
   static final HomeState _instance = HomeState._();
   static HomeState get instance => _instance;
 
-  bool isFormValid = true;
+  String ipAddrress = "";
+  String port = "";
+
+  bool get isFormValid => ipAddrress.isNotEmpty && port.isNotEmpty;
 }

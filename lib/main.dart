@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/home_page/screens/home_page.dart';
-import 'package:macro_sync_client/home_page/providers/home_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:macro_sync_client/app/exports_providers.dart';
 
 void main() {
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => HomeProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => HomeProvider()),
+        ChangeNotifierProvider(create: (_) => ConnectButtonProvider()),
+      ],
       child: const MyApp(),
     ),
   );
