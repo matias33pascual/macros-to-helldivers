@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
-import 'package:macro_sync_client/shared/custom_button/custom_button_colors_enum.dart';
+
+enum CustomButtonColors {
+  gray,
+  yellow,
+  green,
+}
 
 class CustomButton extends StatelessWidget {
-  final CustomButtonColorsEnum color;
+  final CustomButtonColors color;
   final String text;
 
   const CustomButton({
@@ -20,13 +25,13 @@ class CustomButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          width: color == CustomButtonColorsEnum.gray ? 2 : 1,
-          color: color == CustomButtonColorsEnum.yellow
+          width: color == CustomButtonColors.gray ? 2 : 1,
+          color: color == CustomButtonColors.yellow
               ? appColors.textYellow
               : appColors.borderGray,
         ),
         borderRadius: BorderRadius.zero,
-        gradient: color == CustomButtonColorsEnum.yellow
+        gradient: color == CustomButtonColors.yellow
             ? appDecorationEffects.diagonalLinearGradientYellow
             : appDecorationEffects.diagonalLinearGradientGray,
       ),
@@ -36,7 +41,7 @@ class CustomButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: color == CustomButtonColorsEnum.yellow
+            color: color == CustomButtonColors.yellow
                 ? appColors.borderYellow
                 : Colors.white,
             fontWeight: FontWeight.w600,
