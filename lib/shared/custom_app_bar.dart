@@ -1,9 +1,6 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/shared/exports_shared.dart';
 import 'package:macro_sync_client/shared/horizontal_bar.dart';
-import 'package:macro_sync_client/theme/exports_theme.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -17,8 +14,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.black,
-      leading: Padding(
-        padding: const EdgeInsets.all(2.0),
+      leading: const Padding(
+        padding: EdgeInsets.all(2.0),
         child: SkullIcon(width: 10),
       ),
       title: Text(title),
@@ -27,7 +24,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: SizedBox(
           height: 20,
           child: Stack(
-            children: [
+            children: const [
               Positioned(
                 top: 4,
                 left: 64,
@@ -42,5 +39,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
