@@ -54,7 +54,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
             ? Border(
                 left: BorderSide(
                 width: 3,
-                color: appColors.leftBorderMenuItemSelected,
+                color: appColors.menuItemLeftBorder,
               ))
             : null,
       ),
@@ -68,7 +68,9 @@ class _CustomInputFieldState extends State<CustomInputField> {
         maxLines: 1,
         decoration: InputDecoration(
           hintText: widget.hintText,
-          hintStyle: textStyles.hintText,
+          hintStyle: _hasFocus
+              ? textStyles.hintTextSelected
+              : textStyles.hintTextNotSelected,
           filled: true,
           fillColor: _hasFocus
               ? appColors.menuItemSelected
