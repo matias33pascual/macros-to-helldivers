@@ -51,7 +51,11 @@ class _CustomInputFieldState extends State<CustomInputField> {
     return Container(
       decoration: BoxDecoration(
         border: _hasFocus
-            ? Border(left: BorderSide(width: 3, color: appColors.border))
+            ? Border(
+                left: BorderSide(
+                width: 3,
+                color: appColors.leftBorderMenuItemSelected,
+              ))
             : null,
       ),
       child: TextField(
@@ -66,7 +70,9 @@ class _CustomInputFieldState extends State<CustomInputField> {
           hintText: widget.hintText,
           hintStyle: textStyles.hintText,
           filled: true,
-          fillColor: _hasFocus ? appColors.primary : appColors.background,
+          fillColor: _hasFocus
+              ? appColors.menuItemSelected
+              : appColors.menuItemBackground,
           border: InputBorder.none,
         ),
       ),
