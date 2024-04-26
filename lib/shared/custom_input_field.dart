@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_client/app/app_theme.dart';
+import 'package:macro_sync_client/theme/app_theme.dart';
 
 class CustomInputField extends StatefulWidget {
   final String hintText;
