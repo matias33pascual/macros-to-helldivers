@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
     final colors = AppTheme.colors;
 
     return Scaffold(
+      appBar: CustomAppBar(title: 'MACRO SYNC MOBILE'),
       body: Container(
         color: Colors.black,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -28,18 +29,17 @@ class HomePage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  width: 200,
-                  color: Colors.amber,
-                  child: Text("CONECTAR APLICACION"),
-                ),
                 SizedBox(
                   height: 210,
                   child: Stack(
                     children: [
-                      const VerticalBar(
-                        height: 210,
-                        side: VerticalBarSide.left,
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        child: const VerticalBar(
+                          height: 210,
+                          side: VerticalBarSide.left,
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24),

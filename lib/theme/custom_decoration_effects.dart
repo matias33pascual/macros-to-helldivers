@@ -39,4 +39,16 @@ class CustomDecorationEffects {
       stops: List.generate(100, (index) => index / 80),
       tileMode: TileMode.repeated,
       transform: const GradientRotation(0.785));
+
+  late final horizontalLinearGradientGrey = LinearGradient(
+      colors: List.generate(
+        3,
+        (index) =>
+            index.isEven ? Colors.transparent : AppTheme.colors.borderGray,
+      ),
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      stops: List.generate(3, (index) => index / 3),
+      tileMode: TileMode.repeated,
+      transform: const GradientRotation(0.785));
 }

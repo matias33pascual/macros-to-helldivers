@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/theme/exports_theme.dart';
 
-enum VerticalBarSide { left, right }
+enum HorizontalBarSide { top, bottom }
 
-class VerticalBar extends StatelessWidget {
-  final double height;
-  final VerticalBarSide side;
+class HorizontalBar extends StatelessWidget {
+  final double width;
+  final HorizontalBarSide side;
 
-  const VerticalBar({
+  const HorizontalBar({
     Key? key,
-    required this.height,
+    required this.width,
     required this.side,
   }) : super(key: key);
 
@@ -19,25 +19,25 @@ class VerticalBar extends StatelessWidget {
     final colors = AppTheme.colors;
 
     return Container(
-      width: 8,
-      height: height,
+      width: width,
+      height: 10,
       decoration: BoxDecoration(
         border: Border(
-          left: side == VerticalBarSide.left
+          left: BorderSide(color: colors.borderGray, width: 1),
+          right: BorderSide(color: colors.borderGray, width: 1),
+          top: side == HorizontalBarSide.top
               ? BorderSide(color: colors.borderGray, width: 1)
               : BorderSide.none,
-          right: side == VerticalBarSide.right
+          bottom: side == HorizontalBarSide.bottom
               ? BorderSide(color: colors.borderGray, width: 1)
               : BorderSide.none,
-          top: BorderSide(color: colors.borderGray, width: 1),
-          bottom: BorderSide(color: colors.borderGray, width: 1),
         ),
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 2, top: 2, bottom: 2),
         child: Container(
           decoration: BoxDecoration(
-            gradient: decorationEffects.verticalLinearGradientGrey,
+            gradient: decorationEffects.horizontalLinearGradientGrey,
           ),
         ),
       ),
