@@ -16,18 +16,23 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
         color: Colors.black87,
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text("INGRESA LOS DATOS DE"),
-            Text("MACRO SYNC DESKTOP"),
-            SizedBox(height: 10),
-            CustomForm(),
-            SizedBox(height: 10),
-            ConnectButton(),
-          ],
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text("INGRESA LOS DATOS DE"),
+                Text("MACRO SYNC DESKTOP"),
+                SizedBox(height: 10),
+                CustomForm(),
+                SizedBox(height: 10),
+                ConnectButton(),
+              ],
+            ),
+          ),
         ),
       ),
     );
