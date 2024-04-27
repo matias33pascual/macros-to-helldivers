@@ -4,4 +4,6 @@ class AppTheme {
   static CustomThemeColors colors = CustomThemeColors();
   static CustomThemeTextStyles textStyles = CustomThemeTextStyles();
   static CustomDecorationEffects decorationEffects = CustomDecorationEffects();
+
+  static String font = "helldivers";
 }

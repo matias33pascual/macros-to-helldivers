@@ -37,11 +37,13 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 285,
+                  top: 310,
+                  left: 6,
                   child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 240,
-                    color: Colors.black.withOpacity(0.82),
+                    width: MediaQuery.of(context).size.width - 10,
+                    height: 222,
+                    decoration:
+                        BoxDecoration(color: Colors.black.withOpacity(0.8)),
                   ),
                 ),
                 Container(
@@ -49,12 +51,12 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 80),
+                        padding: const EdgeInsets.only(top: 30),
                         child: Image.asset("assets/images/helldivers_title.png",
                             width: 260),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 120),
+                        padding: const EdgeInsets.only(top: 184),
                         child: SizedBox(
                           height: 210,
                           child: Stack(
@@ -90,11 +92,25 @@ class HomePage extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        child: const Text(
-                                          "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                          ),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: AppTheme.font,
+                                                fontSize: 12,
+                                              ),
+                                            ),
+                                            SizedBox(width: 17),
+                                            SizedBox(
+                                              height: 20,
+                                              width: 20,
+                                              child: Image.asset(
+                                                "assets/images/skull_icon.png",
+                                              ),
+                                            )
+                                          ],
                                         ),
                                       ),
                                     ),

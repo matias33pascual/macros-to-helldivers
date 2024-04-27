@@ -41,11 +41,10 @@ class CustomButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: color == CustomButtonColors.yellow
-                ? appColors.borderYellow
-                : Colors.white,
-            fontWeight: FontWeight.w600,
-          ),
+              color: color == CustomButtonColors.yellow
+                  ? appColors.borderYellow
+                  : Colors.white,
+              fontFamily: AppTheme.font),
         ),
       ),
     );
