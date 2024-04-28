@@ -18,118 +18,26 @@ class HomePage extends StatelessWidget {
     //   channel.sink.add("HOLA DESDE FLUTTER!!");
     // }
 
-    final colors = AppTheme.colors;
-
     return SafeArea(
       child: Scaffold(
         body: Container(
-          height: MediaQuery.of(context).size.height,
-          color: Colors.black,
+          padding: EdgeInsets.only(top: 16, left: 8, right: 8),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/home_background.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          width: double.infinity,
           child: SingleChildScrollView(
-            child: Stack(
+            child: Column(
               children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  child: Image.asset(
-                    "assets/images/home_background.jpg",
-                    fit: BoxFit.fitHeight,
-                  ),
-                ),
-                Positioned(
-                  top: 310,
-                  left: 6,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width - 10,
-                    height: 222,
-                    decoration:
-                        BoxDecoration(color: Colors.black.withOpacity(0.8)),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30),
-                        child: Image.asset("assets/images/helldivers_title.png",
-                            width: 260),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 184),
-                        child: SizedBox(
-                          height: 210,
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                top: 0,
-                                left: 0,
-                                child: const VerticalBar(
-                                  height: 210,
-                                  side: VerticalBarSide.left,
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 24),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 10),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        padding:
-                                            const EdgeInsets.only(bottom: 4),
-                                        decoration: BoxDecoration(
-                                          border: Border(
-                                            bottom: BorderSide(
-                                              color: colors.borderGray,
-                                              width: 1,
-                                            ),
-                                          ),
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontFamily: AppTheme.font,
-                                                fontSize: 12,
-                                              ),
-                                            ),
-                                            SizedBox(width: 17),
-                                            SizedBox(
-                                              height: 20,
-                                              width: 20,
-                                              child: Image.asset(
-                                                "assets/images/skull_icon.png",
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    const CustomForm(),
-                                    const Center(
-                                      child: Padding(
-                                        padding: EdgeInsets.only(top: 20),
-                                        child: ConnectButton(),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                _buildTitle(),
+                SizedBox(height: 100),
+                Stack(
+                  children: [
+                    _buildForm(),
+                  ],
                 ),
               ],
             ),
@@ -137,5 +45,91 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _buildForm() {
+    final colors = AppTheme.colors;
+
+    return Container(
+      constraints: BoxConstraints(maxWidth: 400),
+      child: Stack(
+        children: [
+          _buildPanel(),
+          _buildVerticalBar(),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 8, top: 6),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Container(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: colors.borderGray,
+                          width: 1,
+                        ),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: AppTheme.font,
+                            fontSize: 11,
+                          ),
+                        ),
+                        Expanded(child: Container()),
+                        SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: Image.asset(
+                            "assets/images/skull_icon.png",
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                const CustomForm(),
+                const Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 20),
+                    child: ConnectButton(),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Positioned _buildVerticalBar() {
+    return Positioned(
+      top: 2,
+      left: 2,
+      child: const VerticalBar(
+        height: 148,
+        side: VerticalBarSide.left,
+      ),
+    );
+  }
+
+  Container _buildPanel() {
+    return Container(
+      height: 210,
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.8),
+      ),
+    );
+  }
+
+  _buildTitle() {
+    return Image.asset("assets/images/helldivers_title.png", width: 260);
   }
 }
