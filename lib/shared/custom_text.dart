@@ -21,6 +21,8 @@ class CustomText extends StatelessWidget {
       children: [
         Text(
           text,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontFamily: AppTheme.font,
             fontSize: size,
@@ -29,6 +31,8 @@ class CustomText extends StatelessWidget {
         ),
         Text(
           text,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontFamily: AppTheme.font,
             fontSize: size,

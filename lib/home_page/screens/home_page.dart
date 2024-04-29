@@ -25,8 +25,11 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Stack(
           children: [
-            Image.asset("assets/images/home_background.png",
-                height: MediaQuery.of(context).size.height, fit: BoxFit.cover),
+            Image.asset(
+              "assets/images/home_background.png",
+              height: MediaQuery.of(context).size.height,
+              fit: BoxFit.cover,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [_buildTitle()],
