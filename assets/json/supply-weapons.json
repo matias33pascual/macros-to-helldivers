@@ -1,0 +1,86 @@
+[
+  {
+    "id": "600",
+    "name": "MG-43 Machine Gun",
+    "icon": "",
+    "keysCode": ["down", "left", "down", "up", "right"]
+  },
+  {
+    "id": "601",
+    "name": "APW-1 Anti-Materiel Rifle",
+    "icon": "",
+    "keysCode": ["down", "left", "right", "up", "down"]
+  },
+  {
+    "id": "602",
+    "name": "M-105 Stalwart",
+    "icon": "",
+    "keysCode": ["down", "left", "down", "up", "up", "left"]
+  },
+  {
+    "id": "603",
+    "name": "EAT-17 Expendable Anti-tank",
+    "icon": "",
+    "keysCode": ["down", "down", "left", "up", "right"]
+  },
+  {
+    "id": "604",
+    "name": "GR-8 Recoilless Rifle",
+    "icon": "",
+    "keysCode": ["down", "left", "right", "right", "left"]
+  },
+  {
+    "id": "605",
+    "name": "FLAM-40 Flamethrower",
+    "icon": "",
+    "keysCode": ["down", "left", "up", "down", "up"]
+  },
+  {
+    "id": "606",
+    "name": "AC-8 Autocannon",
+    "icon": "",
+    "keysCode": ["down", "left", "down", "up", "up", "right"]
+  },
+  {
+    "id": "607",
+    "name": "MG-206 Heavy Machine Gun",
+    "icon": "",
+    "keysCode": ["down", "left", "up", "down", "down"]
+  },
+  {
+    "id": "608",
+    "name": "RS-422 Railgun",
+    "icon": "",
+    "keysCode": ["down", "right", "down", "up", "left", "right"]
+  },
+  {
+    "id": "609",
+    "name": "FAF-14 SPEAR Launcher",
+    "icon": "",
+    "keysCode": ["down", "down", "up", "down", "down"]
+  },
+  {
+    "id": "610",
+    "name": "GL-21 Grenade Launcher",
+    "icon": "",
+    "keysCode": ["down", "left", "up", "left", "down"]
+  },
+  {
+    "id": "611",
+    "name": "LAS-98 Laser Cannon",
+    "icon": "",
+    "keysCode": ["down", "left", "down", "up", "left"]
+  },
+  {
+    "id": "612",
+    "name": "ARC-3 Arc Thrower",
+    "icon": "",
+    "keysCode": ["down", "right", "down", "up", "left", "left"]
+  },
+  {
+    "id": "613",
+    "name": "LAS-99 Quasar Cannon",
+    "icon": "",
+    "keysCode": ["down", "down", "up", "left", "right"]
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "200",
+    "name": "E/MG-101 HMG Emplacement",
+    "icon": "",
+    "keysCode": ["down", "up", "left", "right", "right", "left"]
+  },
+  {
+    "id": "201",
+    "name": "FX-12 Shield Generator Relay",
+    "icon": "",
+    "keysCode": ["down", "down", "left", "right", "left", "right"]
+  },
+  {
+    "id": "202",
+    "name": "A/ARC-3 Tesla Tower",
+    "icon": "",
+    "keysCode": ["down", "up", "right", "up", "left", "right"]
+  },
+  {
+    "id": "203",
+    "name": "MD-6 Anti-Personnel Minefield",
+    "icon": "",
+    "keysCode": ["down", "left", "up", "right"]
+  },
+  {
+    "id": "204",
+    "name": "MD-I4 Incendiary Mines",
+    "icon": "",
+    "keysCode": ["down", "left", "left", "down"]
+  },
+  {
+    "id": "205",
+    "name": "A/MG-43 Machine Gun Sentry",
+    "icon": "",
+    "keysCode": ["down", "up", "right", "right", "up"]
+  },
+  {
+    "id": "206",
+    "name": "A/G-16 Gatling Sentry",
+    "icon": "",
+    "keysCode": ["down", "up", "right", "left"]
+  },
+  {
+    "id": "207",
+    "name": "A/M-12 Mortar Sentry",
+    "icon": "",
+    "keysCode": ["down", "up", "right", "right", "down"]
+  },
+  {
+    "id": "208",
+    "name": "A/AC-8 Autocannon Sentry",
+    "icon": "",
+    "keysCode": ["down", "up", "right", "up", "left", "up"]
+  },
+  {
+    "id": "209",
+    "name": "A/MLS-4X Rocket Sentry",
+    "icon": "",
+    "keysCode": ["down", "up", "right", "right", "left"]
+  },
+  {
+    "id": "210",
+    "name": "A/M-23 EMS Mortar Sentry",
+    "icon": "",
+    "keysCode": ["down", "up", "right", "down", "right"]
+  }
+]

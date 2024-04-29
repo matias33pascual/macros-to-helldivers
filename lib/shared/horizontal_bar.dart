@@ -23,13 +23,13 @@ class HorizontalBar extends StatelessWidget {
       height: 10,
       decoration: BoxDecoration(
         border: Border(
-          left: BorderSide(color: colors.borderGray, width: 1),
-          right: BorderSide(color: colors.borderGray, width: 1),
+          left: BorderSide(color: colors.textYellow, width: 1),
+          right: BorderSide(color: colors.textYellow, width: 1),
           top: side == HorizontalBarSide.top
-              ? BorderSide(color: colors.borderGray, width: 1)
+              ? BorderSide(color: colors.textYellow, width: 1)
               : BorderSide.none,
           bottom: side == HorizontalBarSide.bottom
-              ? BorderSide(color: colors.borderGray, width: 1)
+              ? BorderSide(color: colors.textYellow, width: 1)
               : BorderSide.none,
         ),
       ),
@@ -37,7 +37,17 @@ class HorizontalBar extends StatelessWidget {
         padding: const EdgeInsets.only(left: 2, top: 2, bottom: 2),
         child: Container(
           decoration: BoxDecoration(
-            gradient: decorationEffects.horizontalLinearGradientGrey,
+            gradient: LinearGradient(
+                colors: List.generate(
+                  2,
+                  (index) =>
+                      index.isEven ? AppTheme.colors.textYellow : Colors.black,
+                ),
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: List.generate(2, (index) => index / 1),
+                tileMode: TileMode.repeated,
+                transform: const GradientRotation(0.785)),
           ),
         ),
       ),

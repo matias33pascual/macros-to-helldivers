@@ -1,0 +1,38 @@
+[
+  {
+    "id": "500",
+    "name": "LIFT-850 Jump Pack",
+    "icon": "",
+    "keysCode": ["down", "up", "up", "down", "up"]
+  },
+  {
+    "id": "501",
+    "name": "B-1 Supply Pack",
+    "icon": "",
+    "keysCode": ["down", "left", "down", "up", "up", "down"]
+  },
+  {
+    "id": "502",
+    "name": "AX/LAS-5 Guard Dog Rover",
+    "icon": "",
+    "keysCode": ["down", "up", "left", "up", "right", "right"]
+  },
+  {
+    "id": "503",
+    "name": "SH-20 Ballistic Shield Backpack",
+    "icon": "",
+    "keysCode": ["down", "left", "down", "down", "up", "left"]
+  },
+  {
+    "id": "504",
+    "name": "SH-32 Shield Generator Pack",
+    "icon": "",
+    "keysCode": ["down", "up", "left", "right", "left", "right"]
+  },
+  {
+    "id": "505",
+    "name": "AX/AR-23 Guard Dog",
+    "icon": "",
+    "keysCode": ["down", "up", "left", "up", "right", "down"]
+  }
+]

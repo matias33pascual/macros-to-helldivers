@@ -20,34 +20,38 @@ class HomePage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          padding: EdgeInsets.only(top: 16, left: 8, right: 8),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/home_background.jpg"),
-              fit: BoxFit.cover,
-            ),
-          ),
+        backgroundColor: Colors.black,
+        body: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildTitle(),
-                SizedBox(height: 100),
-                Stack(
-                  children: [
-                    _buildForm(),
-                  ],
+            child: Stack(children: [
+              SizedBox(
+                width: double.infinity,
+                height: 700,
+                child: Image.asset(
+                  "assets/images/home_background.jpg",
+                  fit: BoxFit.cover,
                 ),
-              ],
-            ),
+              ),
+              Column(
+                children: [
+                  _buildTitle(),
+                  SizedBox(height: 120),
+                  Stack(
+                    children: [
+                      _buildForm(context),
+                    ],
+                  ),
+                ],
+              ),
+            ]),
           ),
         ),
       ),
     );
   }
 
-  _buildForm() {
+  _buildForm(BuildContext context) {
     final colors = AppTheme.colors;
 
     return Container(
@@ -95,10 +99,12 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 const CustomForm(),
-                const Center(
+                Center(
                   child: Padding(
                     padding: EdgeInsets.only(top: 20),
-                    child: ConnectButton(),
+                    child: InkWell(
+                        onTap: () => Navigator.pushNamed(context, "stratagems"),
+                        child: ConnectButton()),
                   ),
                 )
               ],

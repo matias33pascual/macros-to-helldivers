@@ -1,0 +1,44 @@
+[
+  {
+    "id": "300",
+    "name": "Eagle Strafing Run",
+    "icon": "",
+    "keysCode": ["up", "right", "right"]
+  },
+  {
+    "id": "301",
+    "name": "Eagle Airstrike",
+    "icon": "",
+    "keysCode": ["up", "right", "down", "right"]
+  },
+  {
+    "id": "302",
+    "name": "Eagle Cluster Bomb",
+    "icon": "",
+    "keysCode": ["up", "right", "down", "down", "right"]
+  },
+  {
+    "id": "303",
+    "name": "Eagle Napalm Airstrike",
+    "icon": "",
+    "keysCode": ["up", "right", "down", "up"]
+  },
+  {
+    "id": "304",
+    "name": "Eagle Smoke Strike",
+    "icon": "",
+    "keysCode": ["up", "right", "up", "down"]
+  },
+  {
+    "id": "305",
+    "name": "Eagle 110MM Rocket Pods",
+    "icon": "",
+    "keysCode": ["up", "right", "up", "left"]
+  },
+  {
+    "id": "306",
+    "name": "Eagle 500kg Bomb",
+    "icon": "",
+    "keysCode": ["up", "right", "down", "down", "down"]
+  }
+]

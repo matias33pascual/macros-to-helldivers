@@ -1,0 +1,68 @@
+[
+  {
+    "id": "400",
+    "name": "Orbital Gatling Barrage",
+    "icon": "",
+    "keysCode": ["right", "down", "left", "up", "up"]
+  },
+  {
+    "id": "401",
+    "name": "Orbital Airburst Strike",
+    "icon": "",
+    "keysCode": ["right", "right", "right"]
+  },
+  {
+    "id": "402",
+    "name": "Orbital 120MM HE Barrage",
+    "icon": "",
+    "keysCode": ["right", "right", "down", "left", "right", "down"]
+  },
+  {
+    "id": "403",
+    "name": "Orbital 380MM HE Barrage",
+    "icon": "",
+    "keysCode": ["right", "down", "up", "up", "left", "down", "down"]
+  },
+  {
+    "id": "404",
+    "name": "Orbital Walking Barrage",
+    "icon": "",
+    "keysCode": ["right", "down", "right", "down", "right", "down"]
+  },
+  {
+    "id": "405",
+    "name": "Orbital Laser",
+    "icon": "",
+    "keysCode": ["right", "down", "up", "right", "down"]
+  },
+  {
+    "id": "406",
+    "name": "Orbital Railcannon Strike",
+    "icon": "",
+    "keysCode": ["right", "up", "down", "down", "right"]
+  },
+  {
+    "id": "407",
+    "name": "Orbital Precision Strike",
+    "icon": "",
+    "keysCode": ["right", "right", "up"]
+  },
+  {
+    "id": "408",
+    "name": "Orbital Gas Strike",
+    "icon": "",
+    "keysCode": ["right", "right", "down", "right"]
+  },
+  {
+    "id": "409",
+    "name": "Orbital EMS Strike",
+    "icon": "",
+    "keysCode": ["right", "right", "left", "up"]
+  },
+  {
+    "id": "410",
+    "name": "Orbital Smoke Strike",
+    "icon": "",
+    "keysCode": ["right", "right", "down", "up"]
+  }
+]
