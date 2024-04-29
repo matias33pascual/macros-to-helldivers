@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/home_page/screens/widgets/exports_widgets.dart';
+import 'package:macro_sync_client/shared/custom_text.dart';
 import 'package:macro_sync_client/shared/exports_shared.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
 
@@ -20,96 +21,77 @@ class HomePage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
-        body: SizedBox(
-          width: double.infinity,
-          child: SingleChildScrollView(
-            child: Stack(children: [
-              SizedBox(
-                width: double.infinity,
-                height: 700,
-                child: Image.asset(
-                  "assets/images/home_background.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Column(
-                children: [
-                  _buildTitle(),
-                  SizedBox(height: 120),
-                  Stack(
-                    children: [
-                      _buildForm(context),
-                    ],
-                  ),
-                ],
-              ),
-            ]),
-          ),
+        body: Stack(
+          children: [
+            Image.asset("assets/images/home_background.png",
+                height: MediaQuery.of(context).size.height, fit: BoxFit.cover),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [_buildTitle()],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [_buildForm(context)],
+            )
+          ],
         ),
       ),
     );
   }
 
   _buildForm(BuildContext context) {
-    final colors = AppTheme.colors;
+    return Center(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 4),
+        constraints: BoxConstraints(maxWidth: 600),
+        child: Stack(
+          children: [
+            _buildPanel(),
+            _buildVerticalBar(),
+            _buildContent(context),
+          ],
+        ),
+      ),
+    );
+  }
 
-    return Container(
-      constraints: BoxConstraints(maxWidth: 400),
-      child: Stack(
+  _buildContent(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 24, right: 16, top: 10),
+      child: Column(
         children: [
-          _buildPanel(),
-          _buildVerticalBar(),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 8, top: 6),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: Container(
-                    padding: const EdgeInsets.only(bottom: 4),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: colors.borderGray,
-                          width: 1,
-                        ),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Text(
-                          "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: AppTheme.font,
-                            fontSize: 11,
-                          ),
-                        ),
-                        Expanded(child: Container()),
-                        SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: Image.asset(
-                            "assets/images/skull_icon.png",
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+          Container(
+            padding: EdgeInsets.only(bottom: 4),
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: AppTheme.colors.borderGray,
+                  width: 1,
                 ),
-                const CustomForm(),
-                Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 20),
-                    child: InkWell(
-                        onTap: () => Navigator.pushNamed(context, "stratagems"),
-                        child: ConnectButton()),
-                  ),
-                )
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                CustomText(
+                  text: "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
+                  size: 12,
+                ),
               ],
             ),
           ),
+          Container(
+              margin: EdgeInsets.only(top: 12), child: const CustomForm()),
+          Container(
+            margin: EdgeInsets.only(top: 16),
+            child: InkWell(
+              onTap: () => Navigator.pushNamed(context, "stratagems"),
+              child: ConnectButton(),
+            ),
+          )
         ],
       ),
     );
@@ -117,25 +99,23 @@ class HomePage extends StatelessWidget {
 
   Positioned _buildVerticalBar() {
     return Positioned(
-      top: 2,
-      left: 2,
-      child: const VerticalBar(
-        height: 148,
-        side: VerticalBarSide.left,
-      ),
+      top: 10,
+      left: 8,
+      child: const VerticalBar(height: 148, side: VerticalBarSide.left),
     );
   }
 
   Container _buildPanel() {
     return Container(
       height: 210,
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.8),
-      ),
+      decoration: BoxDecoration(color: Colors.black.withOpacity(0.8)),
     );
   }
 
   _buildTitle() {
-    return Image.asset("assets/images/helldivers_title.png", width: 260);
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: Image.asset("assets/images/helldivers_title.png", width: 260),
+    );
   }
 }

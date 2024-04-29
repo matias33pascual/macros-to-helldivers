@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:macro_sync_client/shared/custom_text.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
 
 enum CustomButtonColors {
@@ -38,13 +39,12 @@ class CustomButton extends StatelessWidget {
       width: 190,
       height: 35,
       child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-              color: color == CustomButtonColors.yellow
-                  ? appColors.borderYellow
-                  : Colors.white,
-              fontFamily: AppTheme.font),
+        child: CustomText(
+          text: text,
+          size: 20,
+          textColor: color == CustomButtonColors.yellow
+              ? AppTheme.colors.borderYellow
+              : Colors.grey,
         ),
       ),
     );
