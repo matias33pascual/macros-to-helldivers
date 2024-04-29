@@ -43,6 +43,25 @@ class StratagemsPage extends StatelessWidget {
                     case ConnectionState.done:
                       return Column(
                         children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 4),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: const [
+                                CustomText(
+                                  text: "MISION",
+                                  strokeColor: Colors.black,
+                                  textColor: Colors.amber,
+                                  size: 14,
+                                ),
+                                CustomText(text: "DEFENSAS"),
+                                CustomText(text: "AGUILA"),
+                                CustomText(text: "ORBITAL"),
+                                CustomText(text: "ARMAS"),
+                                CustomText(text: "MOCHILAS"),
+                              ],
+                            ),
+                          ),
                           Flexible(
                             flex: 4,
                             child: ListView.builder(
@@ -52,9 +71,13 @@ class StratagemsPage extends StatelessWidget {
                                 height: 32,
                                 margin: EdgeInsets.symmetric(vertical: 2),
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(137, 81, 95, 122),
+                                  color: index == 4
+                                      ? Colors.green.withOpacity(0.6)
+                                      : Color.fromARGB(137, 81, 95, 122),
                                   border: Border.all(
-                                    color: Colors.white.withOpacity(0.2),
+                                    color: index == 4
+                                        ? Colors.green
+                                        : Colors.white.withOpacity(0.2),
                                     width: 2,
                                   ),
                                 ),
@@ -101,19 +124,43 @@ class StratagemsPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
-                                        width: 40,
-                                        height: 40,
-                                        color: Colors.amber),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.amber),
+                                      ),
+                                      child: SkullIcon(width: 40),
+                                    ),
                                     SizedBox(width: 16),
                                     Container(
-                                        width: 40,
-                                        height: 40,
-                                        color: Colors.amber),
+                                      width: 40,
+                                      height: 40,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.1),
+                                        border: Border.all(
+                                          color: Colors.amber.withOpacity(
+                                            0.6,
+                                          ),
+                                        ),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(4),
+                                        ),
+                                      ),
+                                    ),
                                     SizedBox(width: 16),
                                     Container(
-                                        width: 40,
-                                        height: 40,
-                                        color: Colors.amber),
+                                      width: 40,
+                                      height: 40,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.1),
+                                        border: Border.all(
+                                          color: Colors.amber.withOpacity(
+                                            0.6,
+                                          ),
+                                        ),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(4),
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                                 Expanded(child: Container()),
@@ -121,24 +168,68 @@ class StratagemsPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
-                                        width: 50,
-                                        height: 50,
-                                        color: Colors.amber),
+                                      width: 50,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.1),
+                                        border: Border.all(
+                                          color: Colors.amber.withOpacity(
+                                            0.6,
+                                          ),
+                                        ),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(4),
+                                        ),
+                                      ),
+                                    ),
                                     SizedBox(width: 16),
                                     Container(
-                                        width: 50,
-                                        height: 50,
-                                        color: Colors.amber),
+                                      width: 50,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.1),
+                                        border: Border.all(
+                                          color: Colors.amber.withOpacity(
+                                            0.6,
+                                          ),
+                                        ),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(4),
+                                        ),
+                                      ),
+                                    ),
                                     SizedBox(width: 16),
                                     Container(
-                                        width: 50,
-                                        height: 50,
-                                        color: Colors.amber),
+                                      width: 50,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.1),
+                                        border: Border.all(
+                                          color: Colors.amber.withOpacity(
+                                            0.6,
+                                          ),
+                                        ),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(4),
+                                        ),
+                                      ),
+                                    ),
                                     SizedBox(width: 16),
                                     Container(
-                                        width: 50,
-                                        height: 50,
-                                        color: Colors.amber),
+                                      width: 50,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.1),
+                                        border: Border.all(
+                                          color: Colors.amber.withOpacity(
+                                            0.6,
+                                          ),
+                                        ),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(4),
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                                 Expanded(child: Container()),
