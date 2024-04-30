@@ -5,6 +5,8 @@ class CustomThemeColors {
   Color menuItemSelected = const Color(0xFF635B1C);
   Color menuItemLeftBorder = const Color(0xFFFFE933);
 
+  Color darkRed = const Color(0xFF400015).withOpacity(0.3);
+
   Color borderYellow = const Color.fromARGB(255, 255, 238, 0);
   Color textYellow = const Color.fromARGB(255, 255, 238, 0);
 

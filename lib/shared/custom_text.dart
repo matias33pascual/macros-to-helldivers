@@ -6,6 +6,7 @@ class CustomText extends StatelessWidget {
   final double size;
   final Color strokeColor;
   final Color textColor;
+  final bool useStroke;
 
   const CustomText({
     Key? key,
@@ -13,6 +14,7 @@ class CustomText extends StatelessWidget {
     this.size = 12,
     this.strokeColor = Colors.black,
     this.textColor = Colors.white,
+    this.useStroke = true,
   }) : super(key: key);
 
   @override
@@ -29,19 +31,20 @@ class CustomText extends StatelessWidget {
             color: textColor,
           ),
         ),
-        Text(
-          text,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            fontFamily: AppTheme.font,
-            fontSize: size,
-            foreground: Paint()
-              ..style = PaintingStyle.stroke
-              ..strokeWidth = 1
-              ..color = strokeColor,
+        if (useStroke)
+          Text(
+            text,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontFamily: AppTheme.font,
+              fontSize: size,
+              foreground: Paint()
+                ..style = PaintingStyle.stroke
+                ..strokeWidth = 1
+                ..color = strokeColor,
+            ),
           ),
-        ),
       ],
     );
   }

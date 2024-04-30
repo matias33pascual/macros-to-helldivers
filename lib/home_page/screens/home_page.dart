@@ -1,13 +1,12 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/home_page/screens/widgets/exports_widgets.dart';
-import 'package:macro_sync_client/shared/custom_text.dart';
 import 'package:macro_sync_client/shared/exports_shared.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  static String routeName = "home_screen";
+
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +29,34 @@ class HomePage extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               fit: BoxFit.cover,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [_buildTitle()],
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                    text: "Macro Sync Mobile",
+                    size: 22,
+                    textColor: AppTheme.colors.borderYellow,
+                    strokeColor: Colors.white.withOpacity(0.1),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [_buildTitle()],
+              ),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [_buildForm(context)],
-            )
+              children: [
+                _buildForm(context),
+              ],
+            ),
           ],
         ),
       ),
@@ -48,8 +66,7 @@ class HomePage extends StatelessWidget {
   _buildForm(BuildContext context) {
     return Center(
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 4),
-        constraints: BoxConstraints(maxWidth: 600),
+        constraints: const BoxConstraints(maxWidth: 600),
         child: Stack(
           children: [
             _buildPanel(),
@@ -67,7 +84,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(bottom: 4),
+            padding: const EdgeInsets.only(bottom: 4),
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
@@ -87,12 +104,13 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
-              margin: EdgeInsets.only(top: 12), child: const CustomForm()),
+              margin: const EdgeInsets.only(top: 12),
+              child: const CustomForm()),
           Container(
-            margin: EdgeInsets.only(top: 16),
+            margin: const EdgeInsets.only(top: 16),
             child: InkWell(
               onTap: () => Navigator.pushNamed(context, "stratagems"),
-              child: ConnectButton(),
+              child: const ConnectButton(),
             ),
           )
         ],
@@ -100,15 +118,15 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Positioned _buildVerticalBar() {
-    return Positioned(
+  _buildVerticalBar() {
+    return const Positioned(
       top: 10,
       left: 8,
-      child: const VerticalBar(height: 148, side: VerticalBarSide.left),
+      child: VerticalBar(height: 148, side: VerticalBarSide.left),
     );
   }
 
-  Container _buildPanel() {
+  _buildPanel() {
     return Container(
       height: 210,
       decoration: BoxDecoration(color: Colors.black.withOpacity(0.8)),
