@@ -42,7 +42,7 @@ class StratagemsListWidget extends StatelessWidget {
                   const SkullIcon(width: 32),
                   Container(
                     margin: const EdgeInsets.only(left: 8),
-                    constraints: const BoxConstraints(maxWidth: 300),
+                    constraints: const BoxConstraints(maxWidth: 350),
                     child: CustomText(
                       text: listToShow[index].name,
                       size: 16,
