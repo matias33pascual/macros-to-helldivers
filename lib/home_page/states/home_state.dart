@@ -5,6 +5,4 @@ class HomeState {
 
   String ipAddrress = "";
   String port = "";
-
-  bool get isFormValid => ipAddrress.isNotEmpty && port.isNotEmpty;
 }

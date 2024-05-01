@@ -14,7 +14,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => HomeProvider()),
         ChangeNotifierProvider(create: (_) => ConnectButtonProvider()),
         ChangeNotifierProvider(create: (_) => StratagemsProvider()),
-        ChangeNotifierProvider(create: (_) => TabMenuProvider()),
+        ChangeNotifierProvider(create: (_) => TabsMenuProvider()),
       ],
       child: kDebugMode == true
           ? DevicePreview(

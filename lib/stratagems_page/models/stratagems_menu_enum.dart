@@ -1,19 +1,26 @@
-enum StratagemsMenuEnum { mision, defensas, aguila, orbital, armas, mochilas }
+enum StratagemsMenuEnum {
+  mission,
+  defenses,
+  eagle,
+  orbital,
+  weapons,
+  backpacks
+}
 
 extension StratagemsMenuEnumExtension on StratagemsMenuEnum {
   String getStringValue() {
     switch (this) {
-      case StratagemsMenuEnum.mision:
+      case StratagemsMenuEnum.mission:
         return 'MISION';
-      case StratagemsMenuEnum.defensas:
+      case StratagemsMenuEnum.defenses:
         return 'DEFENSAS';
-      case StratagemsMenuEnum.aguila:
+      case StratagemsMenuEnum.eagle:
         return 'AGUILA';
       case StratagemsMenuEnum.orbital:
         return 'ORBITAL';
-      case StratagemsMenuEnum.armas:
+      case StratagemsMenuEnum.weapons:
         return 'ARMAS';
-      case StratagemsMenuEnum.mochilas:
+      case StratagemsMenuEnum.backpacks:
         return 'MOCHILAS';
       default:
         return '';

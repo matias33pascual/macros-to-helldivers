@@ -1,14 +1,8 @@
-// TODO: Cargar todas las estratagemas -> 30/04 | 11:26
-// TODO: Al seleccionar un tab se muestra la lista correspondiente -> 30/04 | 11:26
-// TODO: Si se desliza horizontalmente se cambia el tab mostrado -> 30/04 | 11:26
-// TODO: Mostrar la estratagema seleccionada -> 30/04 | 11:27
-// TODO: Poner un color distintivo a las estratagemas que siempre van seleccionadas -> 30/04 | 11:27
-
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/shared/exports_shared.dart';
 import 'package:macro_sync_client/stratagems_page/models/stratagems_menu_enum.dart';
 import 'package:macro_sync_client/stratagems_page/providers/stratagems_provider.dart';
-import 'package:macro_sync_client/stratagems_page/providers/tab_menu_provider.dart';
+import 'package:macro_sync_client/stratagems_page/providers/tabs_menu_provider.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -45,14 +39,14 @@ class StratagemsScreen extends StatelessWidget {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              if (snapshot.hasError) {
-                return Container();
-              }
+              // if (snapshot.hasError) {
+              //   return Container();
+              // }
 
               return Column(
                 children: [
                   _buildContentMenu(context),
-                  _buildContentList(snapshot),
+                  // _buildContentList(context),
                   Container(
                     margin: const EdgeInsets.only(top: 4),
                     decoration: const BoxDecoration(
@@ -218,44 +212,48 @@ class StratagemsScreen extends StatelessWidget {
     );
   }
 
-  Flexible _buildContentList(AsyncSnapshot<dynamic> snapshot) {
-    return Flexible(
-      flex: 4,
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: snapshot.data.length,
-        itemBuilder: (context, index) => Container(
-          height: 32,
-          margin: const EdgeInsets.symmetric(vertical: 2),
-          decoration: BoxDecoration(
-            color: index == 4
-                ? Colors.green.withOpacity(0.6)
-                : const Color.fromARGB(137, 81, 95, 122),
-            border: Border.all(
-              color: index == 4 ? Colors.green : Colors.white.withOpacity(0.2),
-              width: 2,
-            ),
-          ),
-          child: Row(
-            children: [
-              const SkullIcon(width: 32),
-              Container(
-                margin: const EdgeInsets.only(left: 8),
-                constraints: const BoxConstraints(maxWidth: 300),
-                child: CustomText(
-                  text: snapshot.data[index].name,
-                  size: 16,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  // Flexible _buildContentList(BuildContext context) {
+  //   return Flexible(
+  //     flex: 4,
+  //     child: ListView.builder(
+  //       shrinkWrap: true,
+  //       itemCount: snapshot.data.length,
+  //       itemBuilder: (context, index) => Container(
+  //         height: 32,
+  //         margin: const EdgeInsets.symmetric(vertical: 2),
+  //         decoration: BoxDecoration(
+  //           color: index == 4
+  //               ? Colors.green.withOpacity(0.6)
+  //               : const Color.fromARGB(137, 81, 95, 122),
+  //           border: Border.all(
+  //             color: index == 4 ? Colors.green : Colors.white.withOpacity(0.2),
+  //             width: 2,
+  //           ),
+  //         ),
+  //         child: Row(
+  //           children: [
+  //             const SkullIcon(width: 32),
+  //             Container(
+  //               margin: const EdgeInsets.only(left: 8),
+  //               constraints: const BoxConstraints(maxWidth: 300),
+  //               child: CustomText(
+  //                 text: snapshot.data[index].name,
+  //                 size: 16,
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Container _buildContentMenu(BuildContext context) {
-    final TabMenuProvider provider = Provider.of<TabMenuProvider>(context);
+    final TabsMenuProvider tabsMenuProviders =
+        Provider.of<TabsMenuProvider>(context);
+
+    final StratagemsProvider stratagemsProvider =
+        Provider.of<StratagemsProvider>(context, listen: false);
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4),
@@ -263,42 +261,46 @@ class StratagemsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _MenuTab(
-              text: StratagemsMenuEnum.mision.getStringValue(),
-              isSelected:
-                  provider.isThisMenuSelected(StratagemsMenuEnum.mision),
-              onTapHandler: () =>
-                  provider.setTabMenuSelected(StratagemsMenuEnum.mision)),
-          _MenuTab(
-            text: StratagemsMenuEnum.defensas.getStringValue(),
-            isSelected:
-                provider.isThisMenuSelected(StratagemsMenuEnum.defensas),
-            onTapHandler: () =>
-                provider.setTabMenuSelected(StratagemsMenuEnum.defensas),
+            text: StratagemsMenuEnum.mission.getStringValue(),
+            isSelected: tabsMenuProviders
+                .isThisMenuSelected(StratagemsMenuEnum.mission),
+            onTapHandler: () => stratagemsProvider.selectStratagemsList(
+                StratagemsMenuEnum.mission, context),
           ),
           _MenuTab(
-            text: StratagemsMenuEnum.aguila.getStringValue(),
-            isSelected: provider.isThisMenuSelected(StratagemsMenuEnum.aguila),
-            onTapHandler: () =>
-                provider.setTabMenuSelected(StratagemsMenuEnum.aguila),
+            text: StratagemsMenuEnum.defenses.getStringValue(),
+            isSelected: tabsMenuProviders
+                .isThisMenuSelected(StratagemsMenuEnum.defenses),
+            onTapHandler: () => stratagemsProvider.selectStratagemsList(
+                StratagemsMenuEnum.defenses, context),
+          ),
+          _MenuTab(
+            text: StratagemsMenuEnum.eagle.getStringValue(),
+            isSelected:
+                tabsMenuProviders.isThisMenuSelected(StratagemsMenuEnum.eagle),
+            onTapHandler: () => stratagemsProvider.selectStratagemsList(
+                StratagemsMenuEnum.eagle, context),
           ),
           _MenuTab(
             text: StratagemsMenuEnum.orbital.getStringValue(),
-            isSelected: provider.isThisMenuSelected(StratagemsMenuEnum.orbital),
-            onTapHandler: () =>
-                provider.setTabMenuSelected(StratagemsMenuEnum.orbital),
+            isSelected: tabsMenuProviders
+                .isThisMenuSelected(StratagemsMenuEnum.orbital),
+            onTapHandler: () => stratagemsProvider.selectStratagemsList(
+                StratagemsMenuEnum.orbital, context),
           ),
           _MenuTab(
-            text: StratagemsMenuEnum.armas.getStringValue(),
-            isSelected: provider.isThisMenuSelected(StratagemsMenuEnum.armas),
-            onTapHandler: () =>
-                provider.setTabMenuSelected(StratagemsMenuEnum.armas),
+            text: StratagemsMenuEnum.weapons.getStringValue(),
+            isSelected: tabsMenuProviders
+                .isThisMenuSelected(StratagemsMenuEnum.weapons),
+            onTapHandler: () => stratagemsProvider.selectStratagemsList(
+                StratagemsMenuEnum.weapons, context),
           ),
           _MenuTab(
-            text: StratagemsMenuEnum.mochilas.getStringValue(),
-            isSelected:
-                provider.isThisMenuSelected(StratagemsMenuEnum.mochilas),
-            onTapHandler: () =>
-                provider.setTabMenuSelected(StratagemsMenuEnum.mochilas),
+            text: StratagemsMenuEnum.backpacks.getStringValue(),
+            isSelected: tabsMenuProviders
+                .isThisMenuSelected(StratagemsMenuEnum.backpacks),
+            onTapHandler: () => stratagemsProvider.selectStratagemsList(
+                StratagemsMenuEnum.backpacks, context),
           ),
         ],
       ),

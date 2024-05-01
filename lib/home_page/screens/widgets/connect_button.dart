@@ -12,7 +12,7 @@ class ConnectButton extends StatelessWidget {
         Provider.of<ConnectButtonProvider>(context);
 
     return CustomButton(
-      color: provider.state.isFormValid
+      color: provider.isFormValid
           ? CustomButtonColors.yellow
           : CustomButtonColors.gray,
       text: "CONECTAR",

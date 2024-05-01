@@ -10,10 +10,10 @@ class StratagemsService {
 
   static StratagemsService get instance => _instance;
 
-  Future loadStratagemsFromFile() async {
-    final stratagemsList = [];
+  Future<List<StratagemModel>> loadStratagemsFromFile(String file) async {
+    final List<StratagemModel> stratagemsList = [];
 
-    String jsonString = await rootBundle.loadString('assets/json/mission.json');
+    String jsonString = await rootBundle.loadString('assets/json/$file.json');
 
     final data = json.decode(jsonString);
 
