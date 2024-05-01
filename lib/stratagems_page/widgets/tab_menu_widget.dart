@@ -15,73 +15,70 @@ class TabMenuWidget extends StatelessWidget {
     final StratagemsProvider stratagemsProvider =
         Provider.of<StratagemsProvider>(context, listen: false);
 
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _MenuTab(
-            text: TabsMenuEnum.mission.getStringValue(),
-            isSelected: tabsMenuProviders.isThisMenuSelected(
-              TabsMenuEnum.mission,
-            ),
-            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
-              TabsMenuEnum.mission,
-              context,
-            ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        _MenuTab(
+          text: TabsMenuEnum.mission.getStringValue(),
+          isSelected: tabsMenuProviders.isThisMenuSelected(
+            TabsMenuEnum.mission,
           ),
-          _MenuTab(
-            text: TabsMenuEnum.defenses.getStringValue(),
-            isSelected: tabsMenuProviders.isThisMenuSelected(
-              TabsMenuEnum.defenses,
-            ),
-            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
-              TabsMenuEnum.defenses,
-              context,
-            ),
+          onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+            TabsMenuEnum.mission,
+            context,
           ),
-          _MenuTab(
-            text: TabsMenuEnum.eagle.getStringValue(),
-            isSelected: tabsMenuProviders.isThisMenuSelected(
-              TabsMenuEnum.eagle,
-            ),
-            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
-              TabsMenuEnum.eagle,
-              context,
-            ),
+        ),
+        _MenuTab(
+          text: TabsMenuEnum.defenses.getStringValue(),
+          isSelected: tabsMenuProviders.isThisMenuSelected(
+            TabsMenuEnum.defenses,
           ),
-          _MenuTab(
-            text: TabsMenuEnum.orbital.getStringValue(),
-            isSelected: tabsMenuProviders.isThisMenuSelected(
-              TabsMenuEnum.orbital,
-            ),
-            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
-              TabsMenuEnum.orbital,
-              context,
-            ),
+          onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+            TabsMenuEnum.defenses,
+            context,
           ),
-          _MenuTab(
-            text: TabsMenuEnum.weapons.getStringValue(),
-            isSelected: tabsMenuProviders.isThisMenuSelected(
-              TabsMenuEnum.weapons,
-            ),
-            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
-              TabsMenuEnum.weapons,
-              context,
-            ),
+        ),
+        _MenuTab(
+          text: TabsMenuEnum.eagle.getStringValue(),
+          isSelected: tabsMenuProviders.isThisMenuSelected(
+            TabsMenuEnum.eagle,
           ),
-          _MenuTab(
-            text: TabsMenuEnum.backpacks.getStringValue(),
-            isSelected: tabsMenuProviders.isThisMenuSelected(
-              TabsMenuEnum.backpacks,
-            ),
-            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
-              TabsMenuEnum.backpacks,
-              context,
-            ),
+          onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+            TabsMenuEnum.eagle,
+            context,
           ),
-        ],
-      ),
+        ),
+        _MenuTab(
+          text: TabsMenuEnum.orbital.getStringValue(),
+          isSelected: tabsMenuProviders.isThisMenuSelected(
+            TabsMenuEnum.orbital,
+          ),
+          onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+            TabsMenuEnum.orbital,
+            context,
+          ),
+        ),
+        _MenuTab(
+          text: TabsMenuEnum.weapons.getStringValue(),
+          isSelected: tabsMenuProviders.isThisMenuSelected(
+            TabsMenuEnum.weapons,
+          ),
+          onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+            TabsMenuEnum.weapons,
+            context,
+          ),
+        ),
+        _MenuTab(
+          text: TabsMenuEnum.backpacks.getStringValue(),
+          isSelected: tabsMenuProviders.isThisMenuSelected(
+            TabsMenuEnum.backpacks,
+          ),
+          onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+            TabsMenuEnum.backpacks,
+            context,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -109,6 +106,12 @@ class _MenuTab extends StatelessWidget {
       );
     }
 
-    return InkWell(onTap: onTapHandler, child: CustomText(text: text));
+    return InkWell(
+      onTap: onTapHandler,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        child: CustomText(text: text),
+      ),
+    );
   }
 }

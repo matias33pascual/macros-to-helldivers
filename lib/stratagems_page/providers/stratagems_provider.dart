@@ -43,6 +43,58 @@ class StratagemsProvider extends ChangeNotifier {
     }
   }
 
+  onHorizontalGestureHandler(DragEndDetails details, BuildContext context) {
+    if (details.velocity.pixelsPerSecond.dx > 0) {
+      _moveToPreviousTabMenu(context);
+    } else if (details.velocity.pixelsPerSecond.dx < 0) {
+      _moveToNextTabMenu(context);
+    }
+  }
+
+  _moveToNextTabMenu(BuildContext context) {
+    switch (state.tabMenuSelected) {
+      case TabsMenuEnum.mission:
+        onTabMenuHandler(TabsMenuEnum.defenses, context);
+        break;
+      case TabsMenuEnum.defenses:
+        onTabMenuHandler(TabsMenuEnum.eagle, context);
+        break;
+      case TabsMenuEnum.eagle:
+        onTabMenuHandler(TabsMenuEnum.orbital, context);
+        break;
+      case TabsMenuEnum.orbital:
+        onTabMenuHandler(TabsMenuEnum.weapons, context);
+        break;
+      case TabsMenuEnum.weapons:
+        onTabMenuHandler(TabsMenuEnum.backpacks, context);
+        break;
+      default:
+        break;
+    }
+  }
+
+  _moveToPreviousTabMenu(BuildContext context) {
+    switch (state.tabMenuSelected) {
+      case TabsMenuEnum.defenses:
+        onTabMenuHandler(TabsMenuEnum.mission, context);
+        break;
+      case TabsMenuEnum.eagle:
+        onTabMenuHandler(TabsMenuEnum.defenses, context);
+        break;
+      case TabsMenuEnum.orbital:
+        onTabMenuHandler(TabsMenuEnum.eagle, context);
+        break;
+      case TabsMenuEnum.weapons:
+        onTabMenuHandler(TabsMenuEnum.orbital, context);
+        break;
+      case TabsMenuEnum.backpacks:
+        onTabMenuHandler(TabsMenuEnum.weapons, context);
+        break;
+      default:
+        break;
+    }
+  }
+
   onTabMenuHandler(TabsMenuEnum tabMenuSelected, BuildContext context) {
     final TabsMenuProvider tabMenuProvider =
         Provider.of<TabsMenuProvider>(context, listen: false);
