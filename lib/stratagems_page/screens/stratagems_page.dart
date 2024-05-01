@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/shared/exports_shared.dart';
-import 'package:macro_sync_client/stratagems_page/models/stratagems_menu_enum.dart';
 import 'package:macro_sync_client/stratagems_page/providers/stratagems_provider.dart';
-import 'package:macro_sync_client/stratagems_page/providers/tabs_menu_provider.dart';
+import 'package:macro_sync_client/stratagems_page/widgets/stratagems_list_widget.dart';
+import 'package:macro_sync_client/stratagems_page/widgets/tab_menu_widget.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -11,9 +11,6 @@ class StratagemsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final StratagemsProvider provider =
-        Provider.of<StratagemsProvider>(context);
-
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -24,14 +21,19 @@ class StratagemsScreen extends StatelessWidget {
           children: [
             _buildBackground(context),
             _buildPanel(context),
-            _buildContent(provider),
+            _buildContent(context),
           ],
         ),
       ),
     );
   }
 
-  Container _buildContent(StratagemsProvider provider) {
+  Container _buildContent(BuildContext context) {
+    final StratagemsProvider provider = Provider.of<StratagemsProvider>(
+      context,
+      listen: false,
+    );
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: FutureBuilder(
@@ -39,21 +41,15 @@ class StratagemsScreen extends StatelessWidget {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              // if (snapshot.hasError) {
-              //   return Container();
-              // }
+              if (snapshot.hasError) {
+                return Container();
+              }
 
               return Column(
                 children: [
-                  _buildContentMenu(context),
-                  // _buildContentList(context),
-                  Container(
-                    margin: const EdgeInsets.only(top: 4),
-                    decoration: const BoxDecoration(
-                      border: Border(
-                          top: BorderSide(color: Colors.amber, width: 1)),
-                    ),
-                  ),
+                  const TabMenuWidget(),
+                  const StratagemsListWidget(),
+                  _buildHorizontalDivider(),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 16),
                     child: const CustomText(
@@ -91,6 +87,15 @@ class StratagemsScreen extends StatelessWidget {
               return Container();
           }
         },
+      ),
+    );
+  }
+
+  Container _buildHorizontalDivider() {
+    return Container(
+      margin: const EdgeInsets.only(top: 8),
+      decoration: const BoxDecoration(
+        border: Border(top: BorderSide(color: Colors.amber, width: 1)),
       ),
     );
   }
@@ -212,101 +217,6 @@ class StratagemsScreen extends StatelessWidget {
     );
   }
 
-  // Flexible _buildContentList(BuildContext context) {
-  //   return Flexible(
-  //     flex: 4,
-  //     child: ListView.builder(
-  //       shrinkWrap: true,
-  //       itemCount: snapshot.data.length,
-  //       itemBuilder: (context, index) => Container(
-  //         height: 32,
-  //         margin: const EdgeInsets.symmetric(vertical: 2),
-  //         decoration: BoxDecoration(
-  //           color: index == 4
-  //               ? Colors.green.withOpacity(0.6)
-  //               : const Color.fromARGB(137, 81, 95, 122),
-  //           border: Border.all(
-  //             color: index == 4 ? Colors.green : Colors.white.withOpacity(0.2),
-  //             width: 2,
-  //           ),
-  //         ),
-  //         child: Row(
-  //           children: [
-  //             const SkullIcon(width: 32),
-  //             Container(
-  //               margin: const EdgeInsets.only(left: 8),
-  //               constraints: const BoxConstraints(maxWidth: 300),
-  //               child: CustomText(
-  //                 text: snapshot.data[index].name,
-  //                 size: 16,
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  Container _buildContentMenu(BuildContext context) {
-    final TabsMenuProvider tabsMenuProviders =
-        Provider.of<TabsMenuProvider>(context);
-
-    final StratagemsProvider stratagemsProvider =
-        Provider.of<StratagemsProvider>(context, listen: false);
-
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _MenuTab(
-            text: StratagemsMenuEnum.mission.getStringValue(),
-            isSelected: tabsMenuProviders
-                .isThisMenuSelected(StratagemsMenuEnum.mission),
-            onTapHandler: () => stratagemsProvider.selectStratagemsList(
-                StratagemsMenuEnum.mission, context),
-          ),
-          _MenuTab(
-            text: StratagemsMenuEnum.defenses.getStringValue(),
-            isSelected: tabsMenuProviders
-                .isThisMenuSelected(StratagemsMenuEnum.defenses),
-            onTapHandler: () => stratagemsProvider.selectStratagemsList(
-                StratagemsMenuEnum.defenses, context),
-          ),
-          _MenuTab(
-            text: StratagemsMenuEnum.eagle.getStringValue(),
-            isSelected:
-                tabsMenuProviders.isThisMenuSelected(StratagemsMenuEnum.eagle),
-            onTapHandler: () => stratagemsProvider.selectStratagemsList(
-                StratagemsMenuEnum.eagle, context),
-          ),
-          _MenuTab(
-            text: StratagemsMenuEnum.orbital.getStringValue(),
-            isSelected: tabsMenuProviders
-                .isThisMenuSelected(StratagemsMenuEnum.orbital),
-            onTapHandler: () => stratagemsProvider.selectStratagemsList(
-                StratagemsMenuEnum.orbital, context),
-          ),
-          _MenuTab(
-            text: StratagemsMenuEnum.weapons.getStringValue(),
-            isSelected: tabsMenuProviders
-                .isThisMenuSelected(StratagemsMenuEnum.weapons),
-            onTapHandler: () => stratagemsProvider.selectStratagemsList(
-                StratagemsMenuEnum.weapons, context),
-          ),
-          _MenuTab(
-            text: StratagemsMenuEnum.backpacks.getStringValue(),
-            isSelected: tabsMenuProviders
-                .isThisMenuSelected(StratagemsMenuEnum.backpacks),
-            onTapHandler: () => stratagemsProvider.selectStratagemsList(
-                StratagemsMenuEnum.backpacks, context),
-          ),
-        ],
-      ),
-    );
-  }
-
   Container _buildPanel(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
@@ -325,32 +235,5 @@ class StratagemsScreen extends StatelessWidget {
         ),
       ],
     );
-  }
-}
-
-class _MenuTab extends StatelessWidget {
-  final bool isSelected;
-  final String text;
-  final void Function()? onTapHandler;
-
-  const _MenuTab({
-    Key? key,
-    required this.text,
-    required this.isSelected,
-    required this.onTapHandler,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    if (isSelected) {
-      return CustomText(
-        text: text,
-        strokeColor: Colors.black,
-        textColor: Colors.amber,
-        size: 14,
-      );
-    }
-
-    return InkWell(onTap: onTapHandler, child: CustomText(text: text));
   }
 }

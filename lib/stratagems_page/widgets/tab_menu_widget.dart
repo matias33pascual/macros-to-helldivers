@@ -1,0 +1,114 @@
+import 'package:flutter/material.dart';
+import 'package:macro_sync_client/shared/exports_shared.dart';
+import 'package:macro_sync_client/stratagems_page/models/tabs_menu_enum.dart';
+import 'package:macro_sync_client/stratagems_page/providers/exports_providers.dart';
+import 'package:provider/provider.dart';
+
+class TabMenuWidget extends StatelessWidget {
+  const TabMenuWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final TabsMenuProvider tabsMenuProviders =
+        Provider.of<TabsMenuProvider>(context);
+
+    final StratagemsProvider stratagemsProvider =
+        Provider.of<StratagemsProvider>(context, listen: false);
+
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _MenuTab(
+            text: TabsMenuEnum.mission.getStringValue(),
+            isSelected: tabsMenuProviders.isThisMenuSelected(
+              TabsMenuEnum.mission,
+            ),
+            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+              TabsMenuEnum.mission,
+              context,
+            ),
+          ),
+          _MenuTab(
+            text: TabsMenuEnum.defenses.getStringValue(),
+            isSelected: tabsMenuProviders.isThisMenuSelected(
+              TabsMenuEnum.defenses,
+            ),
+            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+              TabsMenuEnum.defenses,
+              context,
+            ),
+          ),
+          _MenuTab(
+            text: TabsMenuEnum.eagle.getStringValue(),
+            isSelected: tabsMenuProviders.isThisMenuSelected(
+              TabsMenuEnum.eagle,
+            ),
+            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+              TabsMenuEnum.eagle,
+              context,
+            ),
+          ),
+          _MenuTab(
+            text: TabsMenuEnum.orbital.getStringValue(),
+            isSelected: tabsMenuProviders.isThisMenuSelected(
+              TabsMenuEnum.orbital,
+            ),
+            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+              TabsMenuEnum.orbital,
+              context,
+            ),
+          ),
+          _MenuTab(
+            text: TabsMenuEnum.weapons.getStringValue(),
+            isSelected: tabsMenuProviders.isThisMenuSelected(
+              TabsMenuEnum.weapons,
+            ),
+            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+              TabsMenuEnum.weapons,
+              context,
+            ),
+          ),
+          _MenuTab(
+            text: TabsMenuEnum.backpacks.getStringValue(),
+            isSelected: tabsMenuProviders.isThisMenuSelected(
+              TabsMenuEnum.backpacks,
+            ),
+            onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+              TabsMenuEnum.backpacks,
+              context,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MenuTab extends StatelessWidget {
+  final bool isSelected;
+  final String text;
+  final void Function()? onTapHandler;
+
+  const _MenuTab({
+    Key? key,
+    required this.text,
+    required this.isSelected,
+    required this.onTapHandler,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (isSelected) {
+      return CustomText(
+        text: text,
+        strokeColor: Colors.black,
+        textColor: Colors.amber,
+        size: 14,
+      );
+    }
+
+    return InkWell(onTap: onTapHandler, child: CustomText(text: text));
+  }
+}
