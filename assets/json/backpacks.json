@@ -1,38 +1,38 @@
 [
   {
     "id": "500",
-    "name": "LIFT-850 Jump Pack",
-    "icon": "",
+    "name": "MOCHILA DE SALTO",
+    "icon": "assets/icons/Jump-Pack.png",
     "keysCode": ["down", "up", "up", "down", "up"]
   },
   {
     "id": "501",
-    "name": "B-1 Supply Pack",
-    "icon": "",
+    "name": "MOCHILA DE ABASTECIMIENTO",
+    "icon": "assets/icons/Supply-Pack.png",
     "keysCode": ["down", "left", "down", "up", "up", "down"]
   },
   {
     "id": "502",
-    "name": "AX/LAS-5 Guard Dog Rover",
-    "icon": "",
+    "name": "ROVER PERRO GUARDIAN",
+    "icon": "assets/icons/Guard-Dog-Rover.png",
     "keysCode": ["down", "up", "left", "up", "right", "right"]
   },
   {
     "id": "503",
-    "name": "SH-20 Ballistic Shield Backpack",
-    "icon": "",
+    "name": "MOCHILA DE ESCUDO BALISTICO",
+    "icon": "assets/icons/Ballistic-Shield-Backpack.png",
     "keysCode": ["down", "left", "down", "down", "up", "left"]
   },
   {
     "id": "504",
-    "name": "SH-32 Shield Generator Pack",
-    "icon": "",
+    "name": "MOCHILA GENERADORA DE ESCUDO",
+    "icon": "assets/icons/Shield-Generator-Pack.png",
     "keysCode": ["down", "up", "left", "right", "left", "right"]
   },
   {
     "id": "505",
-    "name": "AX/AR-23 Guard Dog",
-    "icon": "",
+    "name": "PERRO GUARDIAN",
+    "icon": "assets/icons/Guard-Dog.png",
     "keysCode": ["down", "up", "left", "up", "right", "down"]
   }
 ]

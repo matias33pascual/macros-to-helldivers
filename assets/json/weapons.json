@@ -1,86 +1,98 @@
 [
   {
     "id": "600",
-    "name": "MG-43 Machine Gun",
-    "icon": "",
+    "name": "AMETRALLADORA",
+    "icon": "assets/icons/Machine-Gun.png",
     "keysCode": ["down", "left", "down", "up", "right"]
   },
   {
     "id": "601",
-    "name": "APW-1 Anti-Materiel Rifle",
-    "icon": "",
+    "name": "RIFLE ANTIEQUIPAMIENTO",
+    "icon": "assets/icons/Anti-Materiel-Rifle.png",
     "keysCode": ["down", "left", "right", "up", "down"]
   },
   {
     "id": "602",
-    "name": "M-105 Stalwart",
-    "icon": "",
+    "name": "INCONDICIONAL",
+    "icon": "assets/icons/Stalwart.png",
     "keysCode": ["down", "left", "down", "up", "up", "left"]
   },
   {
     "id": "603",
-    "name": "EAT-17 Expendable Anti-tank",
-    "icon": "",
+    "name": "ANTITANQUE DESECHABLE",
+    "icon": "assets/icons/Expendable-Anti-tank.png",
     "keysCode": ["down", "down", "left", "up", "right"]
   },
   {
     "id": "604",
-    "name": "GR-8 Recoilless Rifle",
-    "icon": "",
+    "name": "RIFLE SIN RETROCESO",
+    "icon": "assets/icons/Recoilless-Rifle.png",
     "keysCode": ["down", "left", "right", "right", "left"]
   },
   {
     "id": "605",
-    "name": "FLAM-40 Flamethrower",
-    "icon": "",
+    "name": "LANZALLAMAS",
+    "icon": "assets/icons/Flamethrower.png",
     "keysCode": ["down", "left", "up", "down", "up"]
   },
   {
     "id": "606",
-    "name": "AC-8 Autocannon",
-    "icon": "",
+    "name": "CAÑON AUTOMATICO",
+    "icon": "assets/icons/Autocannon.png",
     "keysCode": ["down", "left", "down", "up", "up", "right"]
   },
   {
     "id": "607",
-    "name": "MG-206 Heavy Machine Gun",
-    "icon": "",
+    "name": "AMETRALLADORA PESADA",
+    "icon": "assets/icons/Heavy-Machine-Gun.png",
     "keysCode": ["down", "left", "up", "down", "down"]
   },
   {
+    "id": "614",
+    "name": "LANZACOHETES DE ESTALLIDO AEREO",
+    "icon": "assets/icons/Airburst-Rocket-Launcher.png",
+    "keysCode": ["down", "up", "up", "left", "right"]
+  },
+  {
     "id": "608",
-    "name": "RS-422 Railgun",
-    "icon": "",
+    "name": "ARMA DE RIEL",
+    "icon": "assets/icons/Railgun.png",
     "keysCode": ["down", "right", "down", "up", "left", "right"]
   },
   {
     "id": "609",
-    "name": "FAF-14 SPEAR Launcher",
-    "icon": "",
+    "name": "LANZA",
+    "icon": "assets/icons/SPEAR-Launcher.png",
     "keysCode": ["down", "down", "up", "down", "down"]
   },
   {
     "id": "610",
-    "name": "GL-21 Grenade Launcher",
-    "icon": "",
+    "name": "LANZAGRANADAS",
+    "icon": "assets/icons/Grenade-Launcher.png",
     "keysCode": ["down", "left", "up", "left", "down"]
   },
   {
     "id": "611",
-    "name": "LAS-98 Laser Cannon",
-    "icon": "",
+    "name": "CAÑON LASER",
+    "icon": "assets/icons/Laser-Cannon.png",
     "keysCode": ["down", "left", "down", "up", "left"]
   },
   {
     "id": "612",
-    "name": "ARC-3 Arc Thrower",
-    "icon": "",
+    "name": "LANZAARCOS",
+    "icon": "assets/icons/Arc-Thrower.png",
     "keysCode": ["down", "right", "down", "up", "left", "left"]
   },
   {
     "id": "613",
-    "name": "LAS-99 Quasar Cannon",
-    "icon": "",
+    "name": "CAÑON CUASAR",
+    "icon": "assets/icons/Quasar-Cannon.png",
     "keysCode": ["down", "down", "up", "left", "right"]
+  },
+  {
+    "id": "700",
+    "name": "EXOTRAJE PATRIOTA",
+    "icon": "assets/icons/Patriot-Exosuit.png",
+    "keysCode": ["left", "down", "right", "up", "left", "down", "down"]
   }
 ]

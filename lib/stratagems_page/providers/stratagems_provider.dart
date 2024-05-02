@@ -30,9 +30,6 @@ class StratagemsProvider extends ChangeNotifier {
       state.weaponsStratagemsList =
           await service.loadStratagemsFromFile("weapons");
 
-      state.othersStratagemsList =
-          await service.loadStratagemsFromFile("others");
-
       state.tabMenuSelected = TabsMenuEnum.mission;
       state.listToShow = state.missionStratagemsList;
     } catch (error) {

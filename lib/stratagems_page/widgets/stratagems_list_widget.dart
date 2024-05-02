@@ -39,7 +39,8 @@ class StratagemsListWidget extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  const SkullIcon(width: 32),
+                  if (listToShow[index].icon.isNotEmpty)
+                    Image.asset(listToShow[index].icon),
                   Container(
                     margin: const EdgeInsets.only(left: 8),
                     constraints: const BoxConstraints(maxWidth: 350),

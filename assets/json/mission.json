@@ -1,62 +1,32 @@
 [
   {
     "id": "100",
-    "name": "Reinforce",
-    "icon": "",
+    "name": "REFUERZO",
+    "icon": "assets/icons/Reinforce.png",
     "keysCode": ["up", "down", "right", "left", "up"]
   },
   {
     "id": "101",
-    "name": "SOS Beacon",
-    "icon": "",
+    "name": "BALIZA DE S.O.S",
+    "icon": "assets/icons/SOS-Beacon.png",
     "keysCode": ["up", "down", "right", "up"]
   },
   {
     "id": "102",
-    "name": "Resupply",
-    "icon": "",
+    "name": "REABASTECIMIENTOS",
+    "icon": "assets/icons/Resupply.png",
     "keysCode": ["down", "down", "up", "right"]
   },
   {
     "id": "103",
-    "name": "Hellbomb",
-    "icon": "",
+    "name": "BOMBA HELL",
+    "icon": "assets/icons/Hellbomb.png",
     "keysCode": ["down", "up", "left", "down", "up", "right", "down", "up"]
   },
   {
-    "id": "104",
-    "name": "SSSD Delivery",
-    "icon": "",
-    "keysCode": ["down", "down", "down", "up", "up"]
-  },
-  {
-    "id": "105",
-    "name": "Seismic Probe",
-    "icon": "",
-    "keysCode": ["up", "up", "left", "right", "down", "down"]
-  },
-  {
-    "id": "106",
-    "name": "Eagle Rearm",
-    "icon": "",
-    "keysCode": ["up", "up", "left", "up", "right"]
-  },
-  {
-    "id": "107",
-    "name": "Illumination Flare",
-    "icon": "",
-    "keysCode": ["right", "right", "left", "left"]
-  },
-  {
     "id": "108",
-    "name": "SEAF Artillery",
-    "icon": "",
+    "name": "ARTILLERIA SEAF",
+    "icon": "assets/icons/SEAF-Artillery.png",
     "keysCode": ["right", "up", "up", "down"]
-  },
-  {
-    "id": "109",
-    "name": "Super Earth Flag",
-    "icon": "",
-    "keysCode": ["down", "up", "down", "up"]
   }
 ]

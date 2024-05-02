@@ -1,44 +1,50 @@
 [
   {
+    "id": "106",
+    "name": "RECARGA DE AGUILA",
+    "icon": "assets/icons/Eagle-Rearm.png",
+    "keysCode": ["up", "up", "left", "up", "right"]
+  },
+  {
     "id": "300",
-    "name": "Eagle Strafing Run",
-    "icon": "",
+    "name": "BARRIDA DE AMETRALLADORA DE AGUILA",
+    "icon": "assets/icons/Eagle-Strafing-Run.png",
     "keysCode": ["up", "right", "right"]
   },
   {
     "id": "301",
-    "name": "Eagle Airstrike",
-    "icon": "",
+    "name": "ATAQUE AEREO DE AGUILA",
+    "icon": "assets/icons/Eagle-Airstrike.png",
     "keysCode": ["up", "right", "down", "right"]
   },
   {
     "id": "302",
-    "name": "Eagle Cluster Bomb",
-    "icon": "",
+    "name": "BOMBA DE RACIMO DE AGUILA",
+    "icon": "assets/icons/Eagle-Cluster-Bomb.png",
     "keysCode": ["up", "right", "down", "down", "right"]
   },
   {
     "id": "303",
-    "name": "Eagle Napalm Airstrike",
-    "icon": "",
+    "name": "ATAQUE AEREO DE NAPALM DE AGUILA",
+    "icon": "assets/icons/Eagle-Napalm-Airstrike.png",
     "keysCode": ["up", "right", "down", "up"]
   },
   {
     "id": "304",
-    "name": "Eagle Smoke Strike",
-    "icon": "",
+    "name": "ATAQUE DE HUMO DE AGUILA",
+    "icon": "assets/icons/Eagle-Smoke-Strike.png",
     "keysCode": ["up", "right", "up", "down"]
   },
   {
     "id": "305",
-    "name": "Eagle 110MM Rocket Pods",
-    "icon": "",
+    "name": "CAPSULAS DE COHETES DE 110 MM DE AGUILA",
+    "icon": "assets/icons/Eagle-110MM-Rocket-Pods.png",
     "keysCode": ["up", "right", "up", "left"]
   },
   {
     "id": "306",
-    "name": "Eagle 500kg Bomb",
-    "icon": "",
+    "name": "BOMBA DE 500 KG DE AGUILA",
+    "icon": "assets/icons/Eagle-500KG-Bomb.png",
     "keysCode": ["up", "right", "down", "down", "down"]
   }
 ]

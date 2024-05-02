@@ -14,7 +14,6 @@ class StratagemsState {
   List<StratagemModel> orbitalStratagemsList = [];
   List<StratagemModel> backpacksStratagemsList = [];
   List<StratagemModel> weaponsStratagemsList = [];
-  List<StratagemModel> othersStratagemsList = [];
 
   TabsMenuEnum tabMenuSelected = TabsMenuEnum.mission;
   List<StratagemModel> listToShow = [];

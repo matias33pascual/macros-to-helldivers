@@ -1,68 +1,68 @@
 [
   {
     "id": "200",
-    "name": "E/MG-101 HMG Emplacement",
-    "icon": "",
+    "name": "EMPLAZAMIENTO AP",
+    "icon": "assets/icons/HGM-Emplacement.png",
     "keysCode": ["down", "up", "left", "right", "right", "left"]
   },
   {
     "id": "201",
-    "name": "FX-12 Shield Generator Relay",
-    "icon": "",
+    "name": "RELE GENERADOR DE ESCUDO",
+    "icon": "assets/icons/Shield-Generator-Relay.png",
     "keysCode": ["down", "down", "left", "right", "left", "right"]
   },
   {
     "id": "202",
-    "name": "A/ARC-3 Tesla Tower",
-    "icon": "",
+    "name": "TORRE TESLA",
+    "icon": "assets/icons/Tesla-Tower.png",
     "keysCode": ["down", "up", "right", "up", "left", "right"]
   },
   {
     "id": "203",
-    "name": "MD-6 Anti-Personnel Minefield",
-    "icon": "",
+    "name": "CAMPO MINADO ANTIPERSONAL",
+    "icon": "assets/icons/Anti-Personnel-Minefield.png",
     "keysCode": ["down", "left", "up", "right"]
   },
   {
     "id": "204",
-    "name": "MD-I4 Incendiary Mines",
-    "icon": "",
+    "name": "MINAS INCENDIARIAS",
+    "icon": "assets/icons/Incendiary-Mines.png",
     "keysCode": ["down", "left", "left", "down"]
   },
   {
     "id": "205",
-    "name": "A/MG-43 Machine Gun Sentry",
-    "icon": "",
+    "name": "VIGIA AMETRALLADORA",
+    "icon": "assets/icons/Machine-Gun-Sentry.png",
     "keysCode": ["down", "up", "right", "right", "up"]
   },
   {
     "id": "206",
-    "name": "A/G-16 Gatling Sentry",
-    "icon": "",
+    "name": "VIGIA GATLING",
+    "icon": "assets/icons/Gatling-Sentry.png",
     "keysCode": ["down", "up", "right", "left"]
   },
   {
     "id": "207",
-    "name": "A/M-12 Mortar Sentry",
-    "icon": "",
+    "name": "VIGIA MORTERO",
+    "icon": "assets/icons/Mortar-Sentry.png",
     "keysCode": ["down", "up", "right", "right", "down"]
   },
   {
     "id": "208",
-    "name": "A/AC-8 Autocannon Sentry",
-    "icon": "",
+    "name": "VIGIA DE CAÑON AUTOMATICO",
+    "icon": "assets/icons/Mortar-Sentry.png",
     "keysCode": ["down", "up", "right", "up", "left", "up"]
   },
   {
     "id": "209",
-    "name": "A/MLS-4X Rocket Sentry",
-    "icon": "",
+    "name": "VIGIA DE COHETES",
+    "icon": "assets/icons/Rocket-Sentry.png",
     "keysCode": ["down", "up", "right", "right", "left"]
   },
   {
     "id": "210",
-    "name": "A/M-23 EMS Mortar Sentry",
-    "icon": "",
+    "name": "VIGIA MORTERO OEM",
+    "icon": "assets/icons/EMS-Mortar-Sentry.png",
     "keysCode": ["down", "up", "right", "down", "right"]
   }
 ]
