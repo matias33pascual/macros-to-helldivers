@@ -1,8 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/shared/exports_shared.dart';
 import 'package:macro_sync_client/stratagems_page/providers/stratagems_provider.dart';
-import 'package:macro_sync_client/stratagems_page/widgets/stratagems_list_widget.dart';
-import 'package:macro_sync_client/stratagems_page/widgets/tab_menu_widget.dart';
+import 'package:macro_sync_client/stratagems_page/widgets/exports_widgets.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -49,7 +50,7 @@ class StratagemsScreen extends StatelessWidget {
                 children: [
                   const TabMenuWidget(),
                   Flexible(
-                    flex: 3,
+                    flex: 4,
                     fit: FlexFit.tight,
                     child: Container(
                       color: Colors.black.withOpacity(0.6),
@@ -57,26 +58,29 @@ class StratagemsScreen extends StatelessWidget {
                     ),
                   ),
                   _buildHorizontalDivider(),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 16),
-                    child: const CustomText(
-                        text: "SELECCIONADAS PARA MISION", size: 16),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16),
+                    child: CustomText(
+                      text: "SELECCIONADAS PARA MISION",
+                      size: 16,
+                    ),
                   ),
                   Flexible(
-                    flex: 2,
+                    flex: 1,
                     fit: FlexFit.tight,
-                    child: Column(
-                      children: [
-                        _buildSelectedGeneralStratagems(),
-                        Expanded(child: Container()),
-                        _buildSelectedSpecificStratagems(),
-                        Expanded(child: Container()),
-                        const CustomButton(
-                            color: CustomButtonColors.yellow, text: "COMENZAR"),
-                        Expanded(child: Container()),
-                      ],
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: 300),
+                      child: StratagemsSelectedWidget(),
                     ),
-                  )
+                  ),
+                  Expanded(child: Container()),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 24),
+                    child: CustomButton(
+                      color: CustomButtonColors.yellow,
+                      text: "COMENZAR",
+                    ),
+                  ),
                 ],
               );
             case ConnectionState.waiting:
@@ -105,123 +109,6 @@ class StratagemsScreen extends StatelessWidget {
       decoration: const BoxDecoration(
         border: Border(top: BorderSide(color: Colors.amber, width: 1)),
       ),
-    );
-  }
-
-  Row _buildSelectedSpecificStratagems() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            border: Border.all(
-              color: Colors.amber.withOpacity(
-                0.6,
-              ),
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(4),
-            ),
-          ),
-        ),
-        const SizedBox(width: 16),
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            border: Border.all(
-              color: Colors.amber.withOpacity(
-                0.6,
-              ),
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(4),
-            ),
-          ),
-        ),
-        const SizedBox(width: 16),
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            border: Border.all(
-              color: Colors.amber.withOpacity(
-                0.6,
-              ),
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(4),
-            ),
-          ),
-        ),
-        const SizedBox(width: 16),
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            border: Border.all(
-              color: Colors.amber.withOpacity(
-                0.6,
-              ),
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(4),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Row _buildSelectedGeneralStratagems() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.amber),
-          ),
-          child: const SkullIcon(width: 40),
-        ),
-        const SizedBox(width: 16),
-        Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            border: Border.all(
-              color: Colors.amber.withOpacity(
-                0.6,
-              ),
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(4),
-            ),
-          ),
-        ),
-        const SizedBox(width: 16),
-        Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            border: Border.all(
-              color: Colors.amber.withOpacity(
-                0.6,
-              ),
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(4),
-            ),
-          ),
-        ),
-      ],
     );
   }
 

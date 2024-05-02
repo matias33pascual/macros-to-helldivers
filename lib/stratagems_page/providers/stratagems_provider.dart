@@ -108,14 +108,69 @@ class StratagemsProvider extends ChangeNotifier {
         (String stratagemSelectedId) => stratagem.id == stratagemSelectedId);
   }
 
-  onStratagemsListTap(StratagemModel stratagem) {
+  onStratagemsListItemTap(StratagemModel stratagem, BuildContext context) {
+    final SelectedProvider selectedProvider =
+        Provider.of<SelectedProvider>(context, listen: false);
+
     if (isSelected(stratagem)) {
       state.stratagemsSelectedForMission.remove(stratagem.id);
-    } else {
+    } else if (state.stratagemsSelectedForMission.length <
+        state.maxStratagemSelected) {
       state.stratagemsSelectedForMission.add(stratagem.id);
     }
 
     notifyListeners();
+    selectedProvider.update();
+  }
+
+  onSelectedIconTap(String stratagemId, BuildContext context) {
+    state.stratagemsSelectedForMission.remove(stratagemId);
+
+    final SelectedProvider selectedProvider =
+        Provider.of<SelectedProvider>(context, listen: false);
+
+    selectedProvider.update();
+    notifyListeners();
+  }
+
+  StratagemModel getStratagemById(String stratagemId) {
+    for (StratagemModel stratagem in state.defensesStratagemsList) {
+      if (stratagem.id == stratagemId) {
+        return stratagem;
+      }
+    }
+
+    for (StratagemModel stratagem in state.missionStratagemsList) {
+      if (stratagem.id == stratagemId) {
+        return stratagem;
+      }
+    }
+
+    for (StratagemModel stratagem in state.eagleStratagemsList) {
+      if (stratagem.id == stratagemId) {
+        return stratagem;
+      }
+    }
+
+    for (StratagemModel stratagem in state.orbitalStratagemsList) {
+      if (stratagem.id == stratagemId) {
+        return stratagem;
+      }
+    }
+
+    for (StratagemModel stratagem in state.backpacksStratagemsList) {
+      if (stratagem.id == stratagemId) {
+        return stratagem;
+      }
+    }
+
+    for (StratagemModel stratagem in state.weaponsStratagemsList) {
+      if (stratagem.id == stratagemId) {
+        return stratagem;
+      }
+    }
+
+    throw Exception("Error en getStratagemById: No se encontro la estratagema");
   }
 
   _getListToShowByTabMenu() {

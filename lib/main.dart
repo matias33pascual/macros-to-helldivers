@@ -15,6 +15,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => ConnectButtonProvider()),
         ChangeNotifierProvider(create: (_) => StratagemsProvider()),
         ChangeNotifierProvider(create: (_) => TabsMenuProvider()),
+        ChangeNotifierProvider(create: (_) => SelectedProvider()),
       ],
       child: kDebugMode == true
           ? DevicePreview(

@@ -20,7 +20,8 @@ class StratagemsListWidget extends StatelessWidget {
         shrinkWrap: true,
         itemCount: listToShow.length,
         itemBuilder: (context, index) => InkWell(
-          onTap: () => provider.onStratagemsListTap(listToShow[index]),
+          onTap: () =>
+              provider.onStratagemsListItemTap(listToShow[index], context),
           child: Container(
             height: 32,
             margin: const EdgeInsets.symmetric(vertical: 2),

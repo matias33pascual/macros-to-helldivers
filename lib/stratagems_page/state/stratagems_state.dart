@@ -18,4 +18,6 @@ class StratagemsState {
   TabsMenuEnum tabMenuSelected = TabsMenuEnum.mission;
   List<StratagemModel> listToShow = [];
   List<String> stratagemsSelectedForMission = ["100", "102"];
+
+  int maxStratagemSelected = 10;
 }
