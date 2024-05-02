@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/home_page/screens/widgets/exports_widgets.dart';
 import 'package:macro_sync_client/shared/exports_shared.dart';
+import 'package:macro_sync_client/stratagems_page/screens/stratagems_page.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
 
-class HomeScreen extends StatelessWidget {
-  static String routeName = "home_screen";
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
-  const HomeScreen({Key? key}) : super(key: key);
+  static String routeName = "home_page";
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +110,10 @@ class HomeScreen extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(top: 16),
             child: InkWell(
-              onTap: () => Navigator.pushNamed(context, "stratagems"),
+              onTap: () => Navigator.pushNamed(
+                context,
+                StratagemsPage.routeName,
+              ),
               child: const ConnectButton(),
             ),
           )

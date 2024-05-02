@@ -1,14 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:macro_sync_client/mission_page/screens/mission_page.dart';
 import 'package:macro_sync_client/shared/exports_shared.dart';
 import 'package:macro_sync_client/stratagems_page/providers/stratagems_provider.dart';
 import 'package:macro_sync_client/stratagems_page/widgets/exports_widgets.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
-class StratagemsScreen extends StatelessWidget {
-  const StratagemsScreen({Key? key}) : super(key: key);
+class StratagemsPage extends StatelessWidget {
+  const StratagemsPage({Key? key}) : super(key: key);
+
+  static String routeName = "stratagems_page";
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +79,14 @@ class StratagemsScreen extends StatelessWidget {
                   Flexible(flex: 1, fit: FlexFit.tight, child: Container()),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 24),
-                    child: CustomButton(
-                      color: CustomButtonColors.yellow,
-                      text: "COMENZAR",
+                    child: InkWell(
+                      onTap: () => Navigator.of(context).pushNamed(
+                        MissionPage.routeName,
+                      ),
+                      child: CustomButton(
+                        color: CustomButtonColors.yellow,
+                        text: "COMENZAR",
+                      ),
                     ),
                   ),
                 ],
@@ -121,14 +129,10 @@ class StratagemsScreen extends StatelessWidget {
   }
 
   _buildBackground(BuildContext context) {
-    return Stack(
-      children: [
-        Image.asset(
-          "assets/images/stratagems_background.jpg",
-          height: MediaQuery.of(context).size.height,
-          fit: BoxFit.cover,
-        ),
-      ],
+    return Image.asset(
+      "assets/images/stratagems_background.jpg",
+      height: MediaQuery.of(context).size.height,
+      fit: BoxFit.cover,
     );
   }
 }
