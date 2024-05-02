@@ -59,7 +59,7 @@ class StratagemsScreen extends StatelessWidget {
                   ),
                   _buildHorizontalDivider(),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: EdgeInsets.symmetric(vertical: 8),
                     child: CustomText(
                       text: "SELECCIONADAS PARA MISION",
                       size: 16,
@@ -73,7 +73,7 @@ class StratagemsScreen extends StatelessWidget {
                       child: StratagemsSelectedWidget(),
                     ),
                   ),
-                  Expanded(child: Container()),
+                  Flexible(flex: 1, fit: FlexFit.tight, child: Container()),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 24),
                     child: CustomButton(

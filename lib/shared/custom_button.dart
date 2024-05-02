@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
         border: Border.all(
           width: color == CustomButtonColors.gray ? 2 : 1,
           color: color == CustomButtonColors.yellow
-              ? appColors.textYellow
+              ? Colors.amber
               : appColors.borderGray,
         ),
         borderRadius: BorderRadius.zero,
@@ -36,15 +36,14 @@ class CustomButton extends StatelessWidget {
             ? appDecorationEffects.diagonalLinearGradientYellow
             : appDecorationEffects.diagonalLinearGradientGray,
       ),
-      width: 190,
-      height: 35,
+      width: 140,
+      height: 30,
       child: Center(
         child: CustomText(
           text: text,
-          size: 20,
-          textColor: color == CustomButtonColors.yellow
-              ? AppTheme.colors.borderYellow
-              : Colors.grey,
+          size: 18,
+          textColor:
+              color == CustomButtonColors.yellow ? Colors.amber : Colors.grey,
         ),
       ),
     );
