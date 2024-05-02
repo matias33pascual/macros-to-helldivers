@@ -48,7 +48,14 @@ class StratagemsScreen extends StatelessWidget {
               return Column(
                 children: [
                   const TabMenuWidget(),
-                  const StratagemsListWidget(),
+                  Flexible(
+                    flex: 3,
+                    fit: FlexFit.tight,
+                    child: Container(
+                      color: Colors.black.withOpacity(0.6),
+                      child: const StratagemsListWidget(),
+                    ),
+                  ),
                   _buildHorizontalDivider(),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 16),
@@ -57,6 +64,7 @@ class StratagemsScreen extends StatelessWidget {
                   ),
                   Flexible(
                     flex: 2,
+                    fit: FlexFit.tight,
                     child: Column(
                       children: [
                         _buildSelectedGeneralStratagems(),
@@ -93,7 +101,7 @@ class StratagemsScreen extends StatelessWidget {
 
   Container _buildHorizontalDivider() {
     return Container(
-      margin: const EdgeInsets.only(top: 8),
+      margin: const EdgeInsets.only(top: 2),
       decoration: const BoxDecoration(
         border: Border(top: BorderSide(color: Colors.amber, width: 1)),
       ),
