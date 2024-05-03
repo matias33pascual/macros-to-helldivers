@@ -1,5 +1,3 @@
-// ignore_for_file: unused_local_variable, prefer_const_literals_to_create_immutables, unused_element, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/stratagems_page/models/stratagems_model.dart';
 import 'package:macro_sync_client/stratagems_page/providers/exports_providers.dart';
@@ -10,47 +8,80 @@ class MissionStratagems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final StratagemsProvider stratagemsProvider =
+    final StratagemsProvider provider =
         Provider.of<StratagemsProvider>(context, listen: false);
 
-    final List<_StratagemButtonIcon> stratagemsList = stratagemsProvider
+    final List<StratagemModel> stratagemsList = provider
         .state.stratagemsSelectedForMission
-        .map((stratagemId) => _StratagemButtonIcon(stratagemId: stratagemId))
+        .map((stratagemId) => provider.getStratagemById(stratagemId))
         .toList();
 
     return Column(
-      children: stratagemsList,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Expanded(
+          child: Row(children: [
+            _StratagemButton(stratagem: stratagemsList[0]),
+            _StratagemButton(stratagem: stratagemsList[1]),
+          ]),
+        ),
+        Expanded(
+          child: Row(children: [
+            _StratagemButton(stratagem: stratagemsList[2]),
+            _StratagemButton(stratagem: stratagemsList[3]),
+          ]),
+        ),
+        Expanded(
+          child: Row(children: [
+            _StratagemButton(stratagem: stratagemsList[4]),
+            _StratagemButton(stratagem: stratagemsList[5]),
+          ]),
+        ),
+        Expanded(
+          child: Row(children: [
+            _StratagemButton(stratagem: stratagemsList[6]),
+            _StratagemButton(stratagem: stratagemsList[7]),
+          ]),
+        ),
+        Expanded(
+          child: Row(children: [
+            _StratagemButton(stratagem: stratagemsList[8]),
+            _StratagemButton(stratagem: stratagemsList[9]),
+          ]),
+        ),
+      ],
     );
   }
 }
 
-class _StratagemButtonIcon extends StatelessWidget {
-  const _StratagemButtonIcon({Key? key, required this.stratagemId})
-      : super(key: key);
+class _StratagemButton extends StatelessWidget {
+  const _StratagemButton({
+    Key? key,
+    required this.stratagem,
+  }) : super(key: key);
 
-  final String stratagemId;
+  final StratagemModel stratagem;
 
   @override
   Widget build(BuildContext context) {
-    const double size = 60;
-
-    final StratagemsProvider stratagemsProvider =
-        Provider.of<StratagemsProvider>(context, listen: false);
-
-    StratagemModel stratagem = stratagemsProvider.getStratagemById(stratagemId);
-
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      height: 100,
-      width: 180,
+    return Flexible(
+      flex: 1,
+      fit: FlexFit.tight,
       child: Container(
-        width: size,
-        height: size,
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        margin: const EdgeInsets.all(2),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.amber, width: 1),
-          color: Colors.black.withOpacity(0.7),
+          color: Colors.black.withOpacity(0.5),
+          border: Border.all(
+            color: Colors.blue.withOpacity(0.7),
+            width: 1,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(2)),
         ),
-        child: Image.asset(stratagem.icon),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Image.asset(stratagem.icon)],
+        ),
       ),
     );
   }
