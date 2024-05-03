@@ -124,8 +124,6 @@ class StratagemsProvider extends ChangeNotifier {
   }
 
   onSelectedIconTap(String stratagemId, BuildContext context) {
-    print("click");
-
     state.stratagemsSelectedForMission.remove(stratagemId);
 
     final SelectedProvider selectedProvider =

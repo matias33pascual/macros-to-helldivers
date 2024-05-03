@@ -7,6 +7,7 @@ class CustomText extends StatelessWidget {
   final Color strokeColor;
   final Color textColor;
   final bool useStroke;
+  final int maxLines;
 
   const CustomText({
     Key? key,
@@ -15,6 +16,7 @@ class CustomText extends StatelessWidget {
     this.strokeColor = Colors.black,
     this.textColor = Colors.white,
     this.useStroke = true,
+    this.maxLines = 1,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class CustomText extends StatelessWidget {
       children: [
         Text(
           text,
-          maxLines: 1,
+          maxLines: maxLines,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontFamily: AppTheme.font,
@@ -34,7 +36,7 @@ class CustomText extends StatelessWidget {
         if (useStroke)
           Text(
             text,
-            maxLines: 1,
+            maxLines: maxLines,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontFamily: AppTheme.font,
