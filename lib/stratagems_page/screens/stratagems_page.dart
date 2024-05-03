@@ -69,17 +69,16 @@ class StratagemsPage extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                    flex: 1,
+                    flex: 2,
                     fit: FlexFit.tight,
                     child: ConstrainedBox(
                       constraints: BoxConstraints(maxWidth: 300),
                       child: StratagemsSelectedWidget(),
                     ),
                   ),
-                  Flexible(flex: 1, fit: FlexFit.tight, child: Container()),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 24),
-                    child: InkWell(
+                    child: GestureDetector(
                       onTap: () => Navigator.of(context).pushNamed(
                         MissionPage.routeName,
                       ),

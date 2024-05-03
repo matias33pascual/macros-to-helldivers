@@ -10,13 +10,18 @@ class StratagemsSelectedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final SelectedProvider provider = Provider.of<SelectedProvider>(context);
 
-    final list = provider.state.stratagemsSelectedForMission
-        .map((e) => _StratagemIcon(stratagemId: e))
-        .toList();
+    final List<_StratagemFrameIcon> list =
+        provider.state.stratagemsSelectedForMission
+            .map((stratagemId) => _StratagemFrameIcon(
+                  stratagemIcon: _StratagemIcon(
+                    stratagemId: stratagemId,
+                  ),
+                ))
+            .toList();
 
     if (list.length < provider.state.maxStratagemSelected) {
       for (var i = list.length; i < provider.state.maxStratagemSelected; i++) {
-        list.add(const _StratagemIcon());
+        list.add(const _StratagemFrameIcon());
       }
     }
 
@@ -25,35 +30,36 @@ class StratagemsSelectedWidget extends StatelessWidget {
 }
 
 class _StratagemIcon extends StatelessWidget {
-  final String? stratagemId;
+  final String stratagemId;
 
-  const _StratagemIcon({Key? key, this.stratagemId}) : super(key: key);
+  const _StratagemIcon({Key? key, required this.stratagemId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final StratagemsProvider provider =
         Provider.of<StratagemsProvider>(context, listen: false);
 
-    if (stratagemId != null) {
-      StratagemModel stratagem = provider.getStratagemById(stratagemId!);
+    StratagemModel stratagem = provider.getStratagemById(stratagemId);
 
-      return InkWell(
-        onTap: () => provider.onSelectedIconTap(stratagemId!, context),
-        child: _StratagemFrameIcon(stratagem: stratagem),
-      );
-    } else {
-      return const _StratagemFrameIcon();
-    }
+    return GestureDetector(
+      onTap: () => provider.onSelectedIconTap(stratagemId, context),
+      child: Container(
+        width: 100,
+        height: 100,
+        color: Colors.black.withOpacity(0.7),
+        child: Image.asset(stratagem.icon),
+      ),
+    );
   }
 }
 
 class _StratagemFrameIcon extends StatelessWidget {
   const _StratagemFrameIcon({
     Key? key,
-    this.stratagem,
+    this.stratagemIcon,
   }) : super(key: key);
 
-  final StratagemModel? stratagem;
+  final _StratagemIcon? stratagemIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -63,13 +69,39 @@ class _StratagemFrameIcon extends StatelessWidget {
       height: 50,
       padding: const EdgeInsets.all(2),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.7),
         border: Border.all(
           color: Colors.amber,
           width: 1,
         ),
       ),
-      child: stratagem != null ? Image.asset(stratagem!.icon) : null,
+      child: stratagemIcon,
     );
   }
 }
+
+// class _StratagemFrameIcon extends StatelessWidget {
+//   const _StratagemFrameIcon({
+//     Key? key,
+//     this.stratagem,
+//   }) : super(key: key);
+
+//   final StratagemModel? stratagem;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       margin: const EdgeInsets.all(4),
+//       width: 50,
+//       height: 50,
+//       padding: const EdgeInsets.all(2),
+//       decoration: BoxDecoration(
+//         color: Colors.black.withOpacity(0.7),
+//         border: Border.all(
+//           color: Colors.amber,
+//           width: 1,
+//         ),
+//       ),
+//       child: stratagem != null ? Image.asset(stratagem!.icon) : null,
+//     );
+//   }
+// }

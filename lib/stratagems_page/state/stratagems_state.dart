@@ -21,13 +21,6 @@ class StratagemsState {
     "100",
     "101",
     "102",
-    "102",
-    "102",
-    "102",
-    "102",
-    "102",
-    "102",
-    "102",
   ];
 
   int maxStratagemSelected = 10;
