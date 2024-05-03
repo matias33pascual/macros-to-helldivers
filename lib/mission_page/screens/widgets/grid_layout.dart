@@ -12,42 +12,41 @@ class GridLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> stratagemsWidgetsList = [];
-
     if (stratagemsList.isEmpty) {
       return Container();
     } else if (stratagemsList.length == 1) {
-      return Center(child: StratagemButton(stratagem: stratagemsList[0]));
+      return _buildOneButton();
     } else {
-      // if (stratagemsList.length < 7) {
-      //   // TODO: terminar esta parte -> 03/05 | 01:33
+      return _buildGrid(stratagemsList);
+    }
+  }
 
-      //   final widgetsInGrid = _buildGridFormLessThanSeven();
-      //   stratagemsWidgetsList.addAll(widgetsInGrid);
+  Center _buildOneButton() {
+    return Center(child: StratagemButton(stratagem: stratagemsList[0]));
+  }
 
-      // TODO: hacer una funcion auxiliar aca -> 03/05 | 01:34
-
-      for (var i = 0; i < stratagemsList.length; i++) {
-        stratagemsWidgetsList.add(
-          Expanded(
-            child: Row(
-              children: [
+  Widget _buildGrid(List<StratagemModel> stragemsList) {
+    final List<Widget> stratagemsWidgetsList = [];
+    for (var i = 0; i < stratagemsList.length; i++) {
+      stratagemsWidgetsList.add(
+        Flexible(
+          child: Row(
+            children: [
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: StratagemButton(stratagem: stratagemsList[i]),
+              ),
+              if (i + 1 < stratagemsList.length)
                 Flexible(
                   flex: 1,
                   fit: FlexFit.tight,
-                  child: StratagemButton(stratagem: stratagemsList[i]),
+                  child: StratagemButton(stratagem: stratagemsList[++i]),
                 ),
-                if (i + 1 < stratagemsList.length)
-                  Flexible(
-                    flex: 1,
-                    fit: FlexFit.tight,
-                    child: StratagemButton(stratagem: stratagemsList[++i]),
-                  ),
-              ],
-            ),
+            ],
           ),
-        );
-      }
+        ),
+      );
     }
 
     return Column(

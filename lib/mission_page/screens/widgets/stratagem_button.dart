@@ -5,14 +5,16 @@ class StratagemButton extends StatelessWidget {
   const StratagemButton({
     Key? key,
     required this.stratagem,
+    this.verticalPadding = 24,
   }) : super(key: key);
 
   final StratagemModel stratagem;
+  final double verticalPadding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 24),
+      padding: EdgeInsets.symmetric(vertical: verticalPadding),
       margin: const EdgeInsets.all(2),
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.5),
