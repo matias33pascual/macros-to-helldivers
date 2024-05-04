@@ -24,6 +24,4 @@ class StratagemsState {
   ];
 
   int maxStratagemSelected = 10;
-
-  bool useGridLayout = true;
 }

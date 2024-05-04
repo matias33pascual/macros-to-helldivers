@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:macro_sync_client/mission_page/providers/mission_provider.dart';
 import 'package:macro_sync_client/mission_page/screens/widgets/exports_widgets.dart';
-import 'package:macro_sync_client/mission_page/screens/widgets/list_layout.dart';
 import 'package:macro_sync_client/stratagems_page/models/stratagems_model.dart';
 import 'package:macro_sync_client/stratagems_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
@@ -18,16 +18,20 @@ class MissionStratagems extends StatelessWidget {
         .map((stratagemId) => provider.getStratagemById(stratagemId))
         .toList();
 
-    provider.state.useGridLayout = true;
+    return _buildLayout(stratagemsList, context);
+  }
+}
 
-    if (stratagemsList.isEmpty) {
-      return Container();
-    } else if (stratagemsList.length < 3) {
-      return ListLayout(stratagemsList: stratagemsList);
-    } else if (provider.state.useGridLayout) {
-      return GridLayout(stratagemsList: stratagemsList);
-    } else {
-      return ListLayout(stratagemsList: stratagemsList);
-    }
+Widget _buildLayout(List<StratagemModel> stratagemsList, BuildContext context) {
+  final MissionProvider provider = Provider.of<MissionProvider>(context);
+
+  if (stratagemsList.isEmpty) {
+    return Container();
+  } else if (stratagemsList.length < 3) {
+    return ListLayout(stratagemsList: stratagemsList);
+  } else if (provider.state.useGridLayout) {
+    return GridLayout(stratagemsList: stratagemsList);
+  } else {
+    return ListLayout(stratagemsList: stratagemsList);
   }
 }
