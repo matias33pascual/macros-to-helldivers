@@ -30,7 +30,7 @@ class _StratagemListButtonState extends State<StratagemListButton> {
         isPressed = false;
       }),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+        padding: const EdgeInsets.symmetric(vertical: 4),
         margin: const EdgeInsets.all(2),
         decoration: BoxDecoration(
           color: isPressed
@@ -55,7 +55,7 @@ class _StratagemListButtonState extends State<StratagemListButton> {
                 ),
               ),
               Flexible(
-                flex: 2,
+                flex: 3,
                 fit: FlexFit.tight,
                 child: StreamBuilder<Object>(
                     stream: null,
