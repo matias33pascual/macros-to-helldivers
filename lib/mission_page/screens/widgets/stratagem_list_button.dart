@@ -55,18 +55,13 @@ class _StratagemListButtonState extends State<StratagemListButton> {
                 ),
               ),
               Flexible(
-                flex: 3,
-                fit: FlexFit.tight,
-                child: StreamBuilder<Object>(
-                    stream: null,
-                    builder: (context, snapshot) {
-                      return CustomText(
-                        text: widget.stratagem.name,
-                        size: isPressed ? 16.8 : 17,
-                        maxLines: 2,
-                      );
-                    }),
-              ),
+                  flex: 3,
+                  fit: FlexFit.tight,
+                  child: CustomText(
+                    text: widget.stratagem.name,
+                    size: 17,
+                    maxLines: 2,
+                  )),
             ],
           ),
         ),

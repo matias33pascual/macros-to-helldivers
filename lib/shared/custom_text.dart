@@ -8,6 +8,7 @@ class CustomText extends StatelessWidget {
   final Color textColor;
   final bool useStroke;
   final int maxLines;
+  final bool centerText;
 
   const CustomText({
     Key? key,
@@ -17,6 +18,7 @@ class CustomText extends StatelessWidget {
     this.textColor = Colors.white,
     this.useStroke = true,
     this.maxLines = 1,
+    this.centerText = false,
   }) : super(key: key);
 
   @override
@@ -27,6 +29,7 @@ class CustomText extends StatelessWidget {
           text,
           maxLines: maxLines,
           overflow: TextOverflow.ellipsis,
+          textAlign: centerText ? TextAlign.center : null,
           style: TextStyle(
             fontFamily: AppTheme.font,
             fontSize: size,
@@ -38,6 +41,7 @@ class CustomText extends StatelessWidget {
             text,
             maxLines: maxLines,
             overflow: TextOverflow.ellipsis,
+            textAlign: centerText ? TextAlign.center : null,
             style: TextStyle(
               fontFamily: AppTheme.font,
               fontSize: size,

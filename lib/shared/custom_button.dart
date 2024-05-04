@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/shared/custom_text.dart';
-import 'package:macro_sync_client/theme/app_theme.dart';
 
 enum CustomButtonColors {
   gray,
   yellow,
-  green,
 }
 
 class CustomButton extends StatelessWidget {
@@ -20,30 +18,28 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = AppTheme.colors;
-    final appDecorationEffects = AppTheme.decorationEffects;
-
     return Container(
       decoration: BoxDecoration(
+        color: color == CustomButtonColors.gray
+            ? Colors.grey.withOpacity(0.1)
+            : Colors.amber.withOpacity(0.1),
         border: Border.all(
-          width: color == CustomButtonColors.gray ? 2 : 1,
+          width: 2,
           color: color == CustomButtonColors.yellow
-              ? Colors.amber
-              : appColors.borderGray,
+              ? Colors.amber.withOpacity(0.6)
+              : Colors.grey.withOpacity(0.4),
         ),
         borderRadius: BorderRadius.zero,
-        gradient: color == CustomButtonColors.yellow
-            ? appDecorationEffects.diagonalLinearGradientYellow
-            : appDecorationEffects.diagonalLinearGradientGray,
       ),
       width: 140,
       height: 30,
       child: Center(
         child: CustomText(
           text: text,
-          size: 18,
-          textColor:
-              color == CustomButtonColors.yellow ? Colors.amber : Colors.grey,
+          size: 16,
+          textColor: color == CustomButtonColors.yellow
+              ? Colors.yellow[400]!.withOpacity(0.9)
+              : Colors.grey.withOpacity(0.6),
         ),
       ),
     );

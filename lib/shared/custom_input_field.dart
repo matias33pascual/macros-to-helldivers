@@ -49,12 +49,13 @@ class _CustomInputFieldState extends State<CustomInputField> {
     final textStyles = AppTheme.textStyles;
 
     return Container(
+      height: 40,
       decoration: BoxDecoration(
         border: _hasFocus
             ? Border(
                 left: BorderSide(
                 width: 3,
-                color: appColors.menuItemLeftBorder,
+                color: Colors.amber.withOpacity(0.8),
               ))
             : null,
       ),
@@ -72,9 +73,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
               ? textStyles.hintTextSelected
               : textStyles.hintTextNotSelected,
           filled: true,
-          fillColor: _hasFocus
-              ? appColors.menuItemSelected
-              : appColors.menuItemBackground,
+          fillColor: _hasFocus ? Colors.amber.withOpacity(0.4) : Colors.black54,
           border: InputBorder.none,
         ),
       ),

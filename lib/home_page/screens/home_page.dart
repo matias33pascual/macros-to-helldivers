@@ -25,95 +25,93 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Stack(
           children: [
-            Image.asset(
-              "assets/images/home_background.png",
-              height: MediaQuery.of(context).size.height,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomText(
-                    text: "Macro Sync Mobile",
-                    size: 22,
-                    textColor: AppTheme.colors.borderYellow,
-                    strokeColor: Colors.white.withOpacity(0.1),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [_buildTitle()],
-              ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                _buildForm(context),
-              ],
-            ),
+            _buildBackground(context),
+            _buildMacroSyncTitle(),
+            _buildHelldiversTitle(),
+            _buildForm(context),
           ],
         ),
       ),
     );
   }
 
+  Padding _buildHelldiversTitle() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 50),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                "assets/images/helldivers_title.png",
+                width: 260,
+                color: Colors.yellow,
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Padding _buildMacroSyncTitle() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomText(
+            text: "Macro Sync Mobile",
+            size: 20,
+            textColor: AppTheme.colors.borderYellow,
+            strokeColor: Colors.white.withOpacity(0.1),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Image _buildBackground(BuildContext context) {
+    return Image.asset(
+      "assets/images/home_background.png",
+      height: MediaQuery.of(context).size.height,
+      fit: BoxFit.cover,
+    );
+  }
+
   _buildForm(BuildContext context) {
-    return Center(
-      child: Container(
-        constraints: const BoxConstraints(maxWidth: 600),
-        child: Stack(
-          children: [
-            _buildPanel(),
-            _buildVerticalBar(),
-            _buildContent(context),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Stack(
+            children: [
+              _buildPanel(),
+              _buildContent(context),
+            ],
+          ),
+        ],
       ),
     );
   }
 
   _buildContent(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 24, right: 16, top: 10),
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       child: Column(
         children: [
+          _buildDivisor(),
           Container(
-            padding: const EdgeInsets.only(bottom: 4),
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: AppTheme.colors.borderGray,
-                  width: 1,
-                ),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                CustomText(
-                  text: "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
-                  size: 12,
-                ),
-              ],
-            ),
+            margin: const EdgeInsets.only(top: 12),
+            child: const CustomForm(),
           ),
-          Container(
-              margin: const EdgeInsets.only(top: 12),
-              child: const CustomForm()),
-          Container(
-            margin: const EdgeInsets.only(top: 16),
-            child: InkWell(
-              onTap: () => Navigator.pushNamed(
-                context,
-                StratagemsPage.routeName,
-              ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16),
+            child: GestureDetector(
+              onTap: () =>
+                  Navigator.pushNamed(context, StratagemsPage.routeName),
               child: const ConnectButton(),
             ),
           )
@@ -122,25 +120,45 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _buildVerticalBar() {
-    return const Positioned(
-      top: 10,
-      left: 8,
-      child: VerticalBar(height: 148, side: VerticalBarSide.left),
+  Container _buildDivisor() {
+    return Container(
+      padding: const EdgeInsets.only(bottom: 4),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.amber[500]!.withOpacity(0.6),
+            width: 2,
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: CustomText(
+              text: "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
+              size: 18,
+              maxLines: 2,
+              textColor: Colors.white,
+              strokeColor: Colors.black.withOpacity(0.7),
+              centerText: true,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   _buildPanel() {
     return Container(
-      height: 210,
-      decoration: BoxDecoration(color: Colors.black.withOpacity(0.8)),
-    );
-  }
-
-  _buildTitle() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 24),
-      child: Image.asset("assets/images/helldivers_title.png", width: 260),
+      height: 220,
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.7),
+        border: Border.all(
+          color: Colors.amber[500]!.withOpacity(0.6),
+          width: 2,
+          strokeAlign: StrokeAlign.inside,
+        ),
+      ),
     );
   }
 }

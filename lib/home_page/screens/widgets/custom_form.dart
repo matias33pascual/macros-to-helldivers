@@ -21,7 +21,7 @@ class CustomForm extends StatelessWidget {
           onChangedHandle: (String value) =>
               provider.setIPAddress(value, context),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 6),
         CustomInputField(
           hintText: "PUERTO",
           textInputType: TextInputType.number,
