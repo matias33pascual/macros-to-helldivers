@@ -3,6 +3,7 @@ import 'package:macro_sync_client/mission_page/providers/mission_provider.dart';
 import 'package:macro_sync_client/mission_page/screens/widgets/exports_widgets.dart';
 import 'package:macro_sync_client/mission_page/screens/widgets/mission_stratagems.dart';
 import 'package:macro_sync_client/shared/custom_app_bar.dart';
+import 'package:macro_sync_client/stratagems_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
 
 class MissionPage extends StatelessWidget {
@@ -14,12 +15,18 @@ class MissionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final MissionProvider provider = Provider.of<MissionProvider>(context);
 
+    final StratagemsProvider stratagemsProvider =
+        Provider.of<StratagemsProvider>(context, listen: false);
+
     return SafeArea(
       child: Scaffold(
         appBar: CustomAppBar(
           title: "Mision",
           color: Colors.indigo[900]!.withOpacity(0.2),
-          actionButton: _buildActionButton(provider),
+          actionButton:
+              stratagemsProvider.state.stratagemsSelectedForMission.length > 2
+                  ? _buildActionButton(provider)
+                  : null,
         ),
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
