@@ -51,9 +51,6 @@ class StratagemsProvider extends ChangeNotifier {
   _moveToNextTabMenu(BuildContext context) {
     switch (state.tabMenuSelected) {
       case TabsMenuEnum.mission:
-        onTabMenuHandler(TabsMenuEnum.defenses, context);
-        break;
-      case TabsMenuEnum.defenses:
         onTabMenuHandler(TabsMenuEnum.eagle, context);
         break;
       case TabsMenuEnum.eagle:
@@ -65,6 +62,12 @@ class StratagemsProvider extends ChangeNotifier {
       case TabsMenuEnum.weapons:
         onTabMenuHandler(TabsMenuEnum.backpacks, context);
         break;
+      case TabsMenuEnum.backpacks:
+        onTabMenuHandler(TabsMenuEnum.defenses, context);
+        break;
+      case TabsMenuEnum.defenses:
+        onTabMenuHandler(TabsMenuEnum.mission, context);
+        break;
       default:
         break;
     }
@@ -72,20 +75,23 @@ class StratagemsProvider extends ChangeNotifier {
 
   _moveToPreviousTabMenu(BuildContext context) {
     switch (state.tabMenuSelected) {
-      case TabsMenuEnum.defenses:
-        onTabMenuHandler(TabsMenuEnum.mission, context);
-        break;
-      case TabsMenuEnum.eagle:
+      case TabsMenuEnum.mission:
         onTabMenuHandler(TabsMenuEnum.defenses, context);
         break;
-      case TabsMenuEnum.orbital:
-        onTabMenuHandler(TabsMenuEnum.eagle, context);
+      case TabsMenuEnum.eagle:
+        onTabMenuHandler(TabsMenuEnum.mission, context);
+        break;
+      case TabsMenuEnum.defenses:
+        onTabMenuHandler(TabsMenuEnum.backpacks, context);
+        break;
+      case TabsMenuEnum.backpacks:
+        onTabMenuHandler(TabsMenuEnum.weapons, context);
         break;
       case TabsMenuEnum.weapons:
         onTabMenuHandler(TabsMenuEnum.orbital, context);
         break;
-      case TabsMenuEnum.backpacks:
-        onTabMenuHandler(TabsMenuEnum.weapons, context);
+      case TabsMenuEnum.orbital:
+        onTabMenuHandler(TabsMenuEnum.eagle, context);
         break;
       default:
         break;

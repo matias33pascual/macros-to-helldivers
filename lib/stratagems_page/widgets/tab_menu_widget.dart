@@ -29,16 +29,6 @@ class TabMenuWidget extends StatelessWidget {
           ),
         ),
         _MenuTab(
-          text: TabsMenuEnum.defenses.getStringValue(),
-          isSelected: tabsMenuProviders.isThisMenuSelected(
-            TabsMenuEnum.defenses,
-          ),
-          onTapHandler: () => stratagemsProvider.onTabMenuHandler(
-            TabsMenuEnum.defenses,
-            context,
-          ),
-        ),
-        _MenuTab(
           text: TabsMenuEnum.eagle.getStringValue(),
           isSelected: tabsMenuProviders.isThisMenuSelected(
             TabsMenuEnum.eagle,
@@ -75,6 +65,16 @@ class TabMenuWidget extends StatelessWidget {
           ),
           onTapHandler: () => stratagemsProvider.onTabMenuHandler(
             TabsMenuEnum.backpacks,
+            context,
+          ),
+        ),
+        _MenuTab(
+          text: TabsMenuEnum.defenses.getStringValue(),
+          isSelected: tabsMenuProviders.isThisMenuSelected(
+            TabsMenuEnum.defenses,
+          ),
+          onTapHandler: () => stratagemsProvider.onTabMenuHandler(
+            TabsMenuEnum.defenses,
             context,
           ),
         ),

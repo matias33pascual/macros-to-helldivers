@@ -15,8 +15,10 @@ class StratagemsState {
   List<StratagemModel> backpacksStratagemsList = [];
   List<StratagemModel> weaponsStratagemsList = [];
 
-  TabsMenuEnum tabMenuSelected = TabsMenuEnum.mission;
+  TabsMenuEnum tabMenuSelected = TabsMenuEnum.eagle;
+
   List<StratagemModel> listToShow = [];
+
   List<String> stratagemsSelectedForMission = [
     "100",
     "101",
