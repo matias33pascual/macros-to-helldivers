@@ -25,13 +25,13 @@ class GridLayout extends StatelessWidget {
               Flexible(
                 flex: 1,
                 fit: FlexFit.tight,
-                child: StratagemButton(stratagem: stratagemsList[i]),
+                child: StratagemGridButton(stratagem: stratagemsList[i]),
               ),
               if (i + 1 < stratagemsList.length)
                 Flexible(
                   flex: 1,
                   fit: FlexFit.tight,
-                  child: StratagemButton(stratagem: stratagemsList[++i]),
+                  child: StratagemGridButton(stratagem: stratagemsList[++i]),
                 ),
             ],
           ),

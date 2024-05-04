@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_client/shared/custom_text.dart';
 import 'package:macro_sync_client/stratagems_page/models/stratagems_model.dart';
 
-class StratagemListButton extends StatefulWidget {
-  const StratagemListButton({
+class StratagemGridButton extends StatefulWidget {
+  const StratagemGridButton({
     Key? key,
     required this.stratagem,
   }) : super(key: key);
@@ -11,10 +10,10 @@ class StratagemListButton extends StatefulWidget {
   final StratagemModel stratagem;
 
   @override
-  State<StratagemListButton> createState() => _StratagemListButtonState();
+  State<StratagemGridButton> createState() => _StratagemGridButtonState();
 }
 
-class _StratagemListButtonState extends State<StratagemListButton> {
+class _StratagemGridButtonState extends State<StratagemGridButton> {
   bool isPressed = false;
 
   @override
@@ -30,8 +29,7 @@ class _StratagemListButtonState extends State<StratagemListButton> {
         isPressed = false;
       }),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 2),
-        margin: const EdgeInsets.all(2),
+        margin: const EdgeInsets.all(3),
         decoration: BoxDecoration(
           color: isPressed
               ? Colors.blue.withOpacity(0.5)
@@ -42,33 +40,18 @@ class _StratagemListButtonState extends State<StratagemListButton> {
           ),
           borderRadius: const BorderRadius.all(Radius.circular(2)),
         ),
-        child: Transform.scale(
-          scale: isPressed ? 0.99 : 1,
-          child: Row(
-            children: [
-              Flexible(
-                flex: 1,
-                fit: FlexFit.tight,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Transform.scale(
+                scale: isPressed ? 0.98 : 1,
                 child: Image.asset(
                   widget.stratagem.icon,
-                  height: 80,
                 ),
               ),
-              Flexible(
-                flex: 2,
-                fit: FlexFit.tight,
-                child: StreamBuilder<Object>(
-                    stream: null,
-                    builder: (context, snapshot) {
-                      return CustomText(
-                        text: widget.stratagem.name,
-                        size: isPressed ? 16.8 : 17,
-                        maxLines: 2,
-                      );
-                    }),
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
