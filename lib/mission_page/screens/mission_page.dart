@@ -22,7 +22,7 @@ class MissionPage extends StatelessWidget {
       child: Scaffold(
         appBar: CustomAppBar(
           title: "Mision",
-          color: Colors.blue[900]!.withOpacity(0.4),
+          color: Colors.blue[900]!.withOpacity(0.2),
           actionButton:
               stratagemsProvider.state.stratagemsSelectedForMission.length > 2
                   ? _buildActionButton(provider)
