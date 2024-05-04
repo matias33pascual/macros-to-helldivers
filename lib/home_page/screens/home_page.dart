@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
               Image.asset(
                 "assets/images/helldivers_title.png",
                 width: 260,
-                color: Colors.yellow,
+                color: Colors.amber[400],
               ),
             ],
           )
@@ -64,8 +64,8 @@ class HomePage extends StatelessWidget {
           CustomText(
             text: "Macro Sync Mobile",
             size: 20,
-            textColor: AppTheme.colors.borderYellow,
-            strokeColor: Colors.white.withOpacity(0.1),
+            textColor: Colors.amber[400]!,
+            strokeColor: Colors.black.withOpacity(0.3),
           ),
         ],
       ),
