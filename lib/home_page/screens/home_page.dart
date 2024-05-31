@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
             _buildBackground(context),
             _buildMacroSyncTitle(),
             if (provider.state.error) _buildMessageInfo(),
-            if (provider.state.isLoading) _buildLoadingWidget(),
+            if (provider.state.isLoading) _buildLoadingWidget(context),
             _buildHelldiversTitle(),
             _buildForm(context),
           ],
@@ -51,8 +51,16 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildLoadingWidget() {
-    return const CircularProgressIndicator();
+  Widget _buildLoadingWidget(BuildContext context) {
+    return Positioned(
+      top: 310,
+      height: 4,
+      width: MediaQuery.of(context).size.width,
+      child: const LinearProgressIndicator(
+        backgroundColor: Colors.white,
+        color: Colors.amber,
+      ),
+    );
   }
 
   Widget _buildMessageInfo() {
@@ -160,7 +168,9 @@ class HomePage extends StatelessWidget {
                 final HomeProvider provider =
                     Provider.of<HomeProvider>(context, listen: false);
 
-                if (provider.state.isLoading) {
+                if (provider.state.port.isEmpty ||
+                    provider.state.ipAddrress.isEmpty ||
+                    provider.state.isLoading) {
                   return;
                 }
 
