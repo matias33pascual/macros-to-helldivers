@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:macro_sync_client/shared/services/connection_service.dart';
 import 'package:macro_sync_client/stratagems_page/models/stratagems_model.dart';
 
 class StratagemGridButton extends StatefulWidget {
@@ -21,6 +24,15 @@ class _StratagemGridButtonState extends State<StratagemGridButton> {
     return GestureDetector(
       onTapDown: (details) => setState(() {
         isPressed = true;
+
+        final message = {
+          "type": "use-stratagem",
+          "value": widget.stratagem.id,
+        };
+
+        final jsonMessage = jsonEncode(message);
+
+        ConnectionService.instance.sendMessage(message: jsonMessage);
       }),
       onTapUp: (details) => setState(() {
         isPressed = false;

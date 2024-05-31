@@ -4,7 +4,7 @@
    <uses-permission android:name="android.permission.INTERNET" />
 
    <application
-        android:label="macro_sync_client"
+        android:label="MacroSync Mobile"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true"

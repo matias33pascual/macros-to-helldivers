@@ -5,4 +5,6 @@ class HomeState {
 
   String ipAddrress = "";
   String port = "";
+
+  bool error = false;
 }

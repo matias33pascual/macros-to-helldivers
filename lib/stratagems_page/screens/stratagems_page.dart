@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/mission_page/screens/mission_page.dart';
-import 'package:macro_sync_client/shared/exports_shared.dart';
+import 'package:macro_sync_client/shared/services/connection_service.dart';
+import 'package:macro_sync_client/shared/ui/exports_shared.dart';
 import 'package:macro_sync_client/stratagems_page/providers/stratagems_provider.dart';
 import 'package:macro_sync_client/stratagems_page/widgets/exports_widgets.dart';
 import 'package:macro_sync_client/theme/app_theme.dart';
@@ -79,9 +82,26 @@ class StratagemsPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 24),
                     child: GestureDetector(
-                      onTap: () => Navigator.of(context).pushNamed(
-                        MissionPage.routeName,
-                      ),
+                      onTap: () {
+                        final StratagemsProvider provider =
+                            Provider.of<StratagemsProvider>(context,
+                                listen: false);
+                        provider.state.stratagemsSelectedForMission;
+
+                        final message = {
+                          "type": "prepare-stratagems",
+                          "value": provider.state.stratagemsSelectedForMission
+                        };
+
+                        final jsonMessage = jsonEncode(message);
+
+                        ConnectionService.instance
+                            .sendMessage(message: jsonMessage);
+
+                        Navigator.of(context).pushNamed(
+                          MissionPage.routeName,
+                        );
+                      },
                       child: CustomButton(
                         color: CustomButtonColors.yellow,
                         text: "COMENZAR",

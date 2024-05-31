@@ -23,4 +23,9 @@ class HomeProvider extends ChangeNotifier {
 
     connectButtonProvider.notifyListeners();
   }
+
+  void setMessageError(bool value) {
+    state.error = value;
+    notifyListeners();
+  }
 }

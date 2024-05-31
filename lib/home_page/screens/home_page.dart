@@ -1,8 +1,12 @@
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:macro_sync_client/home_page/providers/exports_providers.dart';
 import 'package:macro_sync_client/home_page/screens/widgets/exports_widgets.dart';
-import 'package:macro_sync_client/shared/exports_shared.dart';
-import 'package:macro_sync_client/stratagems_page/screens/stratagems_page.dart';
-import 'package:macro_sync_client/theme/app_theme.dart';
+import 'package:macro_sync_client/shared/services/connection_service.dart';
+import 'package:macro_sync_client/shared/ui/exports_shared.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,13 +15,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // IOWebSocketChannel? channel;
-
-    // void onPressHandler() {
-    //   debugPrint("Conectando al servidor . . .");
-    //   IOWebSocketChannel.connect("ws://192.168.100.16:433");
-    //   channel.sink.add("HOLA DESDE FLUTTER!!");
-    // }
+    final HomeProvider provider = Provider.of<HomeProvider>(context);
 
     return SafeArea(
       child: Scaffold(
@@ -27,10 +25,37 @@ class HomePage extends StatelessWidget {
           children: [
             _buildBackground(context),
             _buildMacroSyncTitle(),
+            if (provider.state.error) _buildMessageInfo(),
             _buildHelldiversTitle(),
             _buildForm(context),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildMessageInfo() {
+    return Container(
+      padding: const EdgeInsets.only(top: 210, left: 16, right: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Flexible(
+            child: Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.6),
+                border: Border.all(color: Colors.amber),
+              ),
+              child: CustomText(
+                  maxLines: 4,
+                  size: 13,
+                  textAlign: TextAlign.justify,
+                  text:
+                      "No fue posible realizar la conexion. Compruebe que la DIRECCION IP y EL PUERTO sean los mismos que figuran en MacroSync Desktop Helldivers."),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -110,8 +135,26 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 16),
             child: GestureDetector(
-              onTap: () =>
-                  Navigator.pushNamed(context, StratagemsPage.routeName),
+              onTap: () async {
+                final HomeProvider provider =
+                    Provider.of<HomeProvider>(context, listen: false);
+
+                bool isConnectedToServer =
+                    await ConnectionService.instance.connectToServer(
+                  provider.state.ipAddrress,
+                  provider.state.port,
+                  context,
+                );
+
+                if (!isConnectedToServer) {
+                  if (kDebugMode) {
+                    provider.setMessageError(true);
+                    print("No se pudo conectar al servidor.");
+                  }
+                } else {
+                  provider.setMessageError(false);
+                }
+              },
               child: const ConnectButton(),
             ),
           )
@@ -140,7 +183,7 @@ class HomePage extends StatelessWidget {
               maxLines: 2,
               textColor: Colors.white,
               strokeColor: Colors.black.withOpacity(0.7),
-              centerText: true,
+              textAlign: TextAlign.center,
             ),
           ),
         ],

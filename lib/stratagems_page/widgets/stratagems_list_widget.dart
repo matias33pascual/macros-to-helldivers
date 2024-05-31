@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_client/shared/exports_shared.dart';
+import 'package:macro_sync_client/shared/ui/exports_shared.dart';
 import 'package:macro_sync_client/stratagems_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
 

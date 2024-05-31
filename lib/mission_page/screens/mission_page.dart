@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/mission_page/providers/mission_provider.dart';
 import 'package:macro_sync_client/mission_page/screens/widgets/exports_widgets.dart';
-import 'package:macro_sync_client/shared/exports_shared.dart';
+import 'package:macro_sync_client/shared/ui/exports_shared.dart';
 import 'package:macro_sync_client/stratagems_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
 

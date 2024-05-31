@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:macro_sync_client/shared/custom_text.dart';
+import 'package:macro_sync_client/shared/services/connection_service.dart';
+import 'package:macro_sync_client/shared/ui/custom_text.dart';
 import 'package:macro_sync_client/stratagems_page/models/stratagems_model.dart';
 
 class StratagemListButton extends StatefulWidget {
@@ -22,6 +25,15 @@ class _StratagemListButtonState extends State<StratagemListButton> {
     return GestureDetector(
       onTapDown: (details) => setState(() {
         isPressed = true;
+
+        final message = {
+          "type": "use-stratagem",
+          "value": widget.stratagem.id,
+        };
+
+        final jsonMessage = jsonEncode(message);
+
+        ConnectionService.instance.sendMessage(message: jsonMessage);
       }),
       onTapUp: (details) => setState(() {
         isPressed = false;

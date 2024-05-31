@@ -50,7 +50,7 @@
   {
     "id": "208",
     "name": "VIGIA DE CAÑON AUTOMATICO",
-    "icon": "assets/icons/Mortar-Sentry.png",
+    "icon": "assets/icons/Autocannon-Sentry.png",
     "keysCode": ["down", "up", "right", "up", "left", "up"]
   },
   {
