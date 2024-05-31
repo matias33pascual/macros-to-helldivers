@@ -16,14 +16,17 @@ class CustomForm extends StatelessWidget {
     return Column(
       children: [
         CustomInputField(
-          hintText: "DIRECCION IP",
+          hintText: provider.state.ipAddrress.isEmpty
+              ? "DIRECCION IP"
+              : provider.state.ipAddrress,
           formKey: formKeyIp,
           onChangedHandle: (String value) =>
               provider.setIPAddress(value, context),
         ),
         const SizedBox(height: 6),
         CustomInputField(
-          hintText: "PUERTO",
+          hintText:
+              provider.state.port.isEmpty ? "PUERTO" : provider.state.port,
           textInputType: TextInputType.number,
           formKey: formKeyPort,
           onChangedHandle: (String value) => provider.setPort(value, context),

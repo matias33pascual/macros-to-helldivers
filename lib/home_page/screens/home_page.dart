@@ -1,12 +1,13 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
-
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/home_page/providers/exports_providers.dart';
 import 'package:macro_sync_client/home_page/screens/widgets/exports_widgets.dart';
 import 'package:macro_sync_client/shared/services/connection_service.dart';
 import 'package:macro_sync_client/shared/ui/exports_shared.dart';
+import 'package:macro_sync_client/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,6 +18,21 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final HomeProvider provider = Provider.of<HomeProvider>(context);
 
+    loadDataFromLocalStorate() async {
+      final prefs = await SharedPreferences.getInstance();
+
+      String? value = prefs.getString("connection-data");
+
+      if (value != null) {
+        final data = jsonDecode(value);
+
+        provider.state.ipAddrress = data.ip;
+        provider.state.port = data.port;
+      }
+    }
+
+    loadDataFromLocalStorate();
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -26,12 +42,17 @@ class HomePage extends StatelessWidget {
             _buildBackground(context),
             _buildMacroSyncTitle(),
             if (provider.state.error) _buildMessageInfo(),
+            if (provider.state.isLoading) _buildLoadingWidget(),
             _buildHelldiversTitle(),
             _buildForm(context),
           ],
         ),
       ),
     );
+  }
+
+  Widget _buildLoadingWidget() {
+    return const CircularProgressIndicator();
   }
 
   Widget _buildMessageInfo() {
@@ -42,12 +63,12 @@ class HomePage extends StatelessWidget {
         children: [
           Flexible(
             child: Container(
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.6),
                 border: Border.all(color: Colors.amber),
               ),
-              child: CustomText(
+              child: const CustomText(
                   maxLines: 4,
                   size: 13,
                   textAlign: TextAlign.justify,
@@ -135,24 +156,41 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 16),
             child: GestureDetector(
-              onTap: () async {
+              onTap: () {
                 final HomeProvider provider =
                     Provider.of<HomeProvider>(context, listen: false);
 
-                bool isConnectedToServer =
-                    await ConnectionService.instance.connectToServer(
-                  provider.state.ipAddrress,
-                  provider.state.port,
-                  context,
-                );
+                if (provider.state.isLoading) {
+                  return;
+                }
 
-                if (!isConnectedToServer) {
+                try {
+                  ConnectionService.instance
+                      .connectToServer(
+                    provider.state.ipAddrress,
+                    provider.state.port,
+                    context,
+                  )
+                      .then(
+                    (value) {
+                      if (value) {
+                        Navigator.pushNamed(context, StratagemsPage.routeName);
+                      } else {
+                        if (kDebugMode) {
+                          print(
+                              "No se pudo conectar al servidor: ConnectionService return false.");
+                        }
+                        provider.setMessageError(true);
+                      }
+                    },
+                  ).onError(
+                    (error, stackTrace) => throw Exception(error),
+                  );
+                } catch (error) {
                   if (kDebugMode) {
-                    provider.setMessageError(true);
-                    print("No se pudo conectar al servidor.");
+                    print("No se pudo conectar al servidor: $error.");
                   }
-                } else {
-                  provider.setMessageError(false);
+                  provider.setMessageError(true);
                 }
               },
               child: const ConnectButton(),

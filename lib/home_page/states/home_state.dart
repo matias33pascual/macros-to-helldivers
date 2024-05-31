@@ -7,4 +7,6 @@ class HomeState {
   String port = "";
 
   bool error = false;
+
+  bool isLoading = false;
 }
