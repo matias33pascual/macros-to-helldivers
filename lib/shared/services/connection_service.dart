@@ -32,17 +32,16 @@ class ConnectionService {
       if (channel == null) {
         _connectionCompleter = Completer<bool>();
 
-        channel = IOWebSocketChannel.connect("ws://$ip:$port");
-
-        _startTimeoutTimer(context);
+        channel = IOWebSocketChannel.connect(
+          "ws://$ip:$port",
+          connectTimeout: const Duration(seconds: 5),
+        );
 
         channel!.stream.listen(
           (message) async {
             final jsonMessage = jsonDecode(message)["message"];
 
             if (jsonMessage == "macrosync-server-helldivers") {
-              _timeoutTimer?.cancel();
-
               if (!_connectionCompleter!.isCompleted) {
                 _connectionCompleter!.complete(true);
               }
@@ -105,29 +104,6 @@ class ConnectionService {
 
   sendMessage({String message = ""}) {
     channel?.sink.add(message);
-  }
-
-  void _startTimeoutTimer(BuildContext context) {
-    _timeoutTimer?.cancel();
-
-    _timeoutTimer = Timer(const Duration(seconds: 5), () {
-      if (kDebugMode) {
-        print("No se recibió mensaje en 5 segundos. Desconectando conexion.");
-      }
-
-      if (!_connectionCompleter!.isCompleted) {
-        _connectionCompleter!.complete(false);
-      }
-
-      final HomeProvider homeProvider = Provider.of<HomeProvider>(
-        context,
-        listen: false,
-      );
-
-      homeProvider.setIsLoading(false, context);
-
-      disconnect();
-    });
   }
 
   void disconnect() {

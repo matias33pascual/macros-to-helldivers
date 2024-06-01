@@ -30,9 +30,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     final HomeProvider provider = Provider.of<HomeProvider>(context);
 
+    if (provider.state.error) {
+      showMyDialog(context);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -41,8 +49,6 @@ class _HomePageState extends State<HomePage> {
           children: [
             _buildBackground(context),
             _buildMacroSyncTitle(),
-            if (provider.state.error) _buildMessageInfo(),
-            if (provider.state.isLoading) _buildLoadingWidget(context),
             _buildHelldiversTitle(),
             _buildForm(context),
           ],
@@ -51,38 +57,48 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildLoadingWidget(BuildContext context) {
-    return Positioned(
-      top: 310,
-      height: 4,
-      width: MediaQuery.of(context).size.width,
-      child: const LinearProgressIndicator(
-        backgroundColor: Colors.white,
-        color: Colors.amber,
-      ),
-    );
-  }
+  Future<void> showMyDialog(BuildContext context) async {
+    await Future.delayed(Duration.zero);
 
-  Widget _buildMessageInfo() {
-    return Container(
-      padding: const EdgeInsets.only(top: 210, left: 16, right: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Flexible(
-            child: Container(
-              padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.6),
-                border: Border.all(color: Colors.amber),
-              ),
-              child: const CustomText(
-                  maxLines: 4,
-                  size: 13,
-                  textAlign: TextAlign.justify,
-                  text:
-                      "No fue posible realizar la conexion. Compruebe que la DIRECCION IP y EL PUERTO sean los mismos que figuran en MacroSync Desktop Helldivers."),
-            ),
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.black,
+        insetPadding: const EdgeInsets.all(24),
+        contentPadding: const EdgeInsets.all(24),
+        shape: const RoundedRectangleBorder(
+            side: BorderSide(color: Colors.amber, width: 1)),
+        title: const CustomText(
+            maxLines: 10,
+            size: 16,
+            textAlign: TextAlign.center,
+            text: "No fue posible realizar la conexion."),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            CustomText(
+                maxLines: 20,
+                size: 14,
+                textAlign: TextAlign.center,
+                text:
+                    "Compruebe que la DIRECCION IP y EL PUERTO sean los mismos que figuran en"),
+            SizedBox(height: 8),
+            CustomText(
+                maxLines: 20,
+                size: 14,
+                textAlign: TextAlign.center,
+                strokeColor: Colors.black,
+                textColor: Colors.amber,
+                text: " MacroSync Desktop Helldivers."),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const CustomButton(
+                color: CustomButtonColors.yellow, text: "CERRAR", height: 40),
           ),
         ],
       ),
@@ -241,7 +257,7 @@ class _HomePageState extends State<HomePage> {
 
   _buildPanel() {
     return Container(
-      height: 222,
+      height: 230,
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.7),
         border: Border.all(

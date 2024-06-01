@@ -31,7 +31,19 @@ class CustomForm extends StatelessWidget {
           formKey: formKeyPort,
           onChangedHandle: (String value) => provider.setPort(value, context),
         ),
+        if (provider.state.isLoading) _buildLoadingWidget(context),
+        if (!provider.state.isLoading) const SizedBox(height: 9),
       ],
+    );
+  }
+
+  Widget _buildLoadingWidget(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.only(top: 6.0),
+      child: LinearProgressIndicator(
+        backgroundColor: Colors.white,
+        color: Colors.amber,
+      ),
     );
   }
 }
