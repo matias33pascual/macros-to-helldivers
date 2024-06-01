@@ -16,6 +16,7 @@ class ConnectButton extends StatelessWidget {
           ? CustomButtonColors.yellow
           : CustomButtonColors.gray,
       text: "CONECTAR",
+      height: 40,
     );
   }
 }

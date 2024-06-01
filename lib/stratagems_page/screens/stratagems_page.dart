@@ -22,8 +22,11 @@ class StratagemsPage extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
-        appBar:
-            CustomAppBar(title: "Estratagemas", color: AppTheme.colors.darkRed),
+        appBar: CustomAppBar(
+          title: "Estratagemas",
+          color: AppTheme.colors.darkRed,
+          onBackButtonPressed: () => ConnectionService.instance.disconnect(),
+        ),
         body: Stack(
           children: [
             _buildBackground(context),
@@ -104,7 +107,8 @@ class StratagemsPage extends StatelessWidget {
                       },
                       child: CustomButton(
                         color: CustomButtonColors.yellow,
-                        text: "COMENZAR",
+                        text: "INICIAR",
+                        height: 40,
                       ),
                     ),
                   ),

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/home_page/providers/exports_providers.dart';
@@ -7,31 +6,32 @@ import 'package:macro_sync_client/shared/services/connection_service.dart';
 import 'package:macro_sync_client/shared/ui/exports_shared.dart';
 import 'package:macro_sync_client/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   static String routeName = "home_page";
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    final HomeProvider homeProvider = Provider.of<HomeProvider>(
+      context,
+      listen: false,
+    );
+
+    homeProvider.loadDataFromLocalStorate(context);
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final HomeProvider provider = Provider.of<HomeProvider>(context);
-
-    loadDataFromLocalStorate() async {
-      final prefs = await SharedPreferences.getInstance();
-
-      String? value = prefs.getString("connection-data");
-
-      if (value != null) {
-        final data = jsonDecode(value);
-
-        provider.state.ipAddrress = data.ip;
-        provider.state.port = data.port;
-      }
-    }
-
-    loadDataFromLocalStorate();
 
     return SafeArea(
       child: Scaffold(
@@ -241,7 +241,7 @@ class HomePage extends StatelessWidget {
 
   _buildPanel() {
     return Container(
-      height: 220,
+      height: 222,
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.7),
         border: Border.all(

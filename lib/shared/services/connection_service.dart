@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/home_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:web_socket_channel/io.dart';
 
 class ConnectionService {
@@ -48,16 +47,9 @@ class ConnectionService {
                 _connectionCompleter!.complete(true);
               }
 
-              final prefs = await SharedPreferences.getInstance();
-
-              await prefs
-                  .setString(
-                    "connection-data",
-                    jsonEncode({"ip": ip, "port": port}),
-                  )
-                  .then(
-                    (_) => homeProvider.setIsLoading(false, context),
-                  );
+              await homeProvider
+                  .saveConnectionDataToLocalStorage(ip, port)
+                  .then((_) => homeProvider.setIsLoading(false, context));
 
               if (kDebugMode) {
                 print("Conexion establecida en $ip:$port");
@@ -94,7 +86,7 @@ class ConnectionService {
               "Se intento conectar al servidor pero la conexion ya habia sido realizada.");
         }
 
-        // homeProvider.setIsLoading(false, context);
+        homeProvider.setIsLoading(false, context);
 
         return Future.value(true);
       }

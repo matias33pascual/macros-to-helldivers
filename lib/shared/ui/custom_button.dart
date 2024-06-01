@@ -9,11 +9,13 @@ enum CustomButtonColors {
 class CustomButton extends StatelessWidget {
   final CustomButtonColors color;
   final String text;
+  final double? height;
 
   const CustomButton({
     Key? key,
     required this.color,
     required this.text,
+    this.height = 30,
   }) : super(key: key);
 
   @override
@@ -32,7 +34,7 @@ class CustomButton extends StatelessWidget {
         borderRadius: BorderRadius.zero,
       ),
       width: 140,
-      height: 30,
+      height: height,
       child: Center(
         child: CustomText(
           text: text,
