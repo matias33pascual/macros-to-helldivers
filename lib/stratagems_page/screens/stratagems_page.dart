@@ -18,21 +18,27 @@ class StratagemsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.black,
-        appBar: CustomAppBar(
-          title: "Estratagemas",
-          color: AppTheme.colors.darkRed,
-          onBackButtonPressed: () => ConnectionService.instance.disconnect(),
-        ),
-        body: Stack(
-          children: [
-            _buildBackground(context),
-            _buildPanel(context),
-            _buildContent(context),
-          ],
+    return WillPopScope(
+      onWillPop: () async {
+        ConnectionService.instance.disconnect();
+        return true;
+      },
+      child: SafeArea(
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.black,
+          appBar: CustomAppBar(
+            title: "Estratagemas",
+            color: AppTheme.colors.darkRed,
+            onBackButtonPressed: () => ConnectionService.instance.disconnect(),
+          ),
+          body: Stack(
+            children: [
+              _buildBackground(context),
+              _buildPanel(context),
+              _buildContent(context),
+            ],
+          ),
         ),
       ),
     );
