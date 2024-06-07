@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomText(
-            text: "Macro Sync Mobile",
+            text: "Macro Sync",
             size: 20,
             textColor: Colors.amber[400]!,
             strokeColor: Colors.black.withOpacity(0.3),

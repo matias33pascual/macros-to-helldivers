@@ -1,4 +1,4 @@
-package com.example.macro_sync_client
+package com.macrosync.helldivers
 
 import io.flutter.embedding.android.FlutterActivity
 
