@@ -1,16 +1,25 @@
-# macro_sync_helldivers
+# Políticas de Privacidad de MacroSync Helldivers
 
-A new Flutter project.
+## Introducción
 
-## Getting Started
+Bienvenido a MacroSync Helldivers. Esta aplicación ha sido desarrollada para ofrecerte la mejor experiencia posible sin comprometer tu privacidad. Valoramos tu confianza y estamos comprometidos a proteger tu información personal.
 
-This project is a starting point for a Flutter application.
+## Recopilación de Datos
 
-A few resources to get you started if this is your first Flutter project:
+**MacroSync Helldivers** no recopila, almacena ni comparte datos personales de los usuarios. No recopilamos información como nombres, direcciones de correo electrónico, ubicaciones o cualquier otro tipo de información personal.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Uso de Datos
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Dado que no recopilamos ningún dato personal, no utilizamos ningún tipo de información personal para ningún propósito.
+
+## Público Objetivo
+
+**MacroSync Helldivers** está diseñada para ser una aplicación para todo público. Sin embargo, no está dirigida específicamente a menores de edad. Recomendamos que los menores utilicen esta aplicación bajo la supervisión de un adulto.
+
+## Publicidad
+
+**MacroSync Helldivers** no contiene anuncios de ningún tipo. No mostramos anuncios a los usuarios y no utilizamos ninguna red de publicidad que recopile datos personales.
+
+## Contacto
+
+Si tienes alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dudes en contactarnos a través de matias33pascual@gmail.com.
