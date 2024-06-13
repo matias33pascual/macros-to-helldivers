@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         StratagemsPage.routeName: (context) => const StratagemsPage(),
         MissionPage.routeName: (context) => const MissionPage(),
       },
-      title: 'Macro Sync',
+      title: 'MacroSync',
       debugShowCheckedModeBanner: false,
       initialRoute: HomePage.routeName,
     );

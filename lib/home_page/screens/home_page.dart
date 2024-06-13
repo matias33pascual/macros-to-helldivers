@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:macro_sync_client/home_page/providers/exports_providers.dart';
@@ -6,6 +8,7 @@ import 'package:macro_sync_client/shared/services/connection_service.dart';
 import 'package:macro_sync_client/shared/ui/exports_shared.dart';
 import 'package:macro_sync_client/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,6 +39,7 @@ class _HomePageState extends State<HomePage> {
 
     if (provider.state.error) {
       showMyDialog(context);
+      provider.state.error = false;
     }
   }
 
@@ -152,7 +156,7 @@ class _HomePageState extends State<HomePage> {
 
   _buildForm(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+      padding: const EdgeInsets.only(top: 20.0, left: 2, right: 2),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -160,6 +164,48 @@ class _HomePageState extends State<HomePage> {
             children: [
               _buildPanel(),
               _buildContent(context),
+              Padding(
+                padding: const EdgeInsets.only(top: 250, left: 16, right: 16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CustomText(
+                            text: "Instala en tu computadora",
+                            size: 14,
+                          ),
+                          CustomText(
+                            text: "Macro Sync Helldivers Desktop",
+                            textColor: Colors.amber,
+                            size: 14,
+                          ),
+                          SizedBox(height: 8),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 8),
+                            decoration: BoxDecoration(
+                              border: Border.fromBorderSide(
+                                BorderSide(width: 2, color: Colors.blue[300]!),
+                              ),
+                              color: Colors.blue[400]!.withOpacity(0.5),
+                            ),
+                            child: GestureDetector(
+                              onTap: _launchURL,
+                              child: CustomText(
+                                text: "Desde aqui",
+                                size: 18,
+                                textColor: Colors.blue[300]!,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ],
@@ -167,12 +213,21 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _launchURL() async {
+    final url = Uri.https(
+      'github.com',
+      'symphonic15/macrosync-helldivers-desktop/releases/tag/v1.0.2',
+    );
+
+    launchUrl(url, mode: LaunchMode.externalApplication);
+  }
+
   _buildContent(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       child: Column(
         children: [
-          _buildDivisor(),
+          _buildPanelTitle(),
           Container(
             margin: const EdgeInsets.only(top: 12),
             child: const CustomForm(),
@@ -227,7 +282,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Container _buildDivisor() {
+  Container _buildPanelTitle() {
     return Container(
       padding: const EdgeInsets.only(bottom: 4),
       decoration: BoxDecoration(
@@ -238,17 +293,28 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            child: CustomText(
-              text: "INGRESA LOS DATOS DE MACRO SYNC DESKTOP",
-              size: 18,
-              maxLines: 2,
-              textColor: Colors.white,
-              strokeColor: Colors.black.withOpacity(0.7),
-              textAlign: TextAlign.center,
-            ),
+          Row(
+            children: [
+              Expanded(child: Container()),
+            ],
+          ),
+          CustomText(
+            text: "INGRESA LOS DATOS DE",
+            size: 16,
+            maxLines: 2,
+            textColor: Colors.white,
+            strokeColor: Colors.black.withOpacity(0.7),
+            textAlign: TextAlign.center,
+          ),
+          CustomText(
+            text: "MACRO SYNC HELLDIVERS DESKTOP",
+            size: 16,
+            maxLines: 2,
+            textColor: Colors.amber,
+            strokeColor: Colors.black.withOpacity(0.7),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
