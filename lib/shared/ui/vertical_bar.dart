@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_client/theme/exports_theme.dart';
+import 'package:macro_sync_helldivers/theme/exports_theme.dart';
 
 enum VerticalBarSide { left, right }
 

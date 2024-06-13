@@ -2,11 +2,11 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:macro_sync_client/home_page/providers/exports_providers.dart';
-import 'package:macro_sync_client/home_page/screens/widgets/exports_widgets.dart';
-import 'package:macro_sync_client/shared/services/connection_service.dart';
-import 'package:macro_sync_client/shared/ui/exports_shared.dart';
-import 'package:macro_sync_client/stratagems_page/screens/stratagems_page.dart';
+import 'package:macro_sync_helldivers/home_page/providers/exports_providers.dart';
+import 'package:macro_sync_helldivers/home_page/screens/widgets/exports_widgets.dart';
+import 'package:macro_sync_helldivers/shared/services/connection_service.dart';
+import 'package:macro_sync_helldivers/shared/ui/exports_shared.dart';
+import 'package:macro_sync_helldivers/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 

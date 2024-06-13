@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:macro_sync_client/shared/services/connection_service.dart';
-import 'package:macro_sync_client/stratagems_page/models/stratagems_model.dart';
+import 'package:macro_sync_helldivers/shared/services/connection_service.dart';
+import 'package:macro_sync_helldivers/stratagems_page/models/stratagems_model.dart';
 
 class StratagemGridButton extends StatefulWidget {
   const StratagemGridButton({

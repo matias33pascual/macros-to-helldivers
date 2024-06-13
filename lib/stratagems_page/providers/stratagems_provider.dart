@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:macro_sync_client/stratagems_page/models/stratagems_model.dart';
-import 'package:macro_sync_client/stratagems_page/models/tabs_menu_enum.dart';
-import 'package:macro_sync_client/stratagems_page/providers/exports_providers.dart';
-import 'package:macro_sync_client/stratagems_page/services/stratagems_service.dart';
-import 'package:macro_sync_client/stratagems_page/state/stratagems_state.dart';
+import 'package:macro_sync_helldivers/stratagems_page/models/stratagems_model.dart';
+import 'package:macro_sync_helldivers/stratagems_page/models/tabs_menu_enum.dart';
+import 'package:macro_sync_helldivers/stratagems_page/providers/exports_providers.dart';
+import 'package:macro_sync_helldivers/stratagems_page/services/stratagems_service.dart';
+import 'package:macro_sync_helldivers/stratagems_page/state/stratagems_state.dart';
 import 'package:provider/provider.dart';
 
 class StratagemsProvider extends ChangeNotifier {

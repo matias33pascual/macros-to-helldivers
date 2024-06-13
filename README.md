@@ -1,4 +1,4 @@
-# macro_sync_client
+# macro_sync_helldivers
 
 A new Flutter project.
 
