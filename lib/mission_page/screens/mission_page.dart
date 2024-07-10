@@ -50,7 +50,7 @@ class MissionPage extends StatelessWidget {
 
   Image _buildBackground(BuildContext context) {
     return Image.asset(
-      "assets/images/mission_background.png",
+      "assets/images/mission_background.webp",
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       fit: BoxFit.cover,

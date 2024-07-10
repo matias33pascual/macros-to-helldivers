@@ -2,97 +2,97 @@
   {
     "id": "600",
     "name": "AMETRALLADORA",
-    "icon": "assets/icons/Machine-Gun.png",
+    "icon": "assets/icons/Machine-Gun.webp",
     "keysCode": ["down", "left", "down", "up", "right"]
   },
   {
     "id": "601",
     "name": "RIFLE ANTIEQUIPAMIENTO",
-    "icon": "assets/icons/Anti-Materiel-Rifle.png",
+    "icon": "assets/icons/Anti-Materiel-Rifle.webp",
     "keysCode": ["down", "left", "right", "up", "down"]
   },
   {
     "id": "602",
     "name": "INCONDICIONAL",
-    "icon": "assets/icons/Stalwart.png",
+    "icon": "assets/icons/Stalwart.webp",
     "keysCode": ["down", "left", "down", "up", "up", "left"]
   },
   {
     "id": "603",
     "name": "ANTITANQUE DESECHABLE",
-    "icon": "assets/icons/Expendable-Anti-tank.png",
+    "icon": "assets/icons/Expendable-Anti-tank.webp",
     "keysCode": ["down", "down", "left", "up", "right"]
   },
   {
     "id": "604",
     "name": "RIFLE SIN RETROCESO",
-    "icon": "assets/icons/Recoilless-Rifle.png",
+    "icon": "assets/icons/Recoilless-Rifle.webp",
     "keysCode": ["down", "left", "right", "right", "left"]
   },
   {
     "id": "605",
     "name": "LANZALLAMAS",
-    "icon": "assets/icons/Flamethrower.png",
+    "icon": "assets/icons/Flamethrower.webp",
     "keysCode": ["down", "left", "up", "down", "up"]
   },
   {
     "id": "606",
     "name": "CAÑON AUTOMATICO",
-    "icon": "assets/icons/Autocannon.png",
+    "icon": "assets/icons/Autocannon.webp",
     "keysCode": ["down", "left", "down", "up", "up", "right"]
   },
   {
     "id": "607",
     "name": "AMETRALLADORA PESADA",
-    "icon": "assets/icons/Heavy-Machine-Gun.png",
+    "icon": "assets/icons/Heavy-Machine-Gun.webp",
     "keysCode": ["down", "left", "up", "down", "down"]
   },
   {
     "id": "614",
     "name": "LANZACOHETES DE ESTALLIDO AEREO",
-    "icon": "assets/icons/Airburst-Rocket-Launcher.png",
+    "icon": "assets/icons/Airburst-Rocket-Launcher.webp",
     "keysCode": ["down", "up", "up", "left", "right"]
   },
   {
     "id": "608",
     "name": "ARMA DE RIEL",
-    "icon": "assets/icons/Railgun.png",
+    "icon": "assets/icons/Railgun.webp",
     "keysCode": ["down", "right", "down", "up", "left", "right"]
   },
   {
     "id": "609",
     "name": "LANZA",
-    "icon": "assets/icons/SPEAR-Launcher.png",
+    "icon": "assets/icons/SPEAR-Launcher.webp",
     "keysCode": ["down", "down", "up", "down", "down"]
   },
   {
     "id": "610",
     "name": "LANZAGRANADAS",
-    "icon": "assets/icons/Grenade-Launcher.png",
+    "icon": "assets/icons/Grenade-Launcher.webp",
     "keysCode": ["down", "left", "up", "left", "down"]
   },
   {
     "id": "611",
     "name": "CAÑON LASER",
-    "icon": "assets/icons/Laser-Cannon.png",
+    "icon": "assets/icons/Laser-Cannon.webp",
     "keysCode": ["down", "left", "down", "up", "left"]
   },
   {
     "id": "612",
     "name": "LANZAARCOS",
-    "icon": "assets/icons/Arc-Thrower.png",
+    "icon": "assets/icons/Arc-Thrower.webp",
     "keysCode": ["down", "right", "down", "up", "left", "left"]
   },
   {
     "id": "613",
     "name": "CAÑON CUASAR",
-    "icon": "assets/icons/Quasar-Cannon.png",
+    "icon": "assets/icons/Quasar-Cannon.webp",
     "keysCode": ["down", "down", "up", "left", "right"]
   },
   {
     "id": "700",
     "name": "EXOTRAJE PATRIOTA",
-    "icon": "assets/icons/Patriot-Exosuit.png",
+    "icon": "assets/icons/Patriot-Exosuit.webp",
     "keysCode": ["left", "down", "right", "up", "left", "down", "down"]
   }
 ]

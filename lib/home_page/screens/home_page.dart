@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:macro_sync_helldivers/home_page/providers/exports_providers.dart';
 import 'package:macro_sync_helldivers/home_page/screens/widgets/exports_widgets.dart';
+import 'package:macro_sync_helldivers/home_page/screens/widgets/test_app_button.dart';
 import 'package:macro_sync_helldivers/shared/services/connection_service.dart';
 import 'package:macro_sync_helldivers/shared/ui/exports_shared.dart';
 import 'package:macro_sync_helldivers/stratagems_page/screens/stratagems_page.dart';
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
         body: Stack(
           children: [
             _buildBackground(context),
-            _buildMacroSyncTitle(),
+            _buildMacroTitle(),
             _buildHelldiversTitle(),
             _buildForm(context),
           ],
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                 size: 14,
                 textAlign: TextAlign.center,
                 text:
-                    "Compruebe que la DIRECCION IP y EL PUERTO sean los mismos que figuran en"),
+                    "Compruebe que la DIRECCION IP y EL PUERTO sean los mismos que"),
             SizedBox(height: 8),
             CustomText(
                 maxLines: 20,
@@ -93,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
                 strokeColor: Colors.black,
                 textColor: Colors.amber,
-                text: " MacroSync Desktop Helldivers."),
+                text: " Macro Helldivers Desktop"),
           ],
         ),
         actions: <Widget>[
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage> {
           Stack(
             children: [
               Image.asset(
-                "assets/images/helldivers_title.png",
+                "assets/images/helldivers_title.webp",
                 width: 260,
                 color: Colors.amber[400],
               ),
@@ -129,14 +130,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Padding _buildMacroSyncTitle() {
+  Padding _buildMacroTitle() {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomText(
-            text: "Macro Sync",
+            text: "Macro",
             size: 20,
             textColor: Colors.amber[400]!,
             strokeColor: Colors.black.withOpacity(0.3),
@@ -148,7 +149,7 @@ class _HomePageState extends State<HomePage> {
 
   Image _buildBackground(BuildContext context) {
     return Image.asset(
-      "assets/images/home_background.png",
+      "assets/images/home_background.webp",
       height: MediaQuery.of(context).size.height,
       fit: BoxFit.cover,
     );
@@ -174,11 +175,15 @@ class _HomePageState extends State<HomePage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           CustomText(
-                            text: "Instala en tu computadora",
+                            text: "Instala en",
                             size: 14,
                           ),
                           CustomText(
-                            text: "Macro Sync Helldivers Desktop",
+                            text: "tu computadora",
+                            size: 14,
+                          ),
+                          CustomText(
+                            text: "Macro Helldivers Desktop",
                             textColor: Colors.amber,
                             size: 14,
                           ),
@@ -189,14 +194,14 @@ class _HomePageState extends State<HomePage> {
                               border: Border.fromBorderSide(
                                 BorderSide(width: 2, color: Colors.blue[300]!),
                               ),
-                              color: Colors.blue[400]!.withOpacity(0.5),
+                              color: Colors.blue[500]!.withOpacity(0.5),
                             ),
                             child: GestureDetector(
                               onTap: _launchURL,
                               child: CustomText(
-                                text: "Desde aqui",
-                                size: 18,
-                                textColor: Colors.blue[300]!,
+                                text: "descargar",
+                                size: 16,
+                                textColor: Colors.white,
                               ),
                             ),
                           )
@@ -234,47 +239,57 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 16),
-            child: GestureDetector(
-              onTap: () {
-                final HomeProvider provider =
-                    Provider.of<HomeProvider>(context, listen: false);
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    final HomeProvider provider =
+                        Provider.of<HomeProvider>(context, listen: false);
 
-                if (provider.state.port.isEmpty ||
-                    provider.state.ipAddrress.isEmpty ||
-                    provider.state.isLoading) {
-                  return;
-                }
+                    if (provider.state.port.isEmpty ||
+                        provider.state.ipAddrress.isEmpty ||
+                        provider.state.isLoading) {
+                      return;
+                    }
 
-                try {
-                  ConnectionService.instance
-                      .connectToServer(
-                    provider.state.ipAddrress,
-                    provider.state.port,
-                    context,
-                  )
-                      .then(
-                    (value) {
-                      if (value) {
-                        Navigator.pushNamed(context, StratagemsPage.routeName);
-                      } else {
-                        if (kDebugMode) {
-                          print(
-                              "No se pudo conectar al servidor: ConnectionService return false.");
-                        }
-                        provider.setMessageError(true);
+                    try {
+                      ConnectionService.instance
+                          .connectToServer(
+                        provider.state.ipAddrress,
+                        provider.state.port,
+                        context,
+                      )
+                          .then(
+                        (value) {
+                          if (value) {
+                            Navigator.pushNamed(
+                                context, StratagemsPage.routeName);
+                          } else {
+                            if (kDebugMode) {
+                              print(
+                                  "No se pudo conectar al servidor: ConnectionService return false.");
+                            }
+                            provider.setMessageError(true);
+                          }
+                        },
+                      ).onError(
+                        (error, stackTrace) => throw Exception(error),
+                      );
+                    } catch (error) {
+                      if (kDebugMode) {
+                        print("No se pudo conectar al servidor: $error.");
                       }
-                    },
-                  ).onError(
-                    (error, stackTrace) => throw Exception(error),
-                  );
-                } catch (error) {
-                  if (kDebugMode) {
-                    print("No se pudo conectar al servidor: $error.");
-                  }
-                  provider.setMessageError(true);
-                }
-              },
-              child: const ConnectButton(),
+                      provider.setMessageError(true);
+                    }
+                  },
+                  child: const ConnectButton(),
+                ),
+                GestureDetector(
+                    onTap: () => Navigator.of(context)
+                        .pushNamed(StratagemsPage.routeName),
+                    child: TestAppButton()),
+              ],
             ),
           )
         ],
@@ -309,7 +324,7 @@ class _HomePageState extends State<HomePage> {
             textAlign: TextAlign.center,
           ),
           CustomText(
-            text: "MACRO SYNC HELLDIVERS DESKTOP",
+            text: "MACRO HELLDIVERS DESKTOP",
             size: 16,
             maxLines: 2,
             textColor: Colors.amber,

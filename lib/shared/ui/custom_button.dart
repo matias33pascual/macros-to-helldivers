@@ -10,12 +10,14 @@ class CustomButton extends StatelessWidget {
   final CustomButtonColors color;
   final String text;
   final double? height;
+  final double fontSize;
 
   const CustomButton({
     Key? key,
     required this.color,
     required this.text,
     this.height = 30,
+    this.fontSize = 16,
   }) : super(key: key);
 
   @override
@@ -37,8 +39,9 @@ class CustomButton extends StatelessWidget {
       height: height,
       child: Center(
         child: CustomText(
+          maxLines: 2,
           text: text,
-          size: 16,
+          size: fontSize,
           textColor: color == CustomButtonColors.yellow
               ? Colors.yellow[400]!.withOpacity(0.9)
               : Colors.grey.withOpacity(0.6),

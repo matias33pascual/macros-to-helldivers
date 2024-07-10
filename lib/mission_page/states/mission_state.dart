@@ -7,6 +7,6 @@ class MissionState {
 
   bool useGridLayout = true;
 
-  final String gridIconPath = "assets/images/grid_icon.png";
-  final String listIconPath = "assets/images/list_icon.png";
+  final String gridIconPath = "assets/images/grid_icon.webp";
+  final String listIconPath = "assets/images/list_icon.webp";
 }

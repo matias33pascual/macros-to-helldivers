@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:macro_sync_helldivers/mission_page/screens/mission_page.dart';
 import 'package:macro_sync_helldivers/shared/services/connection_service.dart';
@@ -113,7 +112,7 @@ class StratagemsPage extends StatelessWidget {
                       },
                       child: CustomButton(
                         color: CustomButtonColors.yellow,
-                        text: "INICIAR",
+                        text: "COMENZAR",
                         height: 40,
                       ),
                     ),
@@ -159,7 +158,7 @@ class StratagemsPage extends StatelessWidget {
 
   _buildBackground(BuildContext context) {
     return Image.asset(
-      "assets/images/stratagems_background.jpg",
+      "assets/images/stratagems_background.webp",
       height: MediaQuery.of(context).size.height,
       fit: BoxFit.cover,
     );

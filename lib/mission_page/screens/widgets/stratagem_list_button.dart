@@ -70,6 +70,7 @@ class _StratagemListButtonState extends State<StratagemListButton> {
                   flex: 3,
                   fit: FlexFit.tight,
                   child: CustomText(
+                    textAlign: TextAlign.start,
                     text: widget.stratagem.name,
                     size: 17,
                     maxLines: 2,
