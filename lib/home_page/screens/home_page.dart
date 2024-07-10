@@ -199,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                             child: GestureDetector(
                               onTap: _launchURL,
                               child: CustomText(
-                                text: "descargar",
+                                text: "link en github",
                                 size: 16,
                                 textColor: Colors.white,
                               ),
