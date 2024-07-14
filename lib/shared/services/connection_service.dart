@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/home_page/providers/exports_providers.dart';
+import 'package:macros_to_helldivers/home_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
 import 'package:web_socket_channel/io.dart';
 

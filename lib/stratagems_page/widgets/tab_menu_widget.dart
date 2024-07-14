@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/shared/ui/exports_shared.dart';
-import 'package:macro_sync_helldivers/stratagems_page/models/tabs_menu_enum.dart';
-import 'package:macro_sync_helldivers/stratagems_page/providers/exports_providers.dart';
+import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
+import 'package:macros_to_helldivers/stratagems_page/models/tabs_menu_enum.dart';
+import 'package:macros_to_helldivers/stratagems_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
 
 class TabMenuWidget extends StatelessWidget {

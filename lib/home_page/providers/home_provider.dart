@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/home_page/providers/connect_button_provider.dart';
-import 'package:macro_sync_helldivers/home_page/states/home_state.dart';
+import 'package:macros_to_helldivers/home_page/providers/connect_button_provider.dart';
+import 'package:macros_to_helldivers/home_page/states/home_state.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

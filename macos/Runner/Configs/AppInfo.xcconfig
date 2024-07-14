@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = macro_sync_helldivers
+PRODUCT_NAME = macros_to_helldivers
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.macrosync.helldivers
+PRODUCT_BUNDLE_IDENTIFIER = com.macrosto.helldivers
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2024 com.macrosync.helldivers. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 com.macrosto.helldivers. All rights reserved.

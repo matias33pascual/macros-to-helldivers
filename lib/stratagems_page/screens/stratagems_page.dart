@@ -2,12 +2,12 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/mission_page/screens/mission_page.dart';
-import 'package:macro_sync_helldivers/shared/services/connection_service.dart';
-import 'package:macro_sync_helldivers/shared/ui/exports_shared.dart';
-import 'package:macro_sync_helldivers/stratagems_page/providers/stratagems_provider.dart';
-import 'package:macro_sync_helldivers/stratagems_page/widgets/exports_widgets.dart';
-import 'package:macro_sync_helldivers/theme/app_theme.dart';
+import 'package:macros_to_helldivers/mission_page/screens/mission_page.dart';
+import 'package:macros_to_helldivers/shared/services/connection_service.dart';
+import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
+import 'package:macros_to_helldivers/stratagems_page/providers/stratagems_provider.dart';
+import 'package:macros_to_helldivers/stratagems_page/widgets/exports_widgets.dart';
+import 'package:macros_to_helldivers/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
 class StratagemsPage extends StatelessWidget {

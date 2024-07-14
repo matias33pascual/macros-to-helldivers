@@ -2,12 +2,12 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/home_page/providers/exports_providers.dart';
-import 'package:macro_sync_helldivers/home_page/screens/widgets/exports_widgets.dart';
-import 'package:macro_sync_helldivers/home_page/screens/widgets/test_app_button.dart';
-import 'package:macro_sync_helldivers/shared/services/connection_service.dart';
-import 'package:macro_sync_helldivers/shared/ui/exports_shared.dart';
-import 'package:macro_sync_helldivers/stratagems_page/screens/stratagems_page.dart';
+import 'package:macros_to_helldivers/home_page/providers/exports_providers.dart';
+import 'package:macros_to_helldivers/home_page/screens/widgets/exports_widgets.dart';
+import 'package:macros_to_helldivers/home_page/screens/widgets/test_app_button.dart';
+import 'package:macros_to_helldivers/shared/services/connection_service.dart';
+import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
+import 'package:macros_to_helldivers/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -54,7 +54,6 @@ class _HomePageState extends State<HomePage> {
           children: [
             _buildBackground(context),
             _buildMacroTitle(),
-            _buildHelldiversTitle(),
             _buildForm(context),
           ],
         ),
@@ -94,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
                 strokeColor: Colors.black,
                 textColor: Colors.amber,
-                text: " Macro Helldivers Desktop"),
+                text: " Macros to Helldivers Desktop"),
           ],
         ),
         actions: <Widget>[
@@ -110,37 +109,30 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Padding _buildHelldiversTitle() {
+  _buildMacroTitle() {
     return Padding(
       padding: const EdgeInsets.only(top: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Stack(
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(
-                "assets/images/helldivers_title.webp",
-                width: 260,
-                color: Colors.amber[400],
+              CustomText(
+                text: "Macros to",
+                maxLines: 2,
+                size: 35,
+                textColor: Colors.white,
+                strokeColor: Colors.black.withOpacity(0.8),
+              ),
+              CustomText(
+                text: "Helldivers",
+                maxLines: 2,
+                size: 55,
+                textColor: Colors.amber[400]!,
+                strokeColor: Colors.black.withOpacity(0.8),
               ),
             ],
-          )
-        ],
-      ),
-    );
-  }
-
-  Padding _buildMacroTitle() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CustomText(
-            text: "Macro",
-            size: 20,
-            textColor: Colors.amber[400]!,
-            strokeColor: Colors.black.withOpacity(0.3),
           ),
         ],
       ),
@@ -171,24 +163,11 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Expanded(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          CustomText(
-                            text: "Instala en",
-                            size: 14,
-                          ),
-                          CustomText(
-                            text: "tu computadora",
-                            size: 14,
-                          ),
-                          CustomText(
-                            text: "Macro Helldivers Desktop",
-                            textColor: Colors.amber,
-                            size: 14,
-                          ),
-                          SizedBox(height: 8),
                           Container(
+                            alignment: Alignment.center,
+                            width: 200,
                             padding: EdgeInsets.symmetric(horizontal: 8),
                             decoration: BoxDecoration(
                               border: Border.fromBorderSide(
@@ -199,7 +178,47 @@ class _HomePageState extends State<HomePage> {
                             child: GestureDetector(
                               onTap: _launchURL,
                               child: CustomText(
-                                text: "link en github",
+                                text: "COMO CONECTARSE",
+                                size: 16,
+                                textColor: Colors.white,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 16),
+                          Container(
+                            alignment: Alignment.center,
+                            width: 200,
+                            padding: EdgeInsets.symmetric(horizontal: 8),
+                            decoration: BoxDecoration(
+                              border: Border.fromBorderSide(
+                                BorderSide(width: 2, color: Colors.blue[300]!),
+                              ),
+                              color: Colors.blue[500]!.withOpacity(0.5),
+                            ),
+                            child: GestureDetector(
+                              onTap: _launchURL,
+                              child: CustomText(
+                                text: "VIDEO TUTORIAL",
+                                size: 16,
+                                textColor: Colors.white,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 16),
+                          Container(
+                            alignment: Alignment.center,
+                            width: 200,
+                            padding: EdgeInsets.symmetric(horizontal: 8),
+                            decoration: BoxDecoration(
+                              border: Border.fromBorderSide(
+                                BorderSide(width: 2, color: Colors.blue[300]!),
+                              ),
+                              color: Colors.blue[500]!.withOpacity(0.5),
+                            ),
+                            child: GestureDetector(
+                              onTap: _launchURL,
+                              child: CustomText(
+                                text: "Descargar en PC",
                                 size: 16,
                                 textColor: Colors.white,
                               ),
@@ -324,7 +343,7 @@ class _HomePageState extends State<HomePage> {
             textAlign: TextAlign.center,
           ),
           CustomText(
-            text: "MACRO HELLDIVERS DESKTOP",
+            text: "MACROS TO HELLDIVERS DESKTOP",
             size: 16,
             maxLines: 2,
             textColor: Colors.amber,

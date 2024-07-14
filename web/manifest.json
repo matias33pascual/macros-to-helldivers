@@ -1,6 +1,6 @@
 {
-  "name": "macro_sync_helldivers",
-  "short_name": "macro_sync_helldivers",
+  "name": "macros_to_helldivers",
+  "short_name": "macros_to_helldivers",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0175C2",

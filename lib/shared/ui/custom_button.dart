@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/shared/ui/custom_text.dart';
+import 'package:macros_to_helldivers/shared/ui/custom_text.dart';
 
 enum CustomButtonColors {
   gray,

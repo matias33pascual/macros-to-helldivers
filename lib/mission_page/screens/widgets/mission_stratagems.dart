@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/mission_page/providers/mission_provider.dart';
-import 'package:macro_sync_helldivers/mission_page/screens/widgets/exports_widgets.dart';
-import 'package:macro_sync_helldivers/stratagems_page/models/stratagems_model.dart';
-import 'package:macro_sync_helldivers/stratagems_page/providers/exports_providers.dart';
+import 'package:macros_to_helldivers/mission_page/providers/mission_provider.dart';
+import 'package:macros_to_helldivers/mission_page/screens/widgets/exports_widgets.dart';
+import 'package:macros_to_helldivers/stratagems_page/models/stratagems_model.dart';
+import 'package:macros_to_helldivers/stratagems_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
 
 class MissionStratagems extends StatelessWidget {

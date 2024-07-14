@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/theme/exports_theme.dart';
+import 'package:macros_to_helldivers/theme/exports_theme.dart';
 
 class CustomThemeTextStyles {
   final _appColors = AppTheme.colors;

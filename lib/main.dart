@@ -2,12 +2,12 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:macro_sync_helldivers/home_page/providers/exports_providers.dart';
-import 'package:macro_sync_helldivers/home_page/screens/home_page.dart';
-import 'package:macro_sync_helldivers/mission_page/providers/mission_provider.dart';
-import 'package:macro_sync_helldivers/mission_page/screens/mission_page.dart';
-import 'package:macro_sync_helldivers/stratagems_page/providers/exports_providers.dart';
-import 'package:macro_sync_helldivers/stratagems_page/screens/stratagems_page.dart';
+import 'package:macros_to_helldivers/home_page/providers/exports_providers.dart';
+import 'package:macros_to_helldivers/home_page/screens/home_page.dart';
+import 'package:macros_to_helldivers/mission_page/providers/mission_provider.dart';
+import 'package:macros_to_helldivers/mission_page/screens/mission_page.dart';
+import 'package:macros_to_helldivers/stratagems_page/providers/exports_providers.dart';
+import 'package:macros_to_helldivers/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
 import 'package:wakelock/wakelock.dart';
 
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         StratagemsPage.routeName: (context) => const StratagemsPage(),
         MissionPage.routeName: (context) => const MissionPage(),
       },
-      title: 'Macro Helldivers',
+      title: 'Macros to Helldivers',
       debugShowCheckedModeBanner: false,
       initialRoute: HomePage.routeName,
     );

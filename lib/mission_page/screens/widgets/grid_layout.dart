@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/mission_page/screens/widgets/exports_widgets.dart';
-import 'package:macro_sync_helldivers/stratagems_page/models/stratagems_model.dart';
+import 'package:macros_to_helldivers/mission_page/screens/widgets/exports_widgets.dart';
+import 'package:macros_to_helldivers/stratagems_page/models/stratagems_model.dart';
 
 class GridLayout extends StatelessWidget {
   const GridLayout({

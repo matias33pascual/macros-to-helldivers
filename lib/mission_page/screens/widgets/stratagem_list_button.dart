@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/shared/services/connection_service.dart';
-import 'package:macro_sync_helldivers/shared/ui/custom_text.dart';
-import 'package:macro_sync_helldivers/stratagems_page/models/stratagems_model.dart';
+import 'package:macros_to_helldivers/shared/services/connection_service.dart';
+import 'package:macros_to_helldivers/shared/ui/custom_text.dart';
+import 'package:macros_to_helldivers/stratagems_page/models/stratagems_model.dart';
 
 class StratagemListButton extends StatefulWidget {
   const StratagemListButton({

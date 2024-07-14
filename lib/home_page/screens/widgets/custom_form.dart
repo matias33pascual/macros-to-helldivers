@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/home_page/providers/exports_providers.dart';
-import 'package:macro_sync_helldivers/shared/ui/exports_shared.dart';
+import 'package:macros_to_helldivers/home_page/providers/exports_providers.dart';
+import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
 import 'package:provider/provider.dart';
 
 class CustomForm extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:macro_sync_helldivers/theme/exports_theme.dart';
+import 'package:macros_to_helldivers/theme/exports_theme.dart';
 
 class AppTheme {
   static CustomThemeColors colors = CustomThemeColors();

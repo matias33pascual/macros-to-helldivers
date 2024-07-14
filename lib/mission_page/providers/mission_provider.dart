@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:macro_sync_helldivers/mission_page/states/mission_state.dart';
+import 'package:macros_to_helldivers/mission_page/states/mission_state.dart';
 
 class MissionProvider extends ChangeNotifier {
   MissionState state = MissionState.instance;

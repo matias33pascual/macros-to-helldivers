@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.macrosync.helldivers">
+    package="com.macrosto.helldivers">
 
    <uses-permission android:name="android.permission.INTERNET" />
 
    <application
-        android:label="MacroSync Helldivers"
+        android:label="Macros to Helldivers"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true"

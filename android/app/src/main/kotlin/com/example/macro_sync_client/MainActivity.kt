@@ -1,4 +1,4 @@
-package com.macrosync.helldivers
+package com.macrosto.helldivers
 
 import io.flutter.embedding.android.FlutterActivity
 

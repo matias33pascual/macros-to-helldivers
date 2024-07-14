@@ -1,5 +1,5 @@
-import 'package:macro_sync_helldivers/stratagems_page/models/tabs_menu_enum.dart';
-import 'package:macro_sync_helldivers/stratagems_page/models/stratagems_model.dart';
+import 'package:macros_to_helldivers/stratagems_page/models/tabs_menu_enum.dart';
+import 'package:macros_to_helldivers/stratagems_page/models/stratagems_model.dart';
 
 class StratagemsState {
   StratagemsState._();
