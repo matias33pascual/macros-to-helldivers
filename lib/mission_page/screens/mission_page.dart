@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:macros_to_helldivers/mission_page/providers/mission_provider.dart';
 import 'package:macros_to_helldivers/mission_page/screens/widgets/exports_widgets.dart';
+import 'package:macros_to_helldivers/shared/translation/translation_provider.dart';
 import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
 import 'package:macros_to_helldivers/stratagems_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
@@ -17,10 +18,13 @@ class MissionPage extends StatelessWidget {
     final StratagemsProvider stratagemsProvider =
         Provider.of<StratagemsProvider>(context, listen: false);
 
+    final TranslationProvider translationProvider =
+        Provider.of<TranslationProvider>(context);
+
     return SafeArea(
       child: Scaffold(
         appBar: CustomAppBar(
-          title: "Mision",
+          title: translationProvider.translationOf["mission"],
           color: Colors.blue[900]!.withOpacity(0.2),
           actionButton:
               stratagemsProvider.state.stratagemsSelectedForMission.length > 2

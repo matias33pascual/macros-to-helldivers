@@ -19,7 +19,7 @@ class TabMenuWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         _MenuTab(
-          text: TabsMenuEnum.mission.getStringValue(),
+          text: TabsMenuEnum.mission.getStringValue(context),
           isSelected: tabsMenuProviders.isThisMenuSelected(
             TabsMenuEnum.mission,
           ),
@@ -29,7 +29,7 @@ class TabMenuWidget extends StatelessWidget {
           ),
         ),
         _MenuTab(
-          text: TabsMenuEnum.eagle.getStringValue(),
+          text: TabsMenuEnum.eagle.getStringValue(context),
           isSelected: tabsMenuProviders.isThisMenuSelected(
             TabsMenuEnum.eagle,
           ),
@@ -39,7 +39,7 @@ class TabMenuWidget extends StatelessWidget {
           ),
         ),
         _MenuTab(
-          text: TabsMenuEnum.orbital.getStringValue(),
+          text: TabsMenuEnum.orbital.getStringValue(context),
           isSelected: tabsMenuProviders.isThisMenuSelected(
             TabsMenuEnum.orbital,
           ),
@@ -49,7 +49,7 @@ class TabMenuWidget extends StatelessWidget {
           ),
         ),
         _MenuTab(
-          text: TabsMenuEnum.weapons.getStringValue(),
+          text: TabsMenuEnum.weapons.getStringValue(context),
           isSelected: tabsMenuProviders.isThisMenuSelected(
             TabsMenuEnum.weapons,
           ),
@@ -59,7 +59,7 @@ class TabMenuWidget extends StatelessWidget {
           ),
         ),
         _MenuTab(
-          text: TabsMenuEnum.backpacks.getStringValue(),
+          text: TabsMenuEnum.backpacks.getStringValue(context),
           isSelected: tabsMenuProviders.isThisMenuSelected(
             TabsMenuEnum.backpacks,
           ),
@@ -69,7 +69,7 @@ class TabMenuWidget extends StatelessWidget {
           ),
         ),
         _MenuTab(
-          text: TabsMenuEnum.defenses.getStringValue(),
+          text: TabsMenuEnum.defenses.getStringValue(context),
           isSelected: tabsMenuProviders.isThisMenuSelected(
             TabsMenuEnum.defenses,
           ),

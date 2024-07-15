@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:macros_to_helldivers/mission_page/screens/mission_page.dart';
 import 'package:macros_to_helldivers/shared/services/connection_service.dart';
+import 'package:macros_to_helldivers/shared/translation/translation_provider.dart';
 import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
 import 'package:macros_to_helldivers/stratagems_page/providers/stratagems_provider.dart';
 import 'package:macros_to_helldivers/stratagems_page/widgets/exports_widgets.dart';
@@ -17,6 +18,9 @@ class StratagemsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TranslationProvider provider =
+        Provider.of<TranslationProvider>(context);
+
     return WillPopScope(
       onWillPop: () async {
         ConnectionService.instance.disconnect();
@@ -27,7 +31,7 @@ class StratagemsPage extends StatelessWidget {
           resizeToAvoidBottomInset: false,
           backgroundColor: Colors.black,
           appBar: CustomAppBar(
-            title: "Estratagemas",
+            title: provider.translationOf["stratagems_title"],
             color: AppTheme.colors.darkRed,
             onBackButtonPressed: () => ConnectionService.instance.disconnect(),
           ),
@@ -48,6 +52,9 @@ class StratagemsPage extends StatelessWidget {
       context,
       listen: false,
     );
+
+    final TranslationProvider translationProvider =
+        Provider.of<TranslationProvider>(context);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -72,10 +79,11 @@ class StratagemsPage extends StatelessWidget {
                     ),
                   ),
                   _buildHorizontalDivider(),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(vertical: 8),
                     child: CustomText(
-                      text: "SELECCIONADAS PARA MISION",
+                      text: translationProvider
+                          .translationOf["selected_for_mission"],
                       size: 16,
                     ),
                   ),
@@ -112,7 +120,7 @@ class StratagemsPage extends StatelessWidget {
                       },
                       child: CustomButton(
                         color: CustomButtonColors.yellow,
-                        text: "COMENZAR",
+                        text: translationProvider.translationOf["start_button"],
                         height: 40,
                       ),
                     ),

@@ -3,6 +3,8 @@ import 'package:macros_to_helldivers/home_page/providers/exports_providers.dart'
 import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
 import 'package:provider/provider.dart';
 
+import '../../../shared/translation/translation_provider.dart';
+
 class CustomForm extends StatelessWidget {
   const CustomForm({Key? key}) : super(key: key);
 
@@ -12,12 +14,14 @@ class CustomForm extends StatelessWidget {
     final formKeyPort = GlobalKey<FormState>();
 
     final HomeProvider provider = Provider.of<HomeProvider>(context);
+    final TranslationProvider translationProvider =
+        Provider.of<TranslationProvider>(context);
 
     return Column(
       children: [
         CustomInputField(
           hintText: provider.state.ipAddrress.isEmpty
-              ? "DIRECCION IP"
+              ? translationProvider.translationOf["ip_address"]
               : provider.state.ipAddrress,
           formKey: formKeyIp,
           onChangedHandle: (String value) =>
@@ -25,8 +29,9 @@ class CustomForm extends StatelessWidget {
         ),
         const SizedBox(height: 6),
         CustomInputField(
-          hintText:
-              provider.state.port.isEmpty ? "PUERTO" : provider.state.port,
+          hintText: provider.state.port.isEmpty
+              ? translationProvider.translationOf["port"]
+              : provider.state.port,
           textInputType: TextInputType.number,
           formKey: formKeyPort,
           onChangedHandle: (String value) => provider.setPort(value, context),

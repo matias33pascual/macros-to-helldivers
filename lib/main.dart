@@ -6,6 +6,8 @@ import 'package:macros_to_helldivers/home_page/providers/exports_providers.dart'
 import 'package:macros_to_helldivers/home_page/screens/home_page.dart';
 import 'package:macros_to_helldivers/mission_page/providers/mission_provider.dart';
 import 'package:macros_to_helldivers/mission_page/screens/mission_page.dart';
+import 'package:macros_to_helldivers/shared/translation/translation_provider.dart';
+import 'package:macros_to_helldivers/splash_page/splash_page.dart';
 import 'package:macros_to_helldivers/stratagems_page/providers/exports_providers.dart';
 import 'package:macros_to_helldivers/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +26,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => TabsMenuProvider()),
         ChangeNotifierProvider(create: (_) => SelectedProvider()),
         ChangeNotifierProvider(create: (_) => MissionProvider()),
+        ChangeNotifierProvider(create: (_) => TranslationProvider()),
       ],
       child: kDebugMode == true
           ? DevicePreview(
@@ -48,10 +51,11 @@ class MyApp extends StatelessWidget {
         HomePage.routeName: (context) => const HomePage(),
         StratagemsPage.routeName: (context) => const StratagemsPage(),
         MissionPage.routeName: (context) => const MissionPage(),
+        SplashPage.routeName: (context) => const SplashPage(),
       },
       title: 'Macros to Helldivers',
       debugShowCheckedModeBanner: false,
-      initialRoute: HomePage.routeName,
+      initialRoute: SplashPage.routeName,
     );
   }
 }

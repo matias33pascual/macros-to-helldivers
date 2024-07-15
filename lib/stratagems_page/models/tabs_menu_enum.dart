@@ -1,20 +1,27 @@
+import 'package:flutter/cupertino.dart';
+import 'package:macros_to_helldivers/shared/translation/translation_provider.dart';
+import 'package:provider/provider.dart';
+
 enum TabsMenuEnum { mission, defenses, eagle, orbital, weapons, backpacks }
 
 extension TabMenuEnumExtension on TabsMenuEnum {
-  String getStringValue() {
+  String getStringValue(BuildContext context) {
+    final TranslationProvider provider =
+        Provider.of<TranslationProvider>(context);
+
     switch (this) {
       case TabsMenuEnum.mission:
-        return 'MISION';
+        return provider.translationOf["stratagems_mission"];
       case TabsMenuEnum.defenses:
-        return 'DEFENSAS';
+        return provider.translationOf["stratagems_defenses"];
       case TabsMenuEnum.eagle:
-        return 'AGUILA';
+        return provider.translationOf["stratagems_eagle"];
       case TabsMenuEnum.orbital:
-        return 'ORBITAL';
+        return provider.translationOf["stratagems_orbital"];
       case TabsMenuEnum.weapons:
-        return 'ARMAS';
+        return provider.translationOf["stratagems_weapons"];
       case TabsMenuEnum.backpacks:
-        return 'MOCHILAS';
+        return provider.translationOf["stratagems_backpacks"];
       default:
         return '';
     }

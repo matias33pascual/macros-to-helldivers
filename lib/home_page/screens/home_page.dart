@@ -6,6 +6,7 @@ import 'package:macros_to_helldivers/home_page/providers/exports_providers.dart'
 import 'package:macros_to_helldivers/home_page/screens/widgets/exports_widgets.dart';
 import 'package:macros_to_helldivers/home_page/screens/widgets/test_app_button.dart';
 import 'package:macros_to_helldivers/shared/services/connection_service.dart';
+import 'package:macros_to_helldivers/shared/translation/translation_provider.dart';
 import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
 import 'package:macros_to_helldivers/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
@@ -64,49 +65,55 @@ class _HomePageState extends State<HomePage> {
   Future<void> showMyDialog(BuildContext context) async {
     await Future.delayed(Duration.zero);
 
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.black,
-        insetPadding: const EdgeInsets.all(24),
-        contentPadding: const EdgeInsets.all(24),
-        shape: const RoundedRectangleBorder(
-            side: BorderSide(color: Colors.amber, width: 1)),
-        title: const CustomText(
-            maxLines: 10,
-            size: 16,
-            textAlign: TextAlign.center,
-            text: "No fue posible realizar la conexion."),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: const [
-            CustomText(
-                maxLines: 20,
-                size: 14,
-                textAlign: TextAlign.center,
-                text:
-                    "Compruebe que la DIRECCION IP y EL PUERTO sean los mismos que"),
-            SizedBox(height: 8),
-            CustomText(
-                maxLines: 20,
-                size: 14,
-                textAlign: TextAlign.center,
-                strokeColor: Colors.black,
-                textColor: Colors.amber,
-                text: " Macros to Helldivers Desktop"),
+    if (mounted) {
+      final TranslationProvider provider =
+          Provider.of<TranslationProvider>(context);
+
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: Colors.black,
+          insetPadding: const EdgeInsets.all(24),
+          contentPadding: const EdgeInsets.all(24),
+          shape: const RoundedRectangleBorder(
+              side: BorderSide(color: Colors.amber, width: 1)),
+          title: CustomText(
+              maxLines: 10,
+              size: 16,
+              textAlign: TextAlign.center,
+              text: provider.translationOf["error_title"]),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomText(
+                  maxLines: 20,
+                  size: 14,
+                  textAlign: TextAlign.center,
+                  text: provider.translationOf["error_message"]),
+              SizedBox(height: 8),
+              CustomText(
+                  maxLines: 20,
+                  size: 14,
+                  textAlign: TextAlign.center,
+                  strokeColor: Colors.black,
+                  textColor: Colors.amber,
+                  text: " Macros to Helldivers Desktop"),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: CustomButton(
+                  color: CustomButtonColors.yellow,
+                  text: provider.translationOf["close_button"],
+                  height: 40),
+            ),
           ],
         ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const CustomButton(
-                color: CustomButtonColors.yellow, text: "CERRAR", height: 40),
-          ),
-        ],
-      ),
-    );
+      );
+    }
   }
 
   _buildMacroTitle() {
@@ -148,6 +155,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   _buildForm(BuildContext context) {
+    final translationProvider = Provider.of<TranslationProvider>(context);
+
     return Padding(
       padding: const EdgeInsets.only(top: 20.0, left: 2, right: 2),
       child: Column(
@@ -167,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Container(
                             alignment: Alignment.center,
-                            width: 200,
+                            width: 240,
                             padding: EdgeInsets.symmetric(horizontal: 8),
                             decoration: BoxDecoration(
                               border: Border.fromBorderSide(
@@ -178,7 +187,8 @@ class _HomePageState extends State<HomePage> {
                             child: GestureDetector(
                               onTap: _launchURL,
                               child: CustomText(
-                                text: "COMO CONECTARSE",
+                                text:
+                                    translationProvider.translationOf["how_to"],
                                 size: 16,
                                 textColor: Colors.white,
                               ),
@@ -187,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(height: 16),
                           Container(
                             alignment: Alignment.center,
-                            width: 200,
+                            width: 240,
                             padding: EdgeInsets.symmetric(horizontal: 8),
                             decoration: BoxDecoration(
                               border: Border.fromBorderSide(
@@ -198,7 +208,8 @@ class _HomePageState extends State<HomePage> {
                             child: GestureDetector(
                               onTap: _launchURL,
                               child: CustomText(
-                                text: "VIDEO TUTORIAL",
+                                text: translationProvider
+                                    .translationOf["video_tutorial"],
                                 size: 16,
                                 textColor: Colors.white,
                               ),
@@ -207,7 +218,7 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(height: 16),
                           Container(
                             alignment: Alignment.center,
-                            width: 200,
+                            width: 240,
                             padding: EdgeInsets.symmetric(horizontal: 8),
                             decoration: BoxDecoration(
                               border: Border.fromBorderSide(
@@ -218,7 +229,8 @@ class _HomePageState extends State<HomePage> {
                             child: GestureDetector(
                               onTap: _launchURL,
                               child: CustomText(
-                                text: "Descargar en PC",
+                                text: translationProvider
+                                    .translationOf["download_pc"],
                                 size: 16,
                                 textColor: Colors.white,
                               ),
@@ -317,6 +329,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Container _buildPanelTitle() {
+    final TranslationProvider provider =
+        Provider.of<TranslationProvider>(context);
+
     return Container(
       padding: const EdgeInsets.only(bottom: 4),
       decoration: BoxDecoration(
@@ -335,7 +350,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           CustomText(
-            text: "INGRESA LOS DATOS DE",
+            text: provider.translationOf["input_hint"],
             size: 16,
             maxLines: 2,
             textColor: Colors.white,
