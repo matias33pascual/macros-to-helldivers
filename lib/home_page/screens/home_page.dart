@@ -7,6 +7,7 @@ import 'package:macros_to_helldivers/home_page/screens/widgets/exports_widgets.d
 import 'package:macros_to_helldivers/home_page/screens/widgets/test_app_button.dart';
 import 'package:macros_to_helldivers/shared/services/connection_service.dart';
 import 'package:macros_to_helldivers/shared/translation/translation_provider.dart';
+import 'package:macros_to_helldivers/shared/translation/translation_state.dart';
 import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
 import 'package:macros_to_helldivers/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage> {
 
     if (mounted) {
       final TranslationProvider provider =
-          Provider.of<TranslationProvider>(context);
+          Provider.of<TranslationProvider>(context, listen: false);
 
       showDialog(
         context: context,
@@ -169,70 +170,132 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: const EdgeInsets.only(top: 250, left: 16, right: 16),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
+                    SizedBox(
+                      width: 300,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 240,
-                            padding: EdgeInsets.symmetric(horizontal: 8),
-                            decoration: BoxDecoration(
-                              border: Border.fromBorderSide(
-                                BorderSide(width: 2, color: Colors.blue[300]!),
+                          GestureDetector(
+                            onTap: () => _showLanguageBottomSheet(context),
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                border: Border.fromBorderSide(
+                                  BorderSide(width: 2, color: Colors.grey),
+                                ),
+                                color: Colors.grey.withOpacity(0.5),
                               ),
-                              color: Colors.blue[500]!.withOpacity(0.5),
-                            ),
-                            child: GestureDetector(
-                              onTap: _launchURL,
-                              child: CustomText(
-                                text:
-                                    translationProvider.translationOf["how_to"],
-                                size: 16,
-                                textColor: Colors.white,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 16),
-                          Container(
-                            alignment: Alignment.center,
-                            width: 240,
-                            padding: EdgeInsets.symmetric(horizontal: 8),
-                            decoration: BoxDecoration(
-                              border: Border.fromBorderSide(
-                                BorderSide(width: 2, color: Colors.blue[300]!),
-                              ),
-                              color: Colors.blue[500]!.withOpacity(0.5),
-                            ),
-                            child: GestureDetector(
-                              onTap: _launchURL,
-                              child: CustomText(
-                                text: translationProvider
-                                    .translationOf["video_tutorial"],
-                                size: 16,
-                                textColor: Colors.white,
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 40,
+                                    child: translationProvider.flagIcon,
+                                  ),
+                                  SizedBox(width: 8),
+                                  CustomText(
+                                    text: translationProvider
+                                        .translationOf["language"],
+                                    size: 16,
+                                    textColor: Colors.white,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                           SizedBox(height: 16),
-                          Container(
-                            alignment: Alignment.center,
-                            width: 240,
-                            padding: EdgeInsets.symmetric(horizontal: 8),
-                            decoration: BoxDecoration(
-                              border: Border.fromBorderSide(
-                                BorderSide(width: 2, color: Colors.blue[300]!),
+                          GestureDetector(
+                            onTap: null,
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                border: Border.fromBorderSide(
+                                  BorderSide(
+                                      width: 2, color: Colors.orange[500]!),
+                                ),
+                                color: Colors.orange[300]!.withOpacity(0.5),
                               ),
-                              color: Colors.blue[500]!.withOpacity(0.5),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(2),
+                                    width: 40,
+                                    child: Image.asset(
+                                        "assets/images/manual-1.png"),
+                                  ),
+                                  SizedBox(width: 8),
+                                  CustomText(
+                                    text: translationProvider
+                                        .translationOf["how_to"],
+                                    size: 16,
+                                    textColor: Colors.white,
+                                  ),
+                                ],
+                              ),
                             ),
-                            child: GestureDetector(
-                              onTap: _launchURL,
-                              child: CustomText(
-                                text: translationProvider
-                                    .translationOf["download_pc"],
-                                size: 16,
-                                textColor: Colors.white,
+                          ),
+                          SizedBox(height: 16),
+                          GestureDetector(
+                            onTap: null,
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                border: Border.fromBorderSide(
+                                  BorderSide(width: 2, color: Colors.red[300]!),
+                                ),
+                                color: Colors.red[500]!.withOpacity(0.5),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(2),
+                                    width: 40,
+                                    child: Image.asset(
+                                        "assets/images/youtube.png"),
+                                  ),
+                                  SizedBox(width: 8),
+                                  CustomText(
+                                    text: translationProvider
+                                        .translationOf["video_tutorial"],
+                                    size: 16,
+                                    textColor: Colors.white,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 16),
+                          GestureDetector(
+                            onTap: _launchURL,
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                border: Border.fromBorderSide(
+                                  BorderSide(
+                                      width: 2, color: Colors.blue[300]!),
+                                ),
+                                color: Colors.blue[500]!.withOpacity(0.5),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(2),
+                                    width: 40,
+                                    child: Image.asset("assets/images/pc.png"),
+                                  ),
+                                  SizedBox(width: 8),
+                                  CustomText(
+                                    text: translationProvider
+                                        .translationOf["download_pc"],
+                                    size: 16,
+                                    textColor: Colors.white,
+                                  ),
+                                ],
                               ),
                             ),
                           )
@@ -247,6 +310,84 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  void _showLanguageBottomSheet(BuildContext context) {
+    final TranslationProvider provider =
+        Provider.of<TranslationProvider>(context, listen: false);
+
+    showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.grey[900]!.withOpacity(0.8),
+        shape: RoundedRectangleBorder(
+            side: BorderSide(width: 1, color: Colors.grey[600]!),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(8))),
+        builder: (context) => ListView(
+              shrinkWrap: true,
+              padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    provider.setCurrentLanguage(LanguagesEnum.spanish);
+                    Navigator.of(context).pop();
+                  },
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 40,
+                        child: Image.asset("assets/images/flag-argentina.webp"),
+                      ),
+                      SizedBox(width: 8),
+                      CustomText(
+                        text: "Español",
+                        size: 16,
+                        textColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    provider.setCurrentLanguage(LanguagesEnum.portuguese);
+                    Navigator.of(context).pop();
+                  },
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 40,
+                        child: Image.asset("assets/images/flag-brasil.webp"),
+                      ),
+                      SizedBox(width: 8),
+                      CustomText(
+                        text: "Portuguese",
+                        size: 16,
+                        textColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    provider.setCurrentLanguage(LanguagesEnum.english);
+                    Navigator.of(context).pop();
+                  },
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 40,
+                        child: Image.asset("assets/images/flag-usa.webp"),
+                      ),
+                      SizedBox(width: 8),
+                      CustomText(
+                        text: "English",
+                        size: 16,
+                        textColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ));
   }
 
   void _launchURL() async {

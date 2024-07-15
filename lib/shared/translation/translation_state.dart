@@ -23,7 +23,23 @@ class TranslationState {
 
   static TranslationState get instance => _instance;
 
-  LanguagesEnum currentLanguage = LanguagesEnum.english;
+  LanguagesEnum currentLanguage = LanguagesEnum.spanish;
 
-  Map<String, dynamic>? translation;
+  Map<String, dynamic>? spanishTranslation;
+  Map<String, dynamic>? englishTranslation;
+  Map<String, dynamic>? portugueseTranslation;
+
+  Map<String, dynamic>? get translation {
+    switch (currentLanguage) {
+      case LanguagesEnum.spanish:
+        return spanishTranslation;
+
+      case LanguagesEnum.portuguese:
+        return portugueseTranslation;
+
+      case LanguagesEnum.english:
+      default:
+        return englishTranslation;
+    }
+  }
 }

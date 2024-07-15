@@ -20,5 +20,6 @@
   "stratagems_eagle": "EAGLE",
   "stratagems_orbital": "ORBITAL",
   "stratagems_weapons": "WEAPONS",
-  "stratagems_backpacks": "BACKPACKS"
+  "stratagems_backpacks": "BACKPACKS",
+  "language": "LANGUAGE"
 }
