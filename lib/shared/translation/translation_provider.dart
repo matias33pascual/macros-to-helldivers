@@ -1,12 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:macros_to_helldivers/shared/translation/translation_service.dart';
 import 'package:macros_to_helldivers/shared/translation/translation_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TranslationProvider extends ChangeNotifier {
   TranslationService service = TranslationService.instance;
   TranslationState state = TranslationState.instance;
 
-  loadLanguageFiles() async {
+  Future<void> init(BuildContext context) async {
+    await loadLanguageFiles().then(
+      (_) => getCurrentLanguage(context),
+    );
+  }
+
+  Future loadLanguageFiles() async {
     state.spanishTranslation =
         await service.loadLanguages(LanguagesEnum.spanish.code);
 
@@ -46,9 +55,38 @@ class TranslationProvider extends ChangeNotifier {
     }
   }
 
-  setCurrentLanguage(LanguagesEnum language) {
+  Future setCurrentLanguage(LanguagesEnum language) async {
     state.currentLanguage = language;
+
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setString(
+      "language",
+      jsonEncode(language.code),
+    );
+
     notifyListeners();
+  }
+
+  Future getCurrentLanguage(BuildContext context) async {
+    await SharedPreferences.getInstance().then(
+      (prefs) {
+        String? value = prefs.getString("language");
+
+        if (value != null) {
+          final String languageCode = jsonDecode(value);
+
+          final LanguagesEnum defaultLanguageSelected =
+              LanguagesEnumExtension.languageEnumFromCode(languageCode);
+
+          setCurrentLanguage(defaultLanguageSelected);
+        } else {
+          setCurrentLanguage(LanguagesEnum.english);
+        }
+
+        notifyListeners();
+      },
+    );
   }
 
   get flagIcon {

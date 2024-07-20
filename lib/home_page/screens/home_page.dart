@@ -224,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                                     padding: EdgeInsets.all(2),
                                     width: 40,
                                     child: Image.asset(
-                                        "assets/images/manual-1.png"),
+                                        "assets/images/manual.webp"),
                                   ),
                                   SizedBox(width: 8),
                                   CustomText(
@@ -255,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                                     padding: EdgeInsets.all(2),
                                     width: 40,
                                     child: Image.asset(
-                                        "assets/images/youtube.png"),
+                                        "assets/images/youtube.webp"),
                                   ),
                                   SizedBox(width: 8),
                                   CustomText(
@@ -286,7 +286,7 @@ class _HomePageState extends State<HomePage> {
                                   Container(
                                     padding: EdgeInsets.all(2),
                                     width: 40,
-                                    child: Image.asset("assets/images/pc.png"),
+                                    child: Image.asset("assets/images/pc.webp"),
                                   ),
                                   SizedBox(width: 8),
                                   CustomText(

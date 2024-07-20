@@ -1,4 +1,8 @@
-enum LanguagesEnum { spanish, english, portuguese }
+enum LanguagesEnum {
+  spanish,
+  english,
+  portuguese,
+}
 
 extension LanguagesEnumExtension on LanguagesEnum {
   String get code {
@@ -12,6 +16,23 @@ extension LanguagesEnumExtension on LanguagesEnum {
       case LanguagesEnum.spanish:
       default:
         return 'es';
+    }
+  }
+
+  static LanguagesEnum languageEnumFromCode(String code) {
+    switch (code) {
+      case "en":
+        return LanguagesEnum.english;
+
+      case "es":
+        return LanguagesEnum.spanish;
+
+      case "pt":
+        return LanguagesEnum.portuguese;
+
+      default:
+        throw Exception(
+            "Error en LanguagesEnumExtension.langagueEnumFromCode: no se encontro el codigo del lenguage.");
     }
   }
 }
