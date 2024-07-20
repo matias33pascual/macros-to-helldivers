@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:macros_to_helldivers/shared/translation/translation_provider.dart';
 import 'package:macros_to_helldivers/shared/ui/exports_shared.dart';
 import 'package:macros_to_helldivers/stratagems_page/providers/exports_providers.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,9 @@ class StratagemsListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final StratagemsProvider provider =
         Provider.of<StratagemsProvider>(context);
+
+    final TranslationProvider translationProvider =
+        Provider.of<TranslationProvider>(context, listen: false);
 
     final listToShow = provider.state.listToShow;
 
@@ -44,7 +48,8 @@ class StratagemsListWidget extends StatelessWidget {
                   child: Container(
                     margin: const EdgeInsets.only(left: 8),
                     child: CustomText(
-                      text: listToShow[index].name,
+                      text: translationProvider
+                          .getTranslationOfStratagemName(listToShow[index].id),
                       size: 16,
                     ),
                   ),

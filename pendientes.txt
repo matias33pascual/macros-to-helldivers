@@ -1,0 +1,8 @@
+setear el idioma seleccionado en local storage
+
+hacer la guia de conexion en figma (otro embole mas)
+
+hacer el video tutorial (ver de agregarle subtitulos y ademas tres audios, uno para cada idioma)
+
+agregar traducciones a la parte desktop (con suerte lo hace andres)
+

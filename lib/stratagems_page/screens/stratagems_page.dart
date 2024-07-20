@@ -31,7 +31,7 @@ class StratagemsPage extends StatelessWidget {
           resizeToAvoidBottomInset: false,
           backgroundColor: Colors.black,
           appBar: CustomAppBar(
-            title: provider.translationOf["stratagems_title"],
+            title: provider.translationTextOf["stratagems_title"],
             color: AppTheme.colors.darkRed,
             onBackButtonPressed: () => ConnectionService.instance.disconnect(),
           ),
@@ -83,7 +83,7 @@ class StratagemsPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 8),
                     child: CustomText(
                       text: translationProvider
-                          .translationOf["selected_for_mission"],
+                          .translationTextOf["selected_for_mission"],
                       size: 16,
                     ),
                   ),
@@ -120,7 +120,8 @@ class StratagemsPage extends StatelessWidget {
                       },
                       child: CustomButton(
                         color: CustomButtonColors.yellow,
-                        text: translationProvider.translationOf["start_button"],
+                        text: translationProvider
+                            .translationTextOf["start_button"],
                         height: 40,
                       ),
                     ),

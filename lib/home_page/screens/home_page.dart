@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
               maxLines: 10,
               size: 16,
               textAlign: TextAlign.center,
-              text: provider.translationOf["error_title"]),
+              text: provider.translationTextOf["error_title"]),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                   maxLines: 20,
                   size: 14,
                   textAlign: TextAlign.center,
-                  text: provider.translationOf["error_message"]),
+                  text: provider.translationTextOf["error_message"]),
               SizedBox(height: 8),
               CustomText(
                   maxLines: 20,
@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: CustomButton(
                   color: CustomButtonColors.yellow,
-                  text: provider.translationOf["close_button"],
+                  text: provider.translationTextOf["close_button"],
                   height: 40),
             ),
           ],
@@ -197,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(width: 8),
                                   CustomText(
                                     text: translationProvider
-                                        .translationOf["language"],
+                                        .translationTextOf["language"],
                                     size: 16,
                                     textColor: Colors.white,
                                   ),
@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(width: 8),
                                   CustomText(
                                     text: translationProvider
-                                        .translationOf["how_to"],
+                                        .translationTextOf["how_to"],
                                     size: 16,
                                     textColor: Colors.white,
                                   ),
@@ -260,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(width: 8),
                                   CustomText(
                                     text: translationProvider
-                                        .translationOf["video_tutorial"],
+                                        .translationTextOf["video_tutorial"],
                                     size: 16,
                                     textColor: Colors.white,
                                   ),
@@ -291,7 +291,7 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(width: 8),
                                   CustomText(
                                     text: translationProvider
-                                        .translationOf["download_pc"],
+                                        .translationTextOf["download_pc"],
                                     size: 16,
                                     textColor: Colors.white,
                                   ),
@@ -491,7 +491,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           CustomText(
-            text: provider.translationOf["input_hint"],
+            text: provider.translationTextOf["input_hint"],
             size: 16,
             maxLines: 2,
             textColor: Colors.white,

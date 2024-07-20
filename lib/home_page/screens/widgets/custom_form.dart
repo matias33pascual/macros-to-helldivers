@@ -21,7 +21,7 @@ class CustomForm extends StatelessWidget {
       children: [
         CustomInputField(
           hintText: provider.state.ipAddrress.isEmpty
-              ? translationProvider.translationOf["ip_address"]
+              ? translationProvider.translationTextOf["ip_address"]
               : provider.state.ipAddrress,
           formKey: formKeyIp,
           onChangedHandle: (String value) =>
@@ -30,7 +30,7 @@ class CustomForm extends StatelessWidget {
         const SizedBox(height: 6),
         CustomInputField(
           hintText: provider.state.port.isEmpty
-              ? translationProvider.translationOf["port"]
+              ? translationProvider.translationTextOf["port"]
               : provider.state.port,
           textInputType: TextInputType.number,
           formKey: formKeyPort,

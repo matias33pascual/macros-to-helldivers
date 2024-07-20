@@ -12,31 +12,52 @@ class StratagemsProvider extends ChangeNotifier {
   StratagemsState state = StratagemsState.instance;
 
   Future loadStratagems() async {
+    if (state.stratagems.isNotEmpty) {
+      return;
+    }
+
     try {
-      state.defensesStratagemsList =
-          await service.loadStratagemsFromFile("defensive");
+      state.stratagems = await service.loadStratagemsFromFile("stratagems");
 
-      state.missionStratagemsList =
-          await service.loadStratagemsFromFile("mission");
-
-      state.eagleStratagemsList = await service.loadStratagemsFromFile("eagle");
-
-      state.orbitalStratagemsList =
-          await service.loadStratagemsFromFile("orbital");
-
-      state.backpacksStratagemsList =
-          await service.loadStratagemsFromFile("backpacks");
-
-      state.weaponsStratagemsList =
-          await service.loadStratagemsFromFile("weapons");
+      _divideStratagemsTypesList();
 
       state.tabMenuSelected = TabsMenuEnum.mission;
+
       state.listToShow = state.missionStratagemsList;
     } catch (error) {
       if (kDebugMode) {
         print("Error al cargar las estratagemas en loadStratagems: $error");
       }
       rethrow;
+    }
+  }
+
+  _divideStratagemsTypesList() {
+    for (var stratagem in state.stratagems) {
+      switch (stratagem.type) {
+        case StratagemTypesEnum.mission:
+          state.missionStratagemsList.add(stratagem);
+          break;
+
+        case StratagemTypesEnum.eagle:
+          state.eagleStratagemsList.add(stratagem);
+          break;
+
+        case StratagemTypesEnum.orbital:
+          state.orbitalStratagemsList.add(stratagem);
+          break;
+
+        case StratagemTypesEnum.defenses:
+          state.defensesStratagemsList.add(stratagem);
+          break;
+
+        case StratagemTypesEnum.weapons:
+          state.weaponsStratagemsList.add(stratagem);
+          break;
+
+        case StratagemTypesEnum.backpacks:
+          state.backpacksStratagemsList.add(stratagem);
+      }
     }
   }
 
@@ -140,43 +161,14 @@ class StratagemsProvider extends ChangeNotifier {
   }
 
   StratagemModel getStratagemById(String stratagemId) {
-    for (StratagemModel stratagem in state.defensesStratagemsList) {
+    for (StratagemModel stratagem in state.stratagems) {
       if (stratagem.id == stratagemId) {
         return stratagem;
       }
     }
 
-    for (StratagemModel stratagem in state.missionStratagemsList) {
-      if (stratagem.id == stratagemId) {
-        return stratagem;
-      }
-    }
-
-    for (StratagemModel stratagem in state.eagleStratagemsList) {
-      if (stratagem.id == stratagemId) {
-        return stratagem;
-      }
-    }
-
-    for (StratagemModel stratagem in state.orbitalStratagemsList) {
-      if (stratagem.id == stratagemId) {
-        return stratagem;
-      }
-    }
-
-    for (StratagemModel stratagem in state.backpacksStratagemsList) {
-      if (stratagem.id == stratagemId) {
-        return stratagem;
-      }
-    }
-
-    for (StratagemModel stratagem in state.weaponsStratagemsList) {
-      if (stratagem.id == stratagemId) {
-        return stratagem;
-      }
-    }
-
-    throw Exception("Error en getStratagemById: No se encontro la estratagema");
+    throw Exception(
+        "Error en stratagemsProvider.getStratagemById: No se encontro la estratagema");
   }
 
   _getListToShowByTabMenu() {

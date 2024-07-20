@@ -19,7 +19,7 @@ class ConnectButton extends StatelessWidget {
       color: provider.isFormValid
           ? CustomButtonColors.yellow
           : CustomButtonColors.gray,
-      text: translationProvider.translationOf["connect_button"],
+      text: translationProvider.translationTextOf["connect_button"],
       height: 40,
     );
   }

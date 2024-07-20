@@ -6,17 +6,44 @@ class TranslationProvider extends ChangeNotifier {
   TranslationService service = TranslationService.instance;
   TranslationState state = TranslationState.instance;
 
-  loadLanguageFile() async {
+  loadLanguageFiles() async {
     state.spanishTranslation =
         await service.loadLanguages(LanguagesEnum.spanish.code);
+
     state.portugueseTranslation =
         await service.loadLanguages(LanguagesEnum.portuguese.code);
+
     state.englishTranslation =
         await service.loadLanguages(LanguagesEnum.english.code);
+
+    state.strtagemsNamesInSpanish =
+        await service.loadStratagemsNameByLanguage(LanguagesEnum.spanish);
+
+    state.strtagemsNamesInEnglish =
+        await service.loadStratagemsNameByLanguage(LanguagesEnum.english);
+
+    state.strtagemsNamesInPortuguese =
+        await service.loadStratagemsNameByLanguage(LanguagesEnum.portuguese);
   }
 
-  get translationOf {
+  get translationTextOf {
     return state.translation;
+  }
+
+  getTranslationOfStratagemName(String stratagemId) {
+    switch (state.currentLanguage) {
+      case LanguagesEnum.spanish:
+        return state.strtagemsNamesInSpanish?[stratagemId] ?? "";
+
+      case LanguagesEnum.english:
+        return state.strtagemsNamesInEnglish?[stratagemId] ?? "";
+
+      case LanguagesEnum.portuguese:
+        return state.strtagemsNamesInPortuguese?[stratagemId] ?? "";
+
+      default:
+        return "";
+    }
   }
 
   setCurrentLanguage(LanguagesEnum language) {

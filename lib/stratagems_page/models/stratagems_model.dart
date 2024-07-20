@@ -1,8 +1,18 @@
 import 'dart:convert';
 
+enum StratagemTypesEnum {
+  mission,
+  defenses,
+  orbital,
+  eagle,
+  weapons,
+  backpacks
+}
+
 class StratagemModel {
   String id;
   String name;
+  StratagemTypesEnum type;
   String icon;
   List<String> keysCode;
 
@@ -11,6 +21,7 @@ class StratagemModel {
     required this.name,
     required this.icon,
     required this.keysCode,
+    required this.type,
   });
 
   factory StratagemModel.fromJson(String str) =>
@@ -22,6 +33,7 @@ class StratagemModel {
         id: json["id"],
         name: json["name"],
         icon: json["icon"],
+        type: getTypeFromString(json["type"]),
         keysCode: List<String>.from(json["keysCode"].map((x) => x)),
       );
 
@@ -29,6 +41,33 @@ class StratagemModel {
         "id": id,
         "name": name,
         "icon": icon,
+        "type": type,
         "keysCode": List<dynamic>.from(keysCode.map((x) => x)),
       };
+
+  static StratagemTypesEnum getTypeFromString(String stringValue) {
+    switch (stringValue) {
+      case "backpacks":
+        return StratagemTypesEnum.backpacks;
+
+      case "defenses":
+        return StratagemTypesEnum.defenses;
+
+      case "eagle":
+        return StratagemTypesEnum.eagle;
+
+      case "orbital":
+        return StratagemTypesEnum.orbital;
+
+      case "weapons":
+        return StratagemTypesEnum.weapons;
+
+      case "mission":
+        return StratagemTypesEnum.mission;
+
+      default:
+        throw Exception(
+            "Error en StratagemsModel.getTypeFromString: no existe el tipo de StratagemTypesEnum seleccionado.");
+    }
+  }
 }

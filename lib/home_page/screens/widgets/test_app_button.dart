@@ -14,7 +14,7 @@ class TestAppButton extends StatelessWidget {
 
     return CustomButton(
       color: CustomButtonColors.yellow,
-      text: translationProvider.translationOf["test_app_button"],
+      text: translationProvider.translationTextOf["test_app_button"],
       height: 40,
       fontSize: 13,
     );

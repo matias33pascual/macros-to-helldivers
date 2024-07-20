@@ -29,6 +29,10 @@ class TranslationState {
   Map<String, dynamic>? englishTranslation;
   Map<String, dynamic>? portugueseTranslation;
 
+  Map<String, dynamic>? strtagemsNamesInSpanish;
+  Map<String, dynamic>? strtagemsNamesInEnglish;
+  Map<String, dynamic>? strtagemsNamesInPortuguese;
+
   Map<String, dynamic>? get translation {
     switch (currentLanguage) {
       case LanguagesEnum.spanish:

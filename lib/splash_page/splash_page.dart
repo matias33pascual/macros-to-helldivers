@@ -14,7 +14,7 @@ class SplashPage extends StatelessWidget {
         Provider.of<TranslationProvider>(context, listen: false);
 
     return FutureBuilder(
-      future: translationProvider.loadLanguageFile(),
+      future: translationProvider.loadLanguageFiles(),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.waiting:

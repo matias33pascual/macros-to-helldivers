@@ -11,17 +11,17 @@ extension TabMenuEnumExtension on TabsMenuEnum {
 
     switch (this) {
       case TabsMenuEnum.mission:
-        return provider.translationOf["stratagems_mission"];
+        return provider.translationTextOf["stratagems_mission"];
       case TabsMenuEnum.defenses:
-        return provider.translationOf["stratagems_defenses"];
+        return provider.translationTextOf["stratagems_defenses"];
       case TabsMenuEnum.eagle:
-        return provider.translationOf["stratagems_eagle"];
+        return provider.translationTextOf["stratagems_eagle"];
       case TabsMenuEnum.orbital:
-        return provider.translationOf["stratagems_orbital"];
+        return provider.translationTextOf["stratagems_orbital"];
       case TabsMenuEnum.weapons:
-        return provider.translationOf["stratagems_weapons"];
+        return provider.translationTextOf["stratagems_weapons"];
       case TabsMenuEnum.backpacks:
-        return provider.translationOf["stratagems_backpacks"];
+        return provider.translationTextOf["stratagems_backpacks"];
       default:
         return '';
     }

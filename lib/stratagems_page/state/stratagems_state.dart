@@ -8,11 +8,13 @@ class StratagemsState {
 
   static StratagemsState get instance => _instance;
 
-  List<StratagemModel> defensesStratagemsList = [];
+  List<StratagemModel> stratagems = [];
+
   List<StratagemModel> missionStratagemsList = [];
+  List<StratagemModel> backpacksStratagemsList = [];
+  List<StratagemModel> defensesStratagemsList = [];
   List<StratagemModel> eagleStratagemsList = [];
   List<StratagemModel> orbitalStratagemsList = [];
-  List<StratagemModel> backpacksStratagemsList = [];
   List<StratagemModel> weaponsStratagemsList = [];
 
   TabsMenuEnum tabMenuSelected = TabsMenuEnum.eagle;
@@ -20,9 +22,9 @@ class StratagemsState {
   List<StratagemModel> listToShow = [];
 
   List<String> stratagemsSelectedForMission = [
-    "100",
-    "101",
-    "102",
+    "000",
+    "001",
+    "002",
   ];
 
   int maxStratagemSelected = 10;

@@ -1,0 +1,401 @@
+[
+  {
+    "id": "000",
+    "name": "REFUERZO",
+    "type": "mission",
+    "icon": "assets/icons/Reinforce.webp",
+    "keysCode": ["up", "down", "right", "left", "up"]
+  },
+  {
+    "id": "001",
+    "name": "BALIZA DE S.O.S",
+    "type": "mission",
+    "icon": "assets/icons/SOS-Beacon.webp",
+    "keysCode": ["up", "down", "right", "up"]
+  },
+  {
+    "id": "002",
+    "name": "REABASTECIMIENTOS",
+    "type": "mission",
+    "icon": "assets/icons/Resupply.webp",
+    "keysCode": ["down", "down", "up", "right"]
+  },
+  {
+    "id": "003",
+    "name": "BOMBA HELL",
+    "type": "mission",
+    "icon": "assets/icons/Hellbomb.webp",
+    "keysCode": ["down", "up", "left", "down", "up", "right", "down", "up"]
+  },
+  {
+    "id": "004",
+    "name": "ARTILLERIA SEAF",
+    "type": "mission",
+    "icon": "assets/icons/SEAF-Artillery.webp",
+    "keysCode": ["right", "up", "up", "down"]
+  },
+  {
+    "id": "005",
+    "name": "RECARGA DE AGUILA",
+    "type": "eagle",
+    "icon": "assets/icons/Eagle-Rearm.webp",
+    "keysCode": ["up", "up", "left", "up", "right"]
+  },
+  {
+    "id": "006",
+    "name": "BARRIDA DE AMETRALLADORA DE AGUILA",
+    "type": "eagle",
+    "icon": "assets/icons/Eagle-Strafing-Run.webp",
+    "keysCode": ["up", "right", "right"]
+  },
+  {
+    "id": "007",
+    "name": "ATAQUE AEREO DE AGUILA",
+    "type": "eagle",
+    "icon": "assets/icons/Eagle-Airstrike.webp",
+    "keysCode": ["up", "right", "down", "right"]
+  },
+  {
+    "id": "008",
+    "name": "BOMBA DE RACIMO DE AGUILA",
+    "type": "eagle",
+    "icon": "assets/icons/Eagle-Cluster-Bomb.webp",
+    "keysCode": ["up", "right", "down", "down", "right"]
+  },
+  {
+    "id": "009",
+    "name": "ATAQUE AEREO DE NAPALM DE AGUILA",
+    "type": "eagle",
+    "icon": "assets/icons/Eagle-Napalm-Airstrike.webp",
+    "keysCode": ["up", "right", "down", "up"]
+  },
+  {
+    "id": "010",
+    "name": "ATAQUE DE HUMO DE AGUILA",
+    "type": "eagle",
+    "icon": "assets/icons/Eagle-Smoke-Strike.webp",
+    "keysCode": ["up", "right", "up", "down"]
+  },
+  {
+    "id": "011",
+    "name": "CAPSULAS DE COHETES DE 110 MM DE AGUILA",
+    "type": "eagle",
+    "icon": "assets/icons/Eagle-110MM-Rocket-Pods.webp",
+    "keysCode": ["up", "right", "up", "left"]
+  },
+  {
+    "id": "012",
+    "name": "BOMBA DE 500 KG DE AGUILA",
+    "type": "eagle",
+    "icon": "assets/icons/Eagle-500KG-Bomb.webp",
+    "keysCode": ["up", "right", "down", "down", "down"]
+  },
+  {
+    "id": "013",
+    "name": "MOCHILA DE SALTO",
+    "type": "backpacks",
+    "icon": "assets/icons/Jump-Pack.webp",
+    "keysCode": ["down", "up", "up", "down", "up"]
+  },
+  {
+    "id": "014",
+    "name": "MOCHILA DE ABASTECIMIENTO",
+    "type": "backpacks",
+    "icon": "assets/icons/Supply-Pack.webp",
+    "keysCode": ["down", "left", "down", "up", "up", "down"]
+  },
+  {
+    "id": "015",
+    "name": "ROVER PERRO GUARDIAN",
+    "type": "backpacks",
+    "icon": "assets/icons/Guard-Dog-Rover.webp",
+    "keysCode": ["down", "up", "left", "up", "right", "right"]
+  },
+  {
+    "id": "016",
+    "name": "MOCHILA DE ESCUDO BALISTICO",
+    "type": "backpacks",
+    "icon": "assets/icons/Ballistic-Shield-Backpack.webp",
+    "keysCode": ["down", "left", "down", "down", "up", "left"]
+  },
+  {
+    "id": "017",
+    "name": "MOCHILA GENERADORA DE ESCUDO",
+    "type": "backpacks",
+    "icon": "assets/icons/Shield-Generator-Pack.webp",
+    "keysCode": ["down", "up", "left", "right", "left", "right"]
+  },
+  {
+    "id": "018",
+    "name": "PERRO GUARDIAN",
+    "type": "backpacks",
+    "icon": "assets/icons/Guard-Dog.webp",
+    "keysCode": ["down", "up", "left", "up", "right", "down"]
+  },
+  {
+    "id": "019",
+    "name": "EMPLAZAMIENTO AP",
+    "type": "defenses",
+    "icon": "assets/icons/HGM-Emplacement.webp",
+    "keysCode": ["down", "up", "left", "right", "right", "left"]
+  },
+  {
+    "id": "020",
+    "name": "RELE GENERADOR DE ESCUDO",
+    "type": "defenses",
+    "icon": "assets/icons/Shield-Generator-Relay.webp",
+    "keysCode": ["down", "down", "left", "right", "left", "right"]
+  },
+  {
+    "id": "021",
+    "name": "TORRE TESLA",
+    "type": "defenses",
+    "icon": "assets/icons/Tesla-Tower.webp",
+    "keysCode": ["down", "up", "right", "up", "left", "right"]
+  },
+  {
+    "id": "022",
+    "name": "CAMPO MINADO ANTIPERSONAL",
+    "type": "defenses",
+    "icon": "assets/icons/Anti-Personnel-Minefield.webp",
+    "keysCode": ["down", "left", "up", "right"]
+  },
+  {
+    "id": "023",
+    "name": "MINAS INCENDIARIAS",
+    "type": "defenses",
+    "icon": "assets/icons/Incendiary-Mines.webp",
+    "keysCode": ["down", "left", "left", "down"]
+  },
+  {
+    "id": "024",
+    "name": "VIGIA AMETRALLADORA",
+    "type": "defenses",
+    "icon": "assets/icons/Machine-Gun-Sentry.webp",
+    "keysCode": ["down", "up", "right", "right", "up"]
+  },
+  {
+    "id": "025",
+    "name": "VIGIA GATLING",
+    "type": "defenses",
+    "icon": "assets/icons/Gatling-Sentry.webp",
+    "keysCode": ["down", "up", "right", "left"]
+  },
+  {
+    "id": "026",
+    "name": "VIGIA MORTERO",
+    "type": "defenses",
+    "icon": "assets/icons/Mortar-Sentry.webp",
+    "keysCode": ["down", "up", "right", "right", "down"]
+  },
+  {
+    "id": "027",
+    "name": "VIGIA DE CAÑON AUTOMATICO",
+    "type": "defenses",
+    "icon": "assets/icons/Autocannon-Sentry.webp",
+    "keysCode": ["down", "up", "right", "up", "left", "up"]
+  },
+  {
+    "id": "028",
+    "name": "VIGIA DE COHETES",
+    "type": "defenses",
+    "icon": "assets/icons/Rocket-Sentry.webp",
+    "keysCode": ["down", "up", "right", "right", "left"]
+  },
+  {
+    "id": "029",
+    "name": "VIGIA MORTERO OEM",
+    "type": "defenses",
+    "icon": "assets/icons/EMS-Mortar-Sentry.webp",
+    "keysCode": ["down", "up", "right", "down", "right"]
+  },
+  {
+    "id": "030",
+    "name": "DESCARGA GATLING ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-Gatling-Barrage.webp",
+    "keysCode": ["right", "down", "left", "up", "up"]
+  },
+  {
+    "id": "031",
+    "name": "ATAQUE DE EXPLOSION AEREA ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-Airburst-Strike.webp",
+    "keysCode": ["right", "right", "right"]
+  },
+  {
+    "id": "032",
+    "name": "DESCARGA AE DE 120 MM ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-120MM-HE-Barrage.webp",
+    "keysCode": ["right", "right", "down", "left", "right", "down"]
+  },
+  {
+    "id": "033",
+    "name": "DESCARGA AE DE 380 MM ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-380MM-HE-Barrage.webp",
+    "keysCode": ["right", "down", "up", "up", "left", "down", "down"]
+  },
+  {
+    "id": "034",
+    "name": "DESCARGA DE CAMINANTE ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-Walking-Barrage.webp",
+    "keysCode": ["right", "down", "right", "down", "right", "down"]
+  },
+  {
+    "id": "035",
+    "name": "LASER ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-Laser.webp",
+    "keysCode": ["right", "down", "up", "right", "down"]
+  },
+  {
+    "id": "036",
+    "name": "ATAQUE CON CAÑON DE RIEL ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-Railcannon-Strike.webp",
+    "keysCode": ["right", "up", "down", "down", "right"]
+  },
+  {
+    "id": "037",
+    "name": "ATAQUE DE PRECISION ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-Precision-Strike.webp",
+    "keysCode": ["right", "right", "up"]
+  },
+  {
+    "id": "038",
+    "name": "ATAQUE DE GAS ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-Gas-Strike.webp",
+    "keysCode": ["right", "right", "down", "right"]
+  },
+  {
+    "id": "039",
+    "name": "ATAQUE DE OEM ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-EMS-Strike.webp",
+    "keysCode": ["right", "right", "left", "up"]
+  },
+  {
+    "id": "040",
+    "name": "ATAQUE DE HUMO ORBITAL",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-Smoke-Strike.webp",
+    "keysCode": ["right", "right", "down", "up"]
+  },
+  {
+    "id": "041",
+    "name": "AMETRALLADORA",
+    "type": "weapons",
+    "icon": "assets/icons/Machine-Gun.webp",
+    "keysCode": ["down", "left", "down", "up", "right"]
+  },
+  {
+    "id": "042",
+    "name": "RIFLE ANTIEQUIPAMIENTO",
+    "type": "weapons",
+    "icon": "assets/icons/Anti-Materiel-Rifle.webp",
+    "keysCode": ["down", "left", "right", "up", "down"]
+  },
+  {
+    "id": "043",
+    "name": "INCONDICIONAL",
+    "type": "weapons",
+    "icon": "assets/icons/Stalwart.webp",
+    "keysCode": ["down", "left", "down", "up", "up", "left"]
+  },
+  {
+    "id": "044",
+    "name": "ANTITANQUE DESECHABLE",
+    "type": "weapons",
+    "icon": "assets/icons/Expendable-Anti-tank.webp",
+    "keysCode": ["down", "down", "left", "up", "right"]
+  },
+  {
+    "id": "045",
+    "name": "RIFLE SIN RETROCESO",
+    "type": "weapons",
+    "icon": "assets/icons/Recoilless-Rifle.webp",
+    "keysCode": ["down", "left", "right", "right", "left"]
+  },
+  {
+    "id": "046",
+    "name": "LANZALLAMAS",
+    "type": "weapons",
+    "icon": "assets/icons/Flamethrower.webp",
+    "keysCode": ["down", "left", "up", "down", "up"]
+  },
+  {
+    "id": "047",
+    "name": "CAÑON AUTOMATICO",
+    "type": "weapons",
+    "icon": "assets/icons/Autocannon.webp",
+    "keysCode": ["down", "left", "down", "up", "up", "right"]
+  },
+  {
+    "id": "048",
+    "name": "AMETRALLADORA PESADA",
+    "type": "weapons",
+    "icon": "assets/icons/Heavy-Machine-Gun.webp",
+    "keysCode": ["down", "left", "up", "down", "down"]
+  },
+  {
+    "id": "049",
+    "name": "LANZACOHETES DE ESTALLIDO AE0",
+    "type": "weapons",
+    "icon": "assets/icons/Airburst-Rocket-Launcher.webp",
+    "keysCode": ["down", "up", "up", "left", "right"]
+  },
+  {
+    "id": "050",
+    "name": "ARMA DE RIEL",
+    "type": "weapons",
+    "icon": "assets/icons/Railgun.webp",
+    "keysCode": ["down", "right", "down", "up", "left", "right"]
+  },
+  {
+    "id": "051",
+    "name": "LANZA",
+    "type": "weapons",
+    "icon": "assets/icons/SPEAR-Launcher.webp",
+    "keysCode": ["down", "down", "up", "down", "down"]
+  },
+  {
+    "id": "052",
+    "name": "LANZAGRANADAS",
+    "type": "weapons",
+    "icon": "assets/icons/Grenade-Launcher.webp",
+    "keysCode": ["down", "left", "up", "left", "down"]
+  },
+  {
+    "id": "053",
+    "name": "CAÑON LASER",
+    "type": "weapons",
+    "icon": "assets/icons/Laser-Cannon.webp",
+    "keysCode": ["down", "left", "down", "up", "left"]
+  },
+  {
+    "id": "054",
+    "name": "LANZAARCOS",
+    "type": "weapons",
+    "icon": "assets/icons/Arc-Thrower.webp",
+    "keysCode": ["down", "right", "down", "up", "left", "left"]
+  },
+  {
+    "id": "055",
+    "name": "CAÑON CUASAR",
+    "type": "weapons",
+    "icon": "assets/icons/Quasar-Cannon.webp",
+    "keysCode": ["down", "down", "up", "left", "right"]
+  },
+  {
+    "id": "056",
+    "name": "EXOTRAJE PATRIOTA",
+    "type": "weapons",
+    "icon": "assets/icons/Patriot-Exosuit.webp",
+    "keysCode": ["left", "down", "right", "up", "left", "down", "down"]
+  }
+]

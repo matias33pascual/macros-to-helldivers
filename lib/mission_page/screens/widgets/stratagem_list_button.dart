@@ -1,9 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:macros_to_helldivers/shared/services/connection_service.dart';
+import 'package:macros_to_helldivers/shared/translation/translation_provider.dart';
 import 'package:macros_to_helldivers/shared/ui/custom_text.dart';
 import 'package:macros_to_helldivers/stratagems_page/models/stratagems_model.dart';
+import 'package:provider/provider.dart';
 
 class StratagemListButton extends StatefulWidget {
   const StratagemListButton({
@@ -22,6 +23,9 @@ class _StratagemListButtonState extends State<StratagemListButton> {
 
   @override
   Widget build(BuildContext context) {
+    final TranslationProvider translationProvider =
+        Provider.of<TranslationProvider>(context, listen: false);
+
     return GestureDetector(
       onTapDown: (details) => setState(() {
         isPressed = true;
@@ -71,7 +75,8 @@ class _StratagemListButtonState extends State<StratagemListButton> {
                   fit: FlexFit.tight,
                   child: CustomText(
                     textAlign: TextAlign.start,
-                    text: widget.stratagem.name,
+                    text: translationProvider
+                        .getTranslationOfStratagemName(widget.stratagem.id),
                     size: 17,
                     maxLines: 2,
                   )),
