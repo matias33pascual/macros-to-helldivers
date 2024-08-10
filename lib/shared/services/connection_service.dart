@@ -41,7 +41,7 @@ class ConnectionService {
           (message) async {
             final jsonMessage = jsonDecode(message)["message"];
 
-            if (jsonMessage == "macrosync-server-helldivers") {
+            if (jsonMessage == "macros-to-helldivers-pc") {
               if (!_connectionCompleter!.isCompleted) {
                 _connectionCompleter!.complete(true);
               }

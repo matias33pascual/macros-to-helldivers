@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(height: 16),
                           GestureDetector(
-                            onTap: null,
+                            onTap: _openUserManualURL,
                             child: Container(
                               alignment: Alignment.center,
                               padding: EdgeInsets.symmetric(horizontal: 8),
@@ -268,37 +268,6 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 16),
-                          GestureDetector(
-                            onTap: _launchURL,
-                            child: Container(
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.symmetric(horizontal: 8),
-                              decoration: BoxDecoration(
-                                border: Border.fromBorderSide(
-                                  BorderSide(
-                                      width: 2, color: Colors.blue[300]!),
-                                ),
-                                color: Colors.blue[500]!.withOpacity(0.5),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(2),
-                                    width: 40,
-                                    child: Image.asset("assets/images/pc.webp"),
-                                  ),
-                                  SizedBox(width: 8),
-                                  CustomText(
-                                    text: translationProvider
-                                        .translationTextOf["download_pc"],
-                                    size: 16,
-                                    textColor: Colors.white,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
                         ],
                       ),
                     ),
@@ -390,10 +359,10 @@ class _HomePageState extends State<HomePage> {
             ));
   }
 
-  void _launchURL() async {
+  void _openUserManualURL() {
     final url = Uri.https(
-      'github.com',
-      'symphonic15/macrosync-helldivers-desktop/releases/tag/v1.0.2',
+      'sites.google.com',
+      'view/macrostohelldiversmanual/página-principal',
     );
 
     launchUrl(url, mode: LaunchMode.externalApplication);
