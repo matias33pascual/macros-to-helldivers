@@ -9,10 +9,10 @@ Para conectar las aplicaciones puedes utilizar el [Manual de usuario](https://si
 A continuación puedes ver algunas capturas de pantalla de la aplicación del celular:
 
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="./assets/images/capture-1.png?raw=true" alt="Captura del juego" width="300"/>
-  <img src="./assets/images/capture-2.png?raw=true" alt="Captura del juego" width="300"/>
-  <img src="./assets/images/capture-3.png?raw=true" alt="Captura del juego" width="300"/>
-  <img src="./assets/images/capture-4.png?raw=true" alt="Captura del juego" width="300"/>
+  <img src="./assets/images/capture-1.png?raw=true" alt="Captura del juego" height="310"/>
+  <img src="./assets/images/capture-2.png?raw=true" alt="Captura del juego" height="310"/>
+  <img src="./assets/images/capture-3.png?raw=true" alt="Captura del juego" height="310"/>
+  <img src="./assets/images/capture-4.png?raw=true" alt="Captura del juego" height="310"/>
 </div>
 
 <br>
