@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                   textAlign: TextAlign.center,
                   strokeColor: Colors.black,
                   textColor: Colors.amber,
-                  text: " Macros to Helldivers Desktop"),
+                  text: " Macros to Helldivers PC"),
             ],
           ),
           actions: <Widget>[
@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(height: 16),
                           GestureDetector(
-                            onTap: null,
+                            onTap: _openVideoURL,
                             child: Container(
                               alignment: Alignment.center,
                               padding: EdgeInsets.symmetric(horizontal: 8),
@@ -368,6 +368,15 @@ class _HomePageState extends State<HomePage> {
     launchUrl(url, mode: LaunchMode.externalApplication);
   }
 
+  void _openVideoURL() {
+    final url = Uri.https(
+      'youtu.be',
+      'nUkQs_cpJ4o?si=UmZZYw1TmYPVufMT',
+    );
+
+    launchUrl(url, mode: LaunchMode.externalApplication);
+  }
+
   _buildContent(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
@@ -468,7 +477,7 @@ class _HomePageState extends State<HomePage> {
             textAlign: TextAlign.center,
           ),
           CustomText(
-            text: "MACROS TO HELLDIVERS DESKTOP",
+            text: "MACROS TO HELLDIVERS PC",
             size: 16,
             maxLines: 2,
             textColor: Colors.amber,
