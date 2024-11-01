@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         MissionPage.routeName: (context) => const MissionPage(),
         SplashPage.routeName: (context) => const SplashPage(),
       },
-      title: 'Macros to Helldivers',
+      title: 'Macros to Helldivers 2',
       debugShowCheckedModeBanner: false,
       initialRoute: SplashPage.routeName,
     );

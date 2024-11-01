@@ -397,5 +397,40 @@
     "type": "weapons",
     "icon": "assets/icons/Patriot-Exosuit.webp",
     "keysCode": ["left", "down", "right", "up", "left", "down", "down"]
+  },
+  {
+    "id": "057",
+    "name": "SUPER EARTH FLAG",
+    "type": "mission",
+    "icon": "assets/icons/Super-earth-flag.webp",
+    "keysCode": ["down", "up", "down", "up"]
+  },
+  {
+    "id": "058",
+    "name": "MD-17 ANTI-TANK MINES",
+    "type": "defenses",
+    "icon": "assets/icons/anti-tank-mines.webp",
+    "keysCode": ["down", "left", "up", "up"]
+  },
+  {
+    "id": "059",
+    "name": "ORBITAL NAPALM BARRAGE",
+    "type": "orbital",
+    "icon": "assets/icons/Orbital-napalm-barrage.webp",
+    "keysCode": ["right", "right", "down", "left", "right", "up"]
+  },
+  {
+    "id": "060",
+    "name": "MLS-4X COMMANDO",
+    "type": "weapons",
+    "icon": "assets/icons/mls-4x-commando.webp",
+    "keysCode": ["down", "left", "up", "down", "right"]
+  },
+  {
+    "id": "061",
+    "name": "EMANCIPATOR EXOSUIT",
+    "type": "weapons",
+    "icon": "assets/icons/emancipator-exosuit.webp",
+    "keysCode": ["left", "down", "right", "up", "left", "down"]
   }
 ]

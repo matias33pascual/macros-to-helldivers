@@ -360,9 +360,20 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _openUserManualURL() {
+    String urlUserManual = "";
+
+    if (TranslationState.instance.currentLanguage == LanguagesEnum.english) {
+      urlUserManual = "view/manual-macros-en/página-principal";
+    } else if (TranslationState.instance.currentLanguage ==
+        LanguagesEnum.portuguese) {
+      urlUserManual = "view/manual-macros-pt/página-principal";
+    } else {
+      urlUserManual = "view/manual-macros-es/página-principal";
+    }
+
     final url = Uri.https(
       'sites.google.com',
-      'view/macrostohelldiversmanual/página-principal',
+      urlUserManual,
     );
 
     launchUrl(url, mode: LaunchMode.externalApplication);
