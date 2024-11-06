@@ -25,14 +25,20 @@ class TranslationProvider extends ChangeNotifier {
     state.englishTranslation =
         await service.loadLanguages(LanguagesEnum.english.code);
 
-    state.strtagemsNamesInSpanish =
+    state.russianTranslation =
+        await service.loadLanguages(LanguagesEnum.russian.code);
+
+    state.stratagemsNamesInSpanish =
         await service.loadStratagemsNameByLanguage(LanguagesEnum.spanish);
 
-    state.strtagemsNamesInEnglish =
+    state.stratagemsNamesInEnglish =
         await service.loadStratagemsNameByLanguage(LanguagesEnum.english);
 
-    state.strtagemsNamesInPortuguese =
+    state.stratagemsNamesInPortuguese =
         await service.loadStratagemsNameByLanguage(LanguagesEnum.portuguese);
+
+    state.stratagemsNamesInRussian =
+        await service.loadStratagemsNameByLanguage(LanguagesEnum.russian);
   }
 
   get translationTextOf {
@@ -42,13 +48,16 @@ class TranslationProvider extends ChangeNotifier {
   getTranslationOfStratagemName(String stratagemId) {
     switch (state.currentLanguage) {
       case LanguagesEnum.spanish:
-        return state.strtagemsNamesInSpanish?[stratagemId] ?? "";
+        return state.stratagemsNamesInSpanish?[stratagemId] ?? "";
 
       case LanguagesEnum.english:
-        return state.strtagemsNamesInEnglish?[stratagemId] ?? "";
+        return state.stratagemsNamesInEnglish?[stratagemId] ?? "";
 
       case LanguagesEnum.portuguese:
-        return state.strtagemsNamesInPortuguese?[stratagemId] ?? "";
+        return state.stratagemsNamesInPortuguese?[stratagemId] ?? "";
+
+      case LanguagesEnum.russian:
+        return state.stratagemsNamesInRussian?[stratagemId] ?? "";
 
       default:
         return "";
@@ -93,6 +102,9 @@ class TranslationProvider extends ChangeNotifier {
     switch (state.currentLanguage) {
       case LanguagesEnum.portuguese:
         return Image.asset("assets/images/flag-brasil.webp");
+
+      case LanguagesEnum.russian:
+        return Image.asset("assets/images/flag-rusia.webp");
 
       case LanguagesEnum.english:
         return Image.asset("assets/images/flag-usa.webp");

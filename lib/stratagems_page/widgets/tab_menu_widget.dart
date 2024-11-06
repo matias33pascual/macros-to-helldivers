@@ -102,7 +102,7 @@ class _MenuTab extends StatelessWidget {
         text: text,
         strokeColor: Colors.black,
         textColor: Colors.amber,
-        size: 14,
+        size: 12,
       );
     }
 
@@ -110,7 +110,7 @@ class _MenuTab extends StatelessWidget {
       onTap: onTapHandler,
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
-        child: CustomText(text: text),
+        child: CustomText(text: text, size: 10.5),
       ),
     );
   }

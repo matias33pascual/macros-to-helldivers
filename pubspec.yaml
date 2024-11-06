@@ -82,9 +82,14 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+    - family: roboto
+      fonts:
+        - asset: assets/fonts/Roboto.ttf
+
     - family: helldivers
       fonts:
         - asset: assets/fonts/helldivers_font.otf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

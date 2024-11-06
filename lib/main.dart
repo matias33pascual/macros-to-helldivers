@@ -28,9 +28,9 @@ void main() {
         ChangeNotifierProvider(create: (_) => MissionProvider()),
         ChangeNotifierProvider(create: (_) => TranslationProvider()),
       ],
-      child: kDebugMode == true
+      child: kDebugMode == false
           ? DevicePreview(
-              enabled: false,
+              enabled: true,
               tools: const [...DevicePreview.defaultTools],
               builder: (context) => const MyApp(),
             )
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         MissionPage.routeName: (context) => const MissionPage(),
         SplashPage.routeName: (context) => const SplashPage(),
       },
-      title: 'Macros to Helldivers 2',
+      title: 'Macros to HD2 Game',
       debugShowCheckedModeBanner: false,
       initialRoute: SplashPage.routeName,
     );

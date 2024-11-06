@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                   textAlign: TextAlign.center,
                   strokeColor: Colors.black,
                   textColor: Colors.amber,
-                  text: " Macros to Helldivers PC"),
+                  text: " Macros to HD2 Game PC"),
             ],
           ),
           actions: <Widget>[
@@ -127,19 +127,19 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CustomText(
-                text: "Macros to",
-                maxLines: 2,
-                size: 35,
-                textColor: Colors.white,
-                strokeColor: Colors.black.withOpacity(0.8),
-              ),
+                  text: "Macros to",
+                  maxLines: 2,
+                  size: 35,
+                  textColor: Colors.white,
+                  strokeColor: Colors.black.withOpacity(0.8),
+                  fontFamily: "helldivers"),
               CustomText(
-                text: "Helldivers",
-                maxLines: 2,
-                size: 55,
-                textColor: Colors.amber[400]!,
-                strokeColor: Colors.black.withOpacity(0.8),
-              ),
+                  text: "HD2 Game",
+                  maxLines: 2,
+                  size: 55,
+                  textColor: Colors.amber[400]!,
+                  strokeColor: Colors.black.withOpacity(0.8),
+                  fontFamily: "helldivers"),
             ],
           ),
         ],
@@ -268,6 +268,38 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
+                          SizedBox(height: 16),
+                          GestureDetector(
+                            onTap: _openDownloadURL,
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                border: Border.fromBorderSide(
+                                  BorderSide(
+                                      width: 2, color: Colors.blue[200]!),
+                                ),
+                                color: Colors.blue[300]!.withOpacity(0.7),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(2),
+                                    width: 40,
+                                    child: Image.asset(
+                                        "assets/images/github_b.webp"),
+                                  ),
+                                  SizedBox(width: 8),
+                                  CustomText(
+                                    text: translationProvider
+                                        .translationTextOf["download_pc"],
+                                    size: 16,
+                                    textColor: Colors.white,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -308,7 +340,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(width: 8),
                       CustomText(
-                        text: "Español",
+                        text: "ESPAÑOL",
                         size: 16,
                         textColor: Colors.white,
                       ),
@@ -328,7 +360,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(width: 8),
                       CustomText(
-                        text: "Portuguese",
+                        text: "PORTUGUESE",
                         size: 16,
                         textColor: Colors.white,
                       ),
@@ -348,7 +380,27 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(width: 8),
                       CustomText(
-                        text: "English",
+                        text: "ENGLISH",
+                        size: 16,
+                        textColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    provider.setCurrentLanguage(LanguagesEnum.russian);
+                    Navigator.of(context).pop();
+                  },
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 40,
+                        child: Image.asset("assets/images/flag-rusia.webp"),
+                      ),
+                      SizedBox(width: 8),
+                      CustomText(
+                        text: "РУССКИЙ",
                         size: 16,
                         textColor: Colors.white,
                       ),
@@ -359,10 +411,18 @@ class _HomePageState extends State<HomePage> {
             ));
   }
 
+  void _openDownloadURL() {
+    final url = Uri.https(
+        'github.com', 'matias33pascual/macros-to-helldivers-pc/releases');
+
+    launchUrl(url, mode: LaunchMode.externalApplication);
+  }
+
   void _openUserManualURL() {
     String urlUserManual = "";
 
-    if (TranslationState.instance.currentLanguage == LanguagesEnum.english) {
+    if (TranslationState.instance.currentLanguage == LanguagesEnum.english ||
+        TranslationState.instance.currentLanguage == LanguagesEnum.russian) {
       urlUserManual = "view/manual-macros-en/página-principal";
     } else if (TranslationState.instance.currentLanguage ==
         LanguagesEnum.portuguese) {
@@ -380,10 +440,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _openVideoURL() {
-    final url = Uri.https(
-      'youtu.be',
-      'nUkQs_cpJ4o?si=UmZZYw1TmYPVufMT',
-    );
+    final url = Uri.https('youtu.be', 'ff934Jjuvdo');
 
     launchUrl(url, mode: LaunchMode.externalApplication);
   }
@@ -488,7 +545,7 @@ class _HomePageState extends State<HomePage> {
             textAlign: TextAlign.center,
           ),
           CustomText(
-            text: "MACROS TO HELLDIVERS PC",
+            text: "MACROS TO HD2 Game PC",
             size: 16,
             maxLines: 2,
             textColor: Colors.amber,

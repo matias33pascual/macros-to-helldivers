@@ -1,8 +1,4 @@
-enum LanguagesEnum {
-  spanish,
-  english,
-  portuguese,
-}
+enum LanguagesEnum { spanish, english, portuguese, russian }
 
 extension LanguagesEnumExtension on LanguagesEnum {
   String get code {
@@ -12,6 +8,9 @@ extension LanguagesEnumExtension on LanguagesEnum {
 
       case LanguagesEnum.portuguese:
         return 'pt';
+
+      case LanguagesEnum.russian:
+        return 'ru';
 
       case LanguagesEnum.spanish:
       default:
@@ -29,6 +28,9 @@ extension LanguagesEnumExtension on LanguagesEnum {
 
       case "pt":
         return LanguagesEnum.portuguese;
+
+      case 'ru':
+        return LanguagesEnum.russian;
 
       default:
         throw Exception(
@@ -49,10 +51,12 @@ class TranslationState {
   Map<String, dynamic>? spanishTranslation;
   Map<String, dynamic>? englishTranslation;
   Map<String, dynamic>? portugueseTranslation;
+  Map<String, dynamic>? russianTranslation;
 
-  Map<String, dynamic>? strtagemsNamesInSpanish;
-  Map<String, dynamic>? strtagemsNamesInEnglish;
-  Map<String, dynamic>? strtagemsNamesInPortuguese;
+  Map<String, dynamic>? stratagemsNamesInSpanish;
+  Map<String, dynamic>? stratagemsNamesInEnglish;
+  Map<String, dynamic>? stratagemsNamesInPortuguese;
+  Map<String, dynamic>? stratagemsNamesInRussian;
 
   Map<String, dynamic>? get translation {
     switch (currentLanguage) {
@@ -61,6 +65,9 @@ class TranslationState {
 
       case LanguagesEnum.portuguese:
         return portugueseTranslation;
+
+      case LanguagesEnum.russian:
+        return russianTranslation;
 
       case LanguagesEnum.english:
       default:

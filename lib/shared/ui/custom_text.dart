@@ -9,6 +9,7 @@ class CustomText extends StatelessWidget {
   final bool useStroke;
   final int maxLines;
   final TextAlign textAlign;
+  final String? fontFamily;
 
   const CustomText({
     Key? key,
@@ -19,38 +20,36 @@ class CustomText extends StatelessWidget {
     this.useStroke = true,
     this.maxLines = 1,
     this.textAlign = TextAlign.center,
+    this.fontFamily = "roboto",
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Text(
-          text,
-          maxLines: maxLines,
-          overflow: TextOverflow.ellipsis,
-          textAlign: textAlign,
-          style: TextStyle(
-            fontFamily: AppTheme.font,
-            fontSize: size,
-            color: textColor,
-          ),
-        ),
-        if (useStroke)
+        if (fontFamily == 'helldivers')
           Text(
             text,
             maxLines: maxLines,
             overflow: TextOverflow.ellipsis,
             textAlign: textAlign,
             style: TextStyle(
-              fontFamily: AppTheme.font,
-              fontSize: size,
-              foreground: Paint()
-                ..style = PaintingStyle.stroke
-                ..strokeWidth = 1
-                ..color = strokeColor,
+              fontFamily: fontFamily ?? "Roboto",
+              fontSize: size + 0.2,
+              color: Colors.black,
             ),
           ),
+        Text(
+          text,
+          maxLines: maxLines,
+          overflow: TextOverflow.ellipsis,
+          textAlign: textAlign,
+          style: TextStyle(
+            fontFamily: fontFamily ?? "Roboto",
+            fontSize: size,
+            color: textColor,
+          ),
+        ),
       ],
     );
   }
