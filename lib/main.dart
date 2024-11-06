@@ -30,7 +30,7 @@ void main() {
       ],
       child: kDebugMode == false
           ? DevicePreview(
-              enabled: true,
+              enabled: false,
               tools: const [...DevicePreview.defaultTools],
               builder: (context) => const MyApp(),
             )
