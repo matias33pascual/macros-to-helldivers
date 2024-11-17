@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:macros_to_helldivers/shared/services/connection_service.dart';
@@ -20,6 +21,42 @@ class StratagemListButton extends StatefulWidget {
 
 class _StratagemListButtonState extends State<StratagemListButton> {
   bool isPressed = false;
+  bool isCooldown = false;
+  Timer? timer;
+  double progress = 0;
+
+  final ValueNotifier<double> valueNotifier = ValueNotifier(0);
+
+  void _startCooldown() {
+    isCooldown = true;
+
+    if (timer != null) {
+      timer!.cancel();
+    }
+
+    valueNotifier.value = 0;
+    progress = valueNotifier.value;
+
+    timer = Timer.periodic(const Duration(milliseconds: 1000), (timer) {
+      valueNotifier.value += 1;
+
+      setState(() {
+        progress = valueNotifier.value;
+      });
+
+      if (valueNotifier.value > 5) {
+        timer.cancel();
+
+        isCooldown = false;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +75,8 @@ class _StratagemListButtonState extends State<StratagemListButton> {
         final jsonMessage = jsonEncode(message);
 
         ConnectionService.instance.sendMessage(message: jsonMessage);
+
+        _startCooldown();
       }),
       onTapUp: (details) => setState(() {
         isPressed = false;
@@ -65,9 +104,44 @@ class _StratagemListButtonState extends State<StratagemListButton> {
               Flexible(
                 flex: 1,
                 fit: FlexFit.tight,
-                child: Image.asset(
-                  widget.stratagem.icon,
-                  height: 80,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Opacity(
+                      opacity: isCooldown ? 0.25 : 1,
+                      child: Image.asset(
+                        widget.stratagem.icon,
+                        height: 80,
+                      ),
+                    ),
+                    Opacity(
+                      opacity: isCooldown ? 1 : 0,
+                      child: ValueListenableBuilder<double>(
+                        valueListenable: valueNotifier,
+                        builder: (context, value, child) => Text(
+                          (5 - value).toInt().toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 40,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: "helldivers",
+                            shadows: [
+                              Shadow(
+                                color: Colors.black,
+                                offset: Offset(3, 3),
+                                blurRadius: 2,
+                              ),
+                              Shadow(
+                                color: Colors.black,
+                                offset: Offset(3, 3),
+                                blurRadius: 4,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Flexible(

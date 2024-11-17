@@ -96,45 +96,47 @@ class _StratagemGridButtonState extends State<StratagemGridButton> {
             Expanded(
               child: Transform.scale(
                 scale: isPressed ? 0.98 : 1,
-                child: Stack(children: [
-                  Center(
-                    child: Opacity(
-                      opacity: isCooldown ? 0.25 : 1,
-                      child: Image.asset(
-                        widget.stratagem.icon,
+                child: Stack(
+                  children: [
+                    Center(
+                      child: Opacity(
+                        opacity: isCooldown ? 0.25 : 1,
+                        child: Image.asset(
+                          widget.stratagem.icon,
+                        ),
                       ),
                     ),
-                  ),
-                  Center(
-                    child: Opacity(
-                      opacity: isCooldown ? 1 : 0,
-                      child: ValueListenableBuilder<double>(
-                        valueListenable: valueNotifier,
-                        builder: (context, value, child) => Text(
-                          (5 - value).toInt().toString(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 50,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "helldivers",
-                            shadows: [
-                              Shadow(
-                                color: Colors.black,
-                                offset: Offset(3, 3),
-                                blurRadius: 2,
-                              ),
-                              Shadow(
-                                color: Colors.black,
-                                offset: Offset(3, 3),
-                                blurRadius: 4,
-                              )
-                            ],
+                    Center(
+                      child: Opacity(
+                        opacity: isCooldown ? 1 : 0,
+                        child: ValueListenableBuilder<double>(
+                          valueListenable: valueNotifier,
+                          builder: (context, value, child) => Text(
+                            (5 - value).toInt().toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 60,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "helldivers",
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black,
+                                  offset: Offset(3, 3),
+                                  blurRadius: 2,
+                                ),
+                                Shadow(
+                                  color: Colors.black,
+                                  offset: Offset(3, 3),
+                                  blurRadius: 4,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ]),
+                  ],
+                ),
               ),
             )
           ],
