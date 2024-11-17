@@ -1,5 +1,4 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:macros_to_helldivers/home_page/providers/exports_providers.dart';
@@ -12,6 +11,8 @@ import 'package:macros_to_helldivers/stratagems_page/providers/exports_providers
 import 'package:macros_to_helldivers/stratagems_page/screens/stratagems_page.dart';
 import 'package:provider/provider.dart';
 import 'package:wakelock/wakelock.dart';
+
+const useDevMode = false;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,9 +29,9 @@ void main() {
         ChangeNotifierProvider(create: (_) => MissionProvider()),
         ChangeNotifierProvider(create: (_) => TranslationProvider()),
       ],
-      child: kDebugMode == false
+      child: useDevMode
           ? DevicePreview(
-              enabled: false,
+              enabled: useDevMode,
               tools: const [...DevicePreview.defaultTools],
               builder: (context) => const MyApp(),
             )

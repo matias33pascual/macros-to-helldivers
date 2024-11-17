@@ -27,11 +27,9 @@ Widget _buildLayout(List<StratagemModel> stratagemsList, BuildContext context) {
 
   if (stratagemsList.isEmpty) {
     return Container();
-  } else if (stratagemsList.length < 3) {
+  } else if (stratagemsList.length < 3 || !provider.state.useGridLayout) {
     return ListLayout(stratagemsList: stratagemsList);
-  } else if (provider.state.useGridLayout) {
-    return GridLayout(stratagemsList: stratagemsList);
   } else {
-    return ListLayout(stratagemsList: stratagemsList);
+    return GridLayout(stratagemsList: stratagemsList);
   }
 }

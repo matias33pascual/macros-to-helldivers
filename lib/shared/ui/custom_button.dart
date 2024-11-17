@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
     required this.color,
     required this.text,
     this.height = 30,
-    this.fontSize = 16,
+    this.fontSize = 15,
   }) : super(key: key);
 
   @override
@@ -35,7 +35,7 @@ class CustomButton extends StatelessWidget {
         ),
         borderRadius: BorderRadius.zero,
       ),
-      width: 140,
+      width: 130,
       height: height,
       child: Center(
         child: CustomText(

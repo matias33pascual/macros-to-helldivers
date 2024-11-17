@@ -273,7 +273,7 @@ class _HomePageState extends State<HomePage> {
                             onTap: _openDownloadURL,
                             child: Container(
                               alignment: Alignment.center,
-                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              padding: EdgeInsets.symmetric(horizontal: 4),
                               decoration: BoxDecoration(
                                 border: Border.fromBorderSide(
                                   BorderSide(
@@ -282,6 +282,7 @@ class _HomePageState extends State<HomePage> {
                                 color: Colors.blue[300]!.withOpacity(0.7),
                               ),
                               child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
                                     padding: EdgeInsets.all(2),
@@ -289,13 +290,23 @@ class _HomePageState extends State<HomePage> {
                                     child: Image.asset(
                                         "assets/images/github_b.webp"),
                                   ),
-                                  SizedBox(width: 8),
-                                  CustomText(
-                                    text: translationProvider
-                                        .translationTextOf["download_pc"],
-                                    size: 16,
-                                    textColor: Colors.white,
-                                  ),
+                                  SizedBox(width: 6),
+                                  Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        CustomText(
+                                          text: translationProvider
+                                              .translationTextOf["download_pc"],
+                                          size: 16,
+                                          textColor: Colors.white,
+                                        ),
+                                        SizedBox(width: 8),
+                                        CustomText(
+                                          text: "v1.2.0",
+                                          size: 12,
+                                        )
+                                      ])
                                 ],
                               ),
                             ),
@@ -421,14 +432,26 @@ class _HomePageState extends State<HomePage> {
   void _openUserManualURL() {
     String urlUserManual = "";
 
-    if (TranslationState.instance.currentLanguage == LanguagesEnum.english ||
-        TranslationState.instance.currentLanguage == LanguagesEnum.russian) {
-      urlUserManual = "view/manual-macros-en/página-principal";
-    } else if (TranslationState.instance.currentLanguage ==
-        LanguagesEnum.portuguese) {
-      urlUserManual = "view/manual-macros-pt/página-principal";
-    } else {
-      urlUserManual = "view/manual-macros-es/página-principal";
+    final LanguagesEnum currentLanguage =
+        TranslationState.instance.currentLanguage;
+
+    switch (currentLanguage) {
+      case LanguagesEnum.russian:
+        urlUserManual = "view/manual-macros-ru/página-principal";
+        break;
+
+      case LanguagesEnum.portuguese:
+        urlUserManual = "view/manual-macros-pt/página-principal";
+        break;
+
+      case LanguagesEnum.spanish:
+        urlUserManual = "view/manual-macros-es/página-principal";
+        break;
+
+      case LanguagesEnum.english:
+      default:
+        urlUserManual = "view/manual-macros-en/página-principal";
+        break;
     }
 
     final url = Uri.https(

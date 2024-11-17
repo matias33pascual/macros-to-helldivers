@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:macros_to_helldivers/theme/app_theme.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
