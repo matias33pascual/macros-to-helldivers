@@ -15,6 +15,7 @@ class StratagemModel {
   StratagemTypesEnum type;
   String icon;
   List<String> keysCode;
+  double cooldown;
 
   StratagemModel({
     required this.id,
@@ -22,6 +23,7 @@ class StratagemModel {
     required this.icon,
     required this.keysCode,
     required this.type,
+    required this.cooldown,
   });
 
   factory StratagemModel.fromJson(String str) =>
@@ -35,6 +37,7 @@ class StratagemModel {
         icon: json["icon"],
         type: getTypeFromString(json["type"]),
         keysCode: List<String>.from(json["keysCode"].map((x) => x)),
+        cooldown: double.parse(json["cooldown"]),
       );
 
   Map<String, dynamic> toMap() => {

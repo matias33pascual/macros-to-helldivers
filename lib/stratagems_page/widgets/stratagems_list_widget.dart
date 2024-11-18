@@ -41,6 +41,8 @@ class StratagemsListWidget extends StatelessWidget {
               ),
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 if (listToShow[index].icon.isNotEmpty)
                   Image.asset(listToShow[index].icon),
@@ -48,6 +50,7 @@ class StratagemsListWidget extends StatelessWidget {
                   child: Container(
                     margin: const EdgeInsets.only(left: 8),
                     child: CustomText(
+                      textAlign: TextAlign.start,
                       text: translationProvider
                           .getTranslationOfStratagemName(listToShow[index].id),
                       size: 16,

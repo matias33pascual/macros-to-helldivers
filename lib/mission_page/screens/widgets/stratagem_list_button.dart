@@ -24,6 +24,7 @@ class _StratagemListButtonState extends State<StratagemListButton> {
   bool isCooldown = false;
   Timer? timer;
   double progress = 0;
+  late double cooldownValue = widget.stratagem.cooldown;
 
   final ValueNotifier<double> valueNotifier = ValueNotifier(0);
 
@@ -44,7 +45,7 @@ class _StratagemListButtonState extends State<StratagemListButton> {
         progress = valueNotifier.value;
       });
 
-      if (valueNotifier.value > 5) {
+      if (valueNotifier.value > cooldownValue - 1) {
         timer.cancel();
 
         isCooldown = false;
@@ -119,7 +120,7 @@ class _StratagemListButtonState extends State<StratagemListButton> {
                       child: ValueListenableBuilder<double>(
                         valueListenable: valueNotifier,
                         builder: (context, value, child) => Text(
-                          (5 - value).toInt().toString(),
+                          (cooldownValue - value).toInt().toString(),
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 40,

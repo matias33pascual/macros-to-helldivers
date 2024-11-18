@@ -24,7 +24,7 @@ class MissionPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: CustomAppBar(
-          title: translationProvider.translationTextOf["mission"],
+          title: translationProvider.translationTextOf["mission"].toUpperCase(),
           color: Colors.blue[900]!.withOpacity(0.2),
           actionButton:
               stratagemsProvider.state.stratagemsSelectedForMission.length > 2
